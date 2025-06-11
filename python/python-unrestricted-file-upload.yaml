@@ -1,0 +1,20 @@
+id: python-unrestricted-file-upload
+info:
+  name: Unrestricted File Upload Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unrestricted file upload vulnerabilities in Python applications
+  tags: python, file-upload, security
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - request\.files\['.*'\]\.save\s*\(\s*.*\)
+    - uploaded_file\.save\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - request\.files\['.*'\]\.save\s*\(\s*.*\)
+    - uploaded_file\.save\s*\(\s*.*\)

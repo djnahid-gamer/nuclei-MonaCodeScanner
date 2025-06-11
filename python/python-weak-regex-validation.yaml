@@ -1,0 +1,21 @@
+id: python-weak-regex-validation
+info:
+  name: Weak Regex Validation Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects weak or overly permissive regular expressions used for input
+    validation
+  tags: python, regex, validation
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - re\.match\s*\(\s*['"].*\^?.*\$?['"]\s*,\s*.*\)
+    - re\.search\s*\(\s*['"].*['"]\s*,\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - re\.match\s*\(\s*['"].*\^?.*\$?['"]\s*,\s*.*\)
+    - re\.search\s*\(\s*['"].*['"]\s*,\s*.*\)

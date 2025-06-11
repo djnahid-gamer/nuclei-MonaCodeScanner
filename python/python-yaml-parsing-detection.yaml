@@ -1,0 +1,18 @@
+id: python-yaml-parsing-detection
+info:
+  name: Insecure YAML Parsing Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure YAML parsing practices in Python applications
+  tags: python, yaml, security
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - yaml\.unsafe_load\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - yaml\.unsafe_load\s*\(\s*.*\)

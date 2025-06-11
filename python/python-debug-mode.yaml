@@ -1,0 +1,20 @@
+id: python-debug-mode
+info:
+  name: Flask/Django Debug Mode Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects Flask or Django applications running in debug mode
+  tags: python, flask, django, debug
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - app\.run\(.*debug\s*=\s*True.*\)
+    - DEBUG\s*=\s*True
+  extractors:
+  - type: regex
+    regex:
+    - app\.run\(.*debug\s*=\s*True.*\)
+    - DEBUG\s*=\s*True

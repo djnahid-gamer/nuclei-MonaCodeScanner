@@ -1,0 +1,18 @@
+id: python-insufficient-rate-limiting
+info:
+  name: Insufficient Rate Limiting Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects endpoints without rate limiting or throttling mechanisms
+  tags: python, flask, django, rate-limiting
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - '@app\.route\s*\(\s*.*methods=.*\)'
+  extractors:
+  - type: regex
+    regex:
+    - '@app\.route\s*\(\s*.*methods=.*\)'

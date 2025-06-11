@@ -1,0 +1,20 @@
+id: python-ctypes-buffer-overflow
+info:
+  name: Python ctypes Modülünde Bellek Taşması Tespiti
+  author: kaanbicaklar
+  severity: critical
+  description: Python'un ctypes modülünde, PyCArg_repr işlevinde bir bellek taşması
+    tespit edilmiştir. Bu açık, saldırganların uzaktan kod yürütmesine olanak tanıyabilir.
+    :contentReference[oaicite:0]{index=0}
+  tags: python, ctypes, buffer-overflow
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - ctypes\.c_double\.from_param\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - ctypes\.c_double\.from_param\s*\(\s*.*\)

@@ -1,0 +1,20 @@
+id: python-sqlalchemy-injection
+info:
+  name: SQLAlchemy Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential SQL injection vulnerabilities in SQLAlchemy queries
+  tags: python, sqlalchemy, sqli
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - execute\s*\(\s*['"].*['"].*\+
+    - session\.execute\s*\(\s*['"].*['"].*\+
+  extractors:
+  - type: regex
+    regex:
+    - execute\s*\(\s*['"].*['"].*\+
+    - session\.execute\s*\(\s*['"].*['"].*\+

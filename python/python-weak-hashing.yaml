@@ -1,0 +1,20 @@
+id: python-weak-hashing
+info:
+  name: Weak Hashing Algorithm Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects usage of weak hashing algorithms in Python code
+  tags: python, hashing, security
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - hashlib\.md5\s*\(\s*.*\)
+    - hashlib\.sha1\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - hashlib\.md5\s*\(\s*.*\)
+    - hashlib\.sha1\s*\(\s*.*\)

@@ -1,0 +1,21 @@
+id: python-sensitive-data-exposure
+info:
+  name: Sensitive Data Exposure Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects instances of sensitive data being printed or logged in Python
+    code
+  tags: python, sensitive-data, logging
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - print\s*\(\s*['"]Password:\s*.*['"]\)
+    - logging\.info\s*\(\s*['"]API Key:\s*.*['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - print\s*\(\s*['"]Password:\s*.*['"]\)
+    - logging\.info\s*\(\s*['"]API Key:\s*.*['"]\)

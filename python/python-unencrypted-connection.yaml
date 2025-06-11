@@ -1,0 +1,22 @@
+id: python-unencrypted-connection
+info:
+  name: Unencrypted Connection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unencrypted connections in Python applications
+  tags: python, ssl, security
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - http\.client\.HTTPConnection\s*\(
+    - requests\.get\s*\(\s*['"]http://.*['"]\)
+    - urllib\.request\.urlopen\s*\(\s*['"]http://.*['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - http\.client\.HTTPConnection\s*\(
+    - requests\.get\s*\(\s*['"]http://.*['"]\)
+    - urllib\.request\.urlopen\s*\(\s*['"]http://.*['"]\)

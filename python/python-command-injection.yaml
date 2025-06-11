@@ -1,0 +1,22 @@
+id: python-command-injection
+info:
+  name: Python Command Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects command injection vulnerabilities in Python applications
+  tags: python, command-injection
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - os\.popen\s*\(\s*.*\)
+    - os\.system\s*\(\s*.*\)
+    - subprocess\.call\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - os\.popen\s*\(\s*.*\)
+    - os\.system\s*\(\s*.*\)
+    - subprocess\.call\s*\(\s*.*\)

@@ -1,0 +1,20 @@
+id: python-unrestricted-json-parsing
+info:
+  name: Unrestricted JSON Parsing Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure JSON parsing practices
+  tags: python, json, security
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - json\.loads\s*\(\s*.*request\.args.*\)
+    - json\.load\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - json\.loads\s*\(\s*.*request\.args.*\)
+    - json\.load\s*\(\s*.*\)

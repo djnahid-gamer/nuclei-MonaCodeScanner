@@ -1,0 +1,18 @@
+id: python-cookie-insecure-handling
+info:
+  name: Insecure Cookie Handling Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects cookies being set without secure or HTTP-only flags
+  tags: python, cookies, security
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - response\.set_cookie\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - response\.set_cookie\s*\(\s*.*\)

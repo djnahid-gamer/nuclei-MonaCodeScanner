@@ -1,0 +1,18 @@
+id: python-improper-exception-handling
+info:
+  name: Improper Exception Handling Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects generic or improper exception handling practices
+  tags: python, exception-handling, security
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - except\s*Exception:\s*
+  extractors:
+  - type: regex
+    regex:
+    - except\s*Exception:\s*

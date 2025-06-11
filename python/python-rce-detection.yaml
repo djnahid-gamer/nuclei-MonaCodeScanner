@@ -1,0 +1,26 @@
+id: python-rce-detection
+info:
+  name: Python Remote Code Execution Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential RCE vulnerabilities in Python codebases
+  tags: python, rce
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - eval\s*\(\s*.*\)
+    - exec\s*\(\s*.*\)
+    - os\.system\s*\(\s*.*\)
+    - subprocess\.Popen\s*\(\s*.*\)
+    - subprocess\.run\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - eval\s*\(\s*.*\)
+    - exec\s*\(\s*.*\)
+    - os\.system\s*\(\s*.*\)
+    - subprocess\.Popen\s*\(\s*.*\)
+    - subprocess\.run\s*\(\s*.*\)

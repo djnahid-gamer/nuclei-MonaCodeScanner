@@ -1,0 +1,18 @@
+id: python-insecure-logging-config
+info:
+  name: Insecure Logging Configuration Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects logging configurations that expose sensitive data
+  tags: python, logging, security
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - logging\.basicConfig\s*\(.*level=logging\.DEBUG.*\)
+  extractors:
+  - type: regex
+    regex:
+    - logging\.basicConfig\s*\(.*level=logging\.DEBUG.*\)

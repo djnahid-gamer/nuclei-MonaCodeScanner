@@ -1,0 +1,18 @@
+id: python-jinja2-template-injection
+info:
+  name: Insecure Jinja2 Template Rendering Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects potential template injection in Jinja2 template rendering
+  tags: python, jinja2, template-injection
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - render_template\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - render_template\s*\(\s*.*\)

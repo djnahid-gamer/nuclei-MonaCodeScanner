@@ -1,0 +1,22 @@
+id: python-pickle-dos
+info:
+  name: Python pickle Modülünde DoS Açığı Tespiti
+  author: kaanbicaklar
+  severity: high
+  description: Python'un pickle modülünde, belirli dosyaların yanlış yönetimi nedeniyle
+    hizmet reddi (DoS) saldırılarına yol açabilecek bir güvenlik açığı tespit edilmiştir.
+    :contentReference[oaicite:1]{index=1}
+  tags: python, pickle, dos
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - pickle\.load\s*\(\s*.*\)
+    - pickle\.loads\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - pickle\.load\s*\(\s*.*\)
+    - pickle\.loads\s*\(\s*.*\)

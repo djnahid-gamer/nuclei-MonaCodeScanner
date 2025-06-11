@@ -1,0 +1,20 @@
+id: python-prototype-pollution
+info:
+  name: Python Prototype Pollution Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects prototype pollution vulnerabilities in Python applications
+  tags: python, prototype-pollution, security
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - update\s*\(\s*\{.*\}\s*\)
+    - merge\s*\(\s*\{.*\}\s*\)
+  extractors:
+  - type: regex
+    regex:
+    - update\s*\(\s*\{.*\}\s*\)
+    - merge\s*\(\s*\{.*\}\s*\)

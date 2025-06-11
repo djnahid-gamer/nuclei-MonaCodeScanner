@@ -1,0 +1,18 @@
+id: python-flask-unvalidated-redirect
+info:
+  name: Flask Unvalidated Redirect Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects unvalidated redirects in Flask applications
+  tags: python, flask, redirect, security
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - redirect\s*\(\s*request\.args\[.*\]\)
+  extractors:
+  - type: regex
+    regex:
+    - redirect\s*\(\s*request\.args\[.*\]\)

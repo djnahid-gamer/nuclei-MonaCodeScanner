@@ -1,0 +1,18 @@
+id: python-flask-server-header-exposure
+info:
+  name: Flask Server Header Exposure Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects Flask applications exposing the default server header
+  tags: python, flask, header-exposure
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - app\.config\['SERVER_NAME'\]\s*=\s*None
+  extractors:
+  - type: regex
+    regex:
+    - app\.config\['SERVER_NAME'\]\s*=\s*None

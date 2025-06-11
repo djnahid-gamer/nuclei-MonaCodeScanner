@@ -1,0 +1,21 @@
+id: python-sensitive-debug-info
+info:
+  name: Sensitive Debugging Information Exposure Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects sensitive debug or stack trace information being exposed in
+    Python applications
+  tags: python, debugging, exposure
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - debug\s*=\s*True
+    - app\.run\s*\(\s*.*debug=True.*\)
+  extractors:
+  - type: regex
+    regex:
+    - debug\s*=\s*True
+    - app\.run\s*\(\s*.*debug=True.*\)

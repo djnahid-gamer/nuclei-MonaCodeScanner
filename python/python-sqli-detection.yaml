@@ -1,0 +1,22 @@
+id: python-sqli-detection
+info:
+  name: Python SQL Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects SQL injection vulnerabilities in Python applications
+  tags: python, sqli, database
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - cursor\.execute\s*\(\s*['"].*\+.*\)
+    - cursor\.executemany\s*\(\s*['"].*\+.*\)
+    - execute\s*\(\s*['"].*\$_(GET|POST|REQUEST)
+  extractors:
+  - type: regex
+    regex:
+    - cursor\.execute\s*\(\s*['"].*\+.*\)
+    - cursor\.executemany\s*\(\s*['"].*\+.*\)
+    - execute\s*\(\s*['"].*\$_(GET|POST|REQUEST)

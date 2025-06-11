@@ -1,0 +1,18 @@
+id: python-insecure-yaml-loader
+info:
+  name: Insecure YAML Loader Usage Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects usage of unsafe YAML loaders like yaml.load
+  tags: python, yaml, security
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - yaml\.load\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - yaml\.load\s*\(\s*.*\)

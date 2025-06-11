@@ -1,0 +1,20 @@
+id: python-open-redirect
+info:
+  name: Open Redirect Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects potential open redirect vulnerabilities in Python web applications
+  tags: python, redirect, security
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - redirect\s*\(\s*request\.args\.get\(\s*.*\)\)
+    - redirect\s*\(\s*['"]http[s]?://['"]\s*\+\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - redirect\s*\(\s*request\.args\.get\(\s*.*\)\)
+    - redirect\s*\(\s*['"]http[s]?://['"]\s*\+\s*.*\)

@@ -1,0 +1,18 @@
+id: python-unsafe-os-usage
+info:
+  name: Unsafe OS Module Usage Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unsafe usage of the os module which may lead to command injection
+  tags: python, os, injection
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - os\.popen\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - os\.popen\s*\(\s*.*\)

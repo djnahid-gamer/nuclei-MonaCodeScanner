@@ -1,0 +1,19 @@
+id: python-insecure-requests-usage
+info:
+  name: Insecure Requests Library Usage Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure usage of the requests library without verifying SSL
+    certificates
+  tags: python, requests, security
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - requests\.(get|post)\s*\(\s*.*verify=False.*\)
+  extractors:
+  - type: regex
+    regex:
+    - requests\.(get|post)\s*\(\s*.*verify=False.*\)

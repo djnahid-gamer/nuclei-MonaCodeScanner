@@ -1,0 +1,24 @@
+id: python-xxe-detection
+info:
+  name: XML External Entity Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential XXE vulnerabilities in Python applications
+  tags: python, xxe, xml
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - xml\.etree\.ElementTree\.parse\s*\(\s*.*\)
+    - xml\.etree\.ElementTree\.fromstring\s*\(\s*.*\)
+    - lxml\.etree\.parse\s*\(\s*.*\)
+    - lxml\.etree\.fromstring\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - xml\.etree\.ElementTree\.parse\s*\(\s*.*\)
+    - xml\.etree\.ElementTree\.fromstring\s*\(\s*.*\)
+    - lxml\.etree\.parse\s*\(\s*.*\)
+    - lxml\.etree\.fromstring\s*\(\s*.*\)

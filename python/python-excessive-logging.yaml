@@ -1,0 +1,20 @@
+id: python-excessive-logging
+info:
+  name: Excessive Logging Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects excessive logging that may expose sensitive information
+  tags: python, logging, security
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - logging\.info\s*\(\s*.*request\.args.*\)
+    - logging\.debug\s*\(\s*.*\$_(GET|POST|REQUEST).*\)
+  extractors:
+  - type: regex
+    regex:
+    - logging\.info\s*\(\s*.*request\.args.*\)
+    - logging\.debug\s*\(\s*.*\$_(GET|POST|REQUEST).*\)

@@ -1,0 +1,20 @@
+id: python-env-exposure
+info:
+  name: Environment Variables Exposure Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects hardcoded environment variable exposures in Python code
+  tags: python, environment, security
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - os\.environ\.get\s*\(\s*['"](AWS_SECRET|DB_PASSWORD|API_KEY)['"]\)
+    - print\s*\(\s*os\.environ\)
+  extractors:
+  - type: regex
+    regex:
+    - os\.environ\.get\s*\(\s*['"](AWS_SECRET|DB_PASSWORD|API_KEY)['"]\)
+    - print\s*\(\s*os\.environ\)

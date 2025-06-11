@@ -1,0 +1,22 @@
+id: python-insecure-deserialization
+info:
+  name: Python Insecure Deserialization Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure deserialization vulnerabilities in Python applications
+  tags: python, deserialization
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - pickle\.loads\s*\(\s*.*\)
+    - pickle\.load\s*\(\s*.*\)
+    - yaml\.unsafe_load\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - pickle\.loads\s*\(\s*.*\)
+    - pickle\.load\s*\(\s*.*\)
+    - yaml\.unsafe_load\s*\(\s*.*\)

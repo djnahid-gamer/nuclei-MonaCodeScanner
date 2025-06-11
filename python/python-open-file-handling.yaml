@@ -1,0 +1,18 @@
+id: python-open-file-handling
+info:
+  name: Open File Without Proper Handling Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects files being opened without proper context managers
+  tags: python, file-handling, security
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - open\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - open\s*\(\s*.*\)

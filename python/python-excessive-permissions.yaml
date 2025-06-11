@@ -1,0 +1,21 @@
+id: python-excessive-permissions
+info:
+  name: Excessive Permissions on Files Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects instances where files or directories are created with excessive
+    permissions
+  tags: python, permissions, security
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - os\.chmod\s*\(\s*.*\s*,\s*0o777\)
+    - open\s*\(\s*.*\,\s*['"]w\+['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - os\.chmod\s*\(\s*.*\s*,\s*0o777\)
+    - open\s*\(\s*.*\,\s*['"]w\+['"]\)

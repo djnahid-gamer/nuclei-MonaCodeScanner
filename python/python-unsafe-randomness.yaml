@@ -1,0 +1,22 @@
+id: python-unsafe-randomness
+info:
+  name: Python Unsafe Randomness Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects usage of insecure random number generators in Python code
+  tags: python, randomness, security
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - random\.random\s*\(\)
+    - random\.randint\s*\(\s*.*\)
+    - random\.choice\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - random\.random\s*\(\)
+    - random\.randint\s*\(\s*.*\)
+    - random\.choice\s*\(\s*.*\)

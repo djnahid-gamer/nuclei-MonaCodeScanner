@@ -1,0 +1,20 @@
+id: python-path-traversal
+info:
+  name: Python Path Traversal Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects path traversal vulnerabilities in Python applications
+  tags: python, path-traversal
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - open\s*\(\s*.*\$_(GET|POST|REQUEST).*\)
+    - os\.open\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - open\s*\(\s*.*\$_(GET|POST|REQUEST).*\)
+    - os\.open\s*\(\s*.*\)

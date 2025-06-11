@@ -1,0 +1,22 @@
+id: python-ssrf-detection
+info:
+  name: Server-Side Request Forgery Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects SSRF vulnerabilities in Python applications
+  tags: python, ssrf, security
+file:
+- extensions:
+  - py
+  matchers:
+  - type: regex
+    regex:
+    - requests\.get\s*\(\s*request\.args\.get\(
+    - requests\.post\s*\(\s*request\.args\.get\(
+    - urllib\.request\.urlopen\s*\(\s*request\.args\.get\(
+  extractors:
+  - type: regex
+    regex:
+    - requests\.get\s*\(\s*request\.args\.get\(
+    - requests\.post\s*\(\s*request\.args\.get\(
+    - urllib\.request\.urlopen\s*\(\s*request\.args\.get\(
