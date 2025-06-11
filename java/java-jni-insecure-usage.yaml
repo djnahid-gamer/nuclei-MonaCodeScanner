@@ -1,0 +1,21 @@
+id: java-jni-insecure-usage
+info:
+  name: Java JNI Insecure Usage Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure usage of Java Native Interface (JNI), which may lead
+    to native code execution vulnerabilities
+  tags: java, jni, native-code, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - System\.loadLibrary\s*\(\s*request\.getParameter\(.*\)\)
+    - Native\.invoke\s*\(\s*.*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - System\.loadLibrary\s*\(\s*request\.getParameter\(.*\)\)
+    - Native\.invoke\s*\(\s*.*request\.getParameter\(.*\)\)

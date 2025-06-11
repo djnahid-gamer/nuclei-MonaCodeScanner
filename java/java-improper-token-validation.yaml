@@ -1,0 +1,18 @@
+id: java-improper-token-validation
+info:
+  name: Java Improper Token Validation Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects improper or missing token validation logic in Java applications
+  tags: java, token, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - jwt\.verify\s*\(\s*token,\s*['"].{0,8}['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - jwt\.verify\s*\(\s*token,\s*['"].{0,8}['"]\)

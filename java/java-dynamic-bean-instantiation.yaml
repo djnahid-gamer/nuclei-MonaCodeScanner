@@ -1,0 +1,21 @@
+id: java-dynamic-bean-instantiation
+info:
+  name: Java Dynamic Bean Instantiation Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects dynamic instantiation of beans in Java applications, which
+    may lead to code execution vulnerabilities
+  tags: java, beans, injection
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - applicationContext\.getBean\s*\(\s*request\.getParameter\(.*\)\)
+    - BeanFactory\.getBean\s*\(\s*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - applicationContext\.getBean\s*\(\s*request\.getParameter\(.*\)\)
+    - BeanFactory\.getBean\s*\(\s*request\.getParameter\(.*\)\)

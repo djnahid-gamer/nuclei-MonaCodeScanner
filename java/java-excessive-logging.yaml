@@ -1,0 +1,19 @@
+id: java-excessive-logging
+info:
+  name: Java Excessive Logging of Sensitive Data Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects logging of sensitive data like passwords or tokens in Java
+    applications
+  tags: java, logging, sensitive-data
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - log\.(info|warn|error|debug)\s*\(\s*['"].*(password|token|secret):\s*.*['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - log\.(info|warn|error|debug)\s*\(\s*['"].*(password|token|secret):\s*.*['"]\)

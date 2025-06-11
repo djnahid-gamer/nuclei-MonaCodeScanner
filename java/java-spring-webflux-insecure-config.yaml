@@ -1,0 +1,19 @@
+id: java-spring-webflux-insecure-config
+info:
+  name: Java Spring WebFlux Insecure Configuration Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure configurations or potential issues in Spring WebFlux
+    applications
+  tags: java, spring-webflux, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - RouterFunctions\.route\s*\(\s*.*request\.getQueryParams\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - RouterFunctions\.route\s*\(\s*.*request\.getQueryParams\(.*\)\)

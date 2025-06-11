@@ -1,0 +1,21 @@
+id: java-javamail-insecure-usage
+info:
+  name: Insecure JavaMail Usage Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects unsafe configurations or usage of JavaMail which may lead to
+    vulnerabilities
+  tags: java, javamail, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - props\.put\s*\(\s*['"]mail\.smtp\.starttls\.enable['"],\s*['"]false['"]\)
+    - props\.put\s*\(\s*['"]mail\.smtp\.auth['"],\s*['"]false['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - props\.put\s*\(\s*['"]mail\.smtp\.starttls\.enable['"],\s*['"]false['"]\)
+    - props\.put\s*\(\s*['"]mail\.smtp\.auth['"],\s*['"]false['"]\)

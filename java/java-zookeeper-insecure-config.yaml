@@ -1,0 +1,22 @@
+id: java-zookeeper-insecure-config
+info:
+  name: Java Zookeeper Insecure Configuration Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure configurations in Apache Zookeeper integration with
+    Java applications
+  tags: java, zookeeper, security
+file:
+- extensions:
+  - properties
+  - yaml
+  matchers:
+  - type: regex
+    regex:
+    - zookeeper\.setAcl\s*\(\s*['"]world:anyone['"]\)
+    - zookeeper\.connectString\s*:\s*['"]localhost[:\d]*['"]
+  extractors:
+  - type: regex
+    regex:
+    - zookeeper\.setAcl\s*\(\s*['"]world:anyone['"]\)
+    - zookeeper\.connectString\s*:\s*['"]localhost[:\d]*['"]

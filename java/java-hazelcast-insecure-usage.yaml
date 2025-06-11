@@ -1,0 +1,21 @@
+id: java-hazelcast-insecure-usage
+info:
+  name: Java Hazelcast Insecure Usage Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure configurations or usage of Hazelcast that could lead
+    to remote code execution or unauthorized access
+  tags: java, hazelcast, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Config\.setProperty\s*\(\s*['"]hazelcast\.phone\.home['"],\s*['"]true['"]\)
+    - Hazelcast\.newHazelcastInstance\s*\(\s*.*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - Config\.setProperty\s*\(\s*['"]hazelcast\.phone\.home['"],\s*['"]true['"]\)
+    - Hazelcast\.newHazelcastInstance\s*\(\s*.*request\.getParameter\(.*\)\)

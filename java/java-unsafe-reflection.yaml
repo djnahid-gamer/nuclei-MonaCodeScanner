@@ -1,0 +1,21 @@
+id: java-unsafe-reflection
+info:
+  name: Java Unsafe Reflection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unsafe reflection practices in Java applications that may lead
+    to code execution
+  tags: java, reflection, code-execution
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Class\.forName\s*\(\s*request\.getParameter\(.*\)\)
+    - Method\.invoke\s*\(\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - Class\.forName\s*\(\s*request\.getParameter\(.*\)\)
+    - Method\.invoke\s*\(\s*.*request\.getParameter\(.*\).*\)

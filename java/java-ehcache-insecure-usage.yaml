@@ -1,0 +1,21 @@
+id: java-ehcache-insecure-usage
+info:
+  name: Java Ehcache Insecure Usage Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure usage of Ehcache configurations that may lead to cache
+    poisoning or exposure of sensitive data
+  tags: java, ehcache, cache, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - CacheManager\.createCache\s*\(\s*.*request\.getParameter\(.*\)\)
+    - CacheConfiguration\.setEternal\s*\(\s*true\)
+  extractors:
+  - type: regex
+    regex:
+    - CacheManager\.createCache\s*\(\s*.*request\.getParameter\(.*\)\)
+    - CacheConfiguration\.setEternal\s*\(\s*true\)

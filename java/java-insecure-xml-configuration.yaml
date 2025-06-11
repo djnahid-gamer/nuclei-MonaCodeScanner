@@ -1,0 +1,21 @@
+id: java-insecure-xml-configuration
+info:
+  name: Java Insecure XML Configuration Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure configurations in Java XML parsers that may lead to
+    XXE or other vulnerabilities
+  tags: java, xml, configuration
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - factory\.setFeature\s*\(\s*['"]http://xml\.org/sax/features/external-general-entities['"],\s*true\)
+    - factory\.setFeature\s*\(\s*['"]http://xml\.org/sax/features/external-parameter-entities['"],\s*true\)
+  extractors:
+  - type: regex
+    regex:
+    - factory\.setFeature\s*\(\s*['"]http://xml\.org/sax/features/external-general-entities['"],\s*true\)
+    - factory\.setFeature\s*\(\s*['"]http://xml\.org/sax/features/external-parameter-entities['"],\s*true\)

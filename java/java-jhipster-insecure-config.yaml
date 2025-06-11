@@ -1,0 +1,22 @@
+id: java-jhipster-insecure-config
+info:
+  name: Java JHipster Insecure Configuration Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure configurations or usage of JHipster framework in Java
+    applications
+  tags: java, jhipster, security
+file:
+- extensions:
+  - properties
+  - yaml
+  matchers:
+  - type: regex
+    regex:
+    - jhipster\.security\.authentication\.jwt\.base64-secret\s*:\s*['"].*['"]
+    - jhipster\.mail\.password\s*:\s*['"].*['"]
+  extractors:
+  - type: regex
+    regex:
+    - jhipster\.security\.authentication\.jwt\.base64-secret\s*:\s*['"].*['"]
+    - jhipster\.mail\.password\s*:\s*['"].*['"]

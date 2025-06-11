@@ -1,0 +1,20 @@
+id: java-improper-input-validation
+info:
+  name: Java Improper Input Validation Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects missing or improper validation of user input in Java applications
+  tags: java, input-validation, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - request\.getParameter\s*\(\s*.*\)
+    - request\.getHeader\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - request\.getParameter\s*\(\s*.*\)
+    - request\.getHeader\s*\(\s*.*\)

@@ -1,0 +1,21 @@
+id: java-log-injection
+info:
+  name: Java Log Injection Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects log injection vulnerabilities in Java applications, which may
+    lead to log poisoning
+  tags: java, logging, injection
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - log\.(info|warn|error|debug)\s*\(\s*request\.getParameter\(.*\)\)
+    - logger\.log\s*\(\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - log\.(info|warn|error|debug)\s*\(\s*request\.getParameter\(.*\)\)
+    - logger\.log\s*\(\s*.*request\.getParameter\(.*\).*\)

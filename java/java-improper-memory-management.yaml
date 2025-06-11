@@ -1,0 +1,21 @@
+id: java-improper-memory-management
+info:
+  name: Java Improper Memory Management Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects potential memory leaks or improper memory management in Java
+    applications
+  tags: java, memory, management
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - ByteBuffer\.allocate\s*\(\s*.*request\.getParameter\(.*\).*\)
+    - new\s+DirectByteBuffer\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - ByteBuffer\.allocate\s*\(\s*.*request\.getParameter\(.*\).*\)
+    - new\s+DirectByteBuffer\s*\(\s*.*\)

@@ -1,0 +1,20 @@
+id: java-dynamic-code-execution
+info:
+  name: Java Dynamic Code Execution Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure dynamic code execution in Java applications
+  tags: java, code-execution, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Class\.forName\s*\(\s*request\.getParameter\(.*\)\)
+    - Method\.invoke\s*\(\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - Class\.forName\s*\(\s*request\.getParameter\(.*\)\)
+    - Method\.invoke\s*\(\s*.*request\.getParameter\(.*\).*\)

@@ -1,0 +1,21 @@
+id: java-insecure-file-upload
+info:
+  name: Java Insecure File Upload Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unsafe file upload handling in Java applications, which may
+    allow malicious files to be uploaded
+  tags: java, file-upload, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - getPart\s*\(\s*.*\)\.write\s*\(\s*.*\)
+    - file\.createTempFile\s*\(\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - getPart\s*\(\s*.*\)\.write\s*\(\s*.*\)
+    - file\.createTempFile\s*\(\s*.*request\.getParameter\(.*\).*\)

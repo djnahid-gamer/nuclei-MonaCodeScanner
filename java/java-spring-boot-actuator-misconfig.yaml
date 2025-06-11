@@ -1,0 +1,22 @@
+id: java-spring-boot-actuator-misconfig
+info:
+  name: Spring Boot Actuator Misconfiguration Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects publicly accessible or insecurely configured Spring Boot Actuator
+    endpoints
+  tags: java, spring, actuator, security
+file:
+- extensions:
+  - properties
+  - yaml
+  matchers:
+  - type: regex
+    regex:
+    - management\.endpoints\.web\.exposure\.include\s*:\s*['"]\*['"]
+    - management\.endpoints\.jmx\.exposure\.include\s*:\s*['"]\*['"]
+  extractors:
+  - type: regex
+    regex:
+    - management\.endpoints\.web\.exposure\.include\s*:\s*['"]\*['"]
+    - management\.endpoints\.jmx\.exposure\.include\s*:\s*['"]\*['"]

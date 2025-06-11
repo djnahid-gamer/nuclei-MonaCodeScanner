@@ -1,0 +1,20 @@
+id: java-xxe-detection
+info:
+  name: Java XXE Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects XXE vulnerabilities in XML parsers in Java applications
+  tags: java, xxe, xml
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - DocumentBuilderFactory\.newInstance\s*\(\s*.*\)
+    - SAXParserFactory\.newInstance\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - DocumentBuilderFactory\.newInstance\s*\(\s*.*\)
+    - SAXParserFactory\.newInstance\s*\(\s*.*\)

@@ -1,0 +1,21 @@
+id: java-rmi-insecure-usage
+info:
+  name: Java RMI Insecure Usage Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure usage of RMI in Java applications which may lead to
+    code execution
+  tags: java, rmi, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Naming\.lookup\s*\(\s*.*request\.getParameter\(.*\).*\)
+    - registry\.bind\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - Naming\.lookup\s*\(\s*.*request\.getParameter\(.*\).*\)
+    - registry\.bind\s*\(\s*.*\)

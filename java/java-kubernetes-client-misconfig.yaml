@@ -1,0 +1,20 @@
+id: java-kubernetes-client-misconfig
+info:
+  name: Kubernetes Java Client Misconfiguration Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure usage or misconfigurations in Kubernetes Java Client
+  tags: java, kubernetes, client, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - KubernetesClient\.load\s*\(\s*.*request\.getParameter\(.*\)\)
+    - Config\.fromConfig\s*\(\s*['"]http://.*['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - KubernetesClient\.load\s*\(\s*.*request\.getParameter\(.*\)\)
+    - Config\.fromConfig\s*\(\s*['"]http://.*['"]\)

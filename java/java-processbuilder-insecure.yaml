@@ -1,0 +1,19 @@
+id: java-processbuilder-insecure
+info:
+  name: Unsafe Use of Java ProcessBuilder Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure usage of ProcessBuilder in Java applications, which
+    may lead to command injection
+  tags: java, processbuilder, injection
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - new\s+ProcessBuilder\s*\(\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - new\s+ProcessBuilder\s*\(\s*.*request\.getParameter\(.*\).*\)

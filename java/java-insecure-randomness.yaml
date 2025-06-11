@@ -1,0 +1,20 @@
+id: java-insecure-randomness
+info:
+  name: Java Insecure Randomness Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects usage of insecure randomness in Java applications
+  tags: java, randomness, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Random\s*\(\s*.*\)
+    - Math\.random\s*\(\)
+  extractors:
+  - type: regex
+    regex:
+    - Random\s*\(\s*.*\)
+    - Math\.random\s*\(\)

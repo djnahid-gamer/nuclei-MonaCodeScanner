@@ -1,0 +1,20 @@
+id: java-consul-insecure-config
+info:
+  name: Java Consul Insecure Configuration Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure configurations in Consul integrations for Java applications
+  tags: java, consul, config, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - consulClient\.putValue\s*\(\s*.*request\.getParameter\(.*\)\)
+    - consulClient\.getValue\s*\(\s*.*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - consulClient\.putValue\s*\(\s*.*request\.getParameter\(.*\)\)
+    - consulClient\.getValue\s*\(\s*.*request\.getParameter\(.*\)\)

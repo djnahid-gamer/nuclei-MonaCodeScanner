@@ -1,0 +1,21 @@
+id: java-spring-cloud-gateway-misconfig
+info:
+  name: Insecure Spring Cloud Gateway Routes Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure configurations or misconfigured routes in Spring Cloud
+    Gateway
+  tags: java, spring-cloud, gateway, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Route\.route\s*\(\s*.*request\.getParameter\(.*\)\)
+    - GatewayFilter\.apply\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - Route\.route\s*\(\s*.*request\.getParameter\(.*\)\)
+    - GatewayFilter\.apply\s*\(\s*.*\)

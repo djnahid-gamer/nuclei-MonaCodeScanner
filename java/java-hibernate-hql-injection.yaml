@@ -1,0 +1,18 @@
+id: java-hibernate-hql-injection
+info:
+  name: Java Hibernate HQL Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects HQL injection vulnerabilities in Hibernate-based Java applications
+  tags: java, hibernate, hql, injection
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - createQuery\s*\(\s*['"].*['"]\s*\+\s*request\.getParameter\(.*\)
+  extractors:
+  - type: regex
+    regex:
+    - createQuery\s*\(\s*['"].*['"]\s*\+\s*request\.getParameter\(.*\)

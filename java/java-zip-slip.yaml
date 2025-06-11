@@ -1,0 +1,20 @@
+id: java-zip-slip
+info:
+  name: Java Zip Slip Vulnerability Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential Zip Slip vulnerabilities in Java applications
+  tags: java, zip-slip, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - new\s+ZipEntry\s*\(\s*.*request\.getParameter\(.*\).*\)
+    - entry\.getName\s*\(\)\.contains\s*\(\s*['"].*[../].*['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - new\s+ZipEntry\s*\(\s*.*request\.getParameter\(.*\).*\)
+    - entry\.getName\s*\(\)\.contains\s*\(\s*['"].*[../].*['"]\)

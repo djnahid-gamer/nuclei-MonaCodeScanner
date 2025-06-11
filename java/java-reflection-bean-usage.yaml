@@ -1,0 +1,21 @@
+id: java-reflection-bean-usage
+info:
+  name: Improper Java Reflection for Beans Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unsafe usage of Java reflection in bean instantiation, which
+    may lead to RCE vulnerabilities
+  tags: java, reflection, beans, rce
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Class\.forName\s*\(\s*request\.getParameter\(.*\)\)
+    - BeanUtils\.instantiateClass\s*\(\s*.*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - Class\.forName\s*\(\s*request\.getParameter\(.*\)\)
+    - BeanUtils\.instantiateClass\s*\(\s*.*request\.getParameter\(.*\)\)

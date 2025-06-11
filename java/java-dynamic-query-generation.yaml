@@ -1,0 +1,18 @@
+id: java-dynamic-query-generation
+info:
+  name: Java Dynamic Query Generation Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects dynamic query generation that may lead to SQL injection vulnerabilities
+  tags: java, sql, injection
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - String\s+query\s*=\s*['"].*['"]\s*\+\s*request\.getParameter\(.*\)
+  extractors:
+  - type: regex
+    regex:
+    - String\s+query\s*=\s*['"].*['"]\s*\+\s*request\.getParameter\(.*\)

@@ -1,0 +1,20 @@
+id: java-struts-ognl-injection
+info:
+  name: Apache Struts OGNL Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects OGNL injection vulnerabilities in Apache Struts applications
+  tags: java, struts, ognl, injection
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - ognl\.OgnlContext\s*\(\s*.*\+.*\)
+    - Ognl\.parseExpression\s*\(\s*.*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - ognl\.OgnlContext\s*\(\s*.*\+.*\)
+    - Ognl\.parseExpression\s*\(\s*.*request\.getParameter\(.*\)\)

@@ -1,0 +1,18 @@
+id: java-ssrf-detection
+info:
+  name: Java Server-Side Request Forgery Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects SSRF vulnerabilities in Java applications
+  tags: java, ssrf, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - HttpURLConnection\.openConnection\s*\(\s*new\s+URL\s*\(\s*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - HttpURLConnection\.openConnection\s*\(\s*new\s+URL\s*\(\s*request\.getParameter\(.*\)\)

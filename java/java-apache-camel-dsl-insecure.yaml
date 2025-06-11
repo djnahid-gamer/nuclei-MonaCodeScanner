@@ -1,0 +1,20 @@
+id: java-apache-camel-dsl-insecure
+info:
+  name: Java Apache Camel DSL Insecure Usage Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure or dynamic route definitions in Apache Camel DSL
+  tags: java, camel, dsl, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - from\s*\(\s*.*request\.getParameter\(.*\)\)
+    - to\s*\(\s*.*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - from\s*\(\s*.*request\.getParameter\(.*\)\)
+    - to\s*\(\s*.*request\.getParameter\(.*\)\)

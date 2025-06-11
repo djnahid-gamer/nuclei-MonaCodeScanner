@@ -1,0 +1,20 @@
+id: java-kafka-streams-insecure-usage
+info:
+  name: Java Kafka Streams Insecure Usage Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure configurations or dynamic topics in Kafka Streams
+  tags: java, kafka-streams, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - StreamsBuilder\.stream\s*\(\s*.*request\.getParameter\(.*\)\)
+    - KStream\.filter\s*\(\s*.*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - StreamsBuilder\.stream\s*\(\s*.*request\.getParameter\(.*\)\)
+    - KStream\.filter\s*\(\s*.*request\.getParameter\(.*\)\)

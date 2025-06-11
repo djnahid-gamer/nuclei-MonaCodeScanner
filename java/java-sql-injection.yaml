@@ -1,0 +1,21 @@
+id: java-sql-injection
+info:
+  name: Java SQL Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects SQL injection vulnerabilities in Java applications using raw
+    SQL queries
+  tags: java, sql-injection, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Statement\.executeQuery\s*\(\s*.*\+.*\)
+    - PreparedStatement\.setString\s*\(\s*\d+\s*,\s*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - Statement\.executeQuery\s*\(\s*.*\+.*\)
+    - PreparedStatement\.setString\s*\(\s*\d+\s*,\s*request\.getParameter\(.*\)\)

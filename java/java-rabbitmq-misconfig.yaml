@@ -1,0 +1,20 @@
+id: java-rabbitmq-misconfig
+info:
+  name: Java RabbitMQ Misconfiguration Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure or missing configurations in RabbitMQ connections
+  tags: java, rabbitmq, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - factory\.setUsername\s*\(\s*['"]guest['"]\)
+    - factory\.setPassword\s*\(\s*['"]guest['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - factory\.setUsername\s*\(\s*['"]guest['"]\)
+    - factory\.setPassword\s*\(\s*['"]guest['"]\)

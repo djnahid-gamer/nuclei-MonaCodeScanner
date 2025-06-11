@@ -1,0 +1,20 @@
+id: java-elasticsearch-query-injection
+info:
+  name: Improper ElasticSearch Query Handling Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential ElasticSearch query injection vulnerabilities
+  tags: java, elasticsearch, injection
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - client\.search\s*\(\s*.*request\.getParameter\(.*\)\)
+    - SearchRequestBuilder\.setQuery\s*\(\s*.*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - client\.search\s*\(\s*.*request\.getParameter\(.*\)\)
+    - SearchRequestBuilder\.setQuery\s*\(\s*.*request\.getParameter\(.*\)\)

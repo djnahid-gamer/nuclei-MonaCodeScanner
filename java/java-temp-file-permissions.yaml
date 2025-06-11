@@ -1,0 +1,20 @@
+id: java-temp-file-permissions
+info:
+  name: Java Improper Temp File Permissions Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects creation of temporary files with insecure permissions in Java
+  tags: java, file, permissions
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Files\.createTempFile\s*\(\s*.*\)
+    - new\s+File\s*\(\s*['"]/tmp/.*['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - Files\.createTempFile\s*\(\s*.*\)
+    - new\s+File\s*\(\s*['"]/tmp/.*['"]\)

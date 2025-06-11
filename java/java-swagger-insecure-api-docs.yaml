@@ -1,0 +1,22 @@
+id: java-swagger-insecure-api-docs
+info:
+  name: Swagger API Docs Exposure Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects exposed Swagger API documentation endpoints without proper
+    authentication
+  tags: java, swagger, api, security
+file:
+- extensions:
+  - properties
+  - yaml
+  matchers:
+  - type: regex
+    regex:
+    - springdoc\.api-docs\.enabled\s*:\s*true
+    - swagger\.ui\.enabled\s*:\s*true
+  extractors:
+  - type: regex
+    regex:
+    - springdoc\.api-docs\.enabled\s*:\s*true
+    - swagger\.ui\.enabled\s*:\s*true

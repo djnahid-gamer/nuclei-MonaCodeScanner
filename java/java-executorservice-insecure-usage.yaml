@@ -1,0 +1,21 @@
+id: java-executorservice-insecure-usage
+info:
+  name: Insecure Java ExecutorService Usage Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects insecure usage of ExecutorService which may lead to resource
+    leaks or race conditions
+  tags: java, concurrency, executorservice
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Executors\.newCachedThreadPool\s*\(\)
+    - executorService\.submit\s*\(\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - Executors\.newCachedThreadPool\s*\(\)
+    - executorService\.submit\s*\(\s*.*request\.getParameter\(.*\).*\)

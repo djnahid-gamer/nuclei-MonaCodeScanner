@@ -1,0 +1,19 @@
+id: java-improper-resource-management
+info:
+  name: Java Improper Resource Management Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects improper resource management (e.g., missing close statements)
+    in Java applications
+  tags: java, resource-management, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - new\s+FileInputStream\s*\(\s*.*\)\s*;\s*//\s*Resource not closed
+  extractors:
+  - type: regex
+    regex:
+    - new\s+FileInputStream\s*\(\s*.*\)\s*;\s*//\s*Resource not closed

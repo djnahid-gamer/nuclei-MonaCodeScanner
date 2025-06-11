@@ -1,0 +1,20 @@
+id: java-path-traversal
+info:
+  name: Java Path Traversal Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects path traversal vulnerabilities in Java file operations
+  tags: java, path-traversal, file
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - File\s*\(\s*request\.getParameter\(.*\)\)
+    - Paths\.get\s*\(\s*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - File\s*\(\s*request\.getParameter\(.*\)\)
+    - Paths\.get\s*\(\s*request\.getParameter\(.*\)\)

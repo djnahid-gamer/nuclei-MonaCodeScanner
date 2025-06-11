@@ -1,0 +1,19 @@
+id: java-tika-insecure-usage
+info:
+  name: Java Apache Tika Insecure Usage Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure use of Apache Tika, which may expose the system to
+    file parsing vulnerabilities
+  tags: java, tika, file-parsing, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - AutoDetectParser\.parse\s*\(\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - AutoDetectParser\.parse\s*\(\s*.*request\.getParameter\(.*\).*\)

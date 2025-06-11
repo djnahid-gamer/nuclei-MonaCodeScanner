@@ -1,0 +1,20 @@
+id: java-jwt-algorithm-none
+info:
+  name: Java JWT Algorithm None Usage Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure usage of alg=none in JWT configurations
+  tags: java, jwt, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - setAlgorithm\s*\(\s*['"]none['"]\)
+    - Jwt\.create\s*\(\s*.*setAlgorithm\s*\(\s*Algorithm\.none\(\)\)\)
+  extractors:
+  - type: regex
+    regex:
+    - setAlgorithm\s*\(\s*['"]none['"]\)
+    - Jwt\.create\s*\(\s*.*setAlgorithm\s*\(\s*Algorithm\.none\(\)\)\)

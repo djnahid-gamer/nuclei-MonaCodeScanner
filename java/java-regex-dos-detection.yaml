@@ -1,0 +1,19 @@
+id: java-regex-dos-detection
+info:
+  name: Java Regex Denial of Service Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects vulnerable regular expressions that may lead to ReDoS in Java
+    applications
+  tags: java, regex, redos
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Pattern\.compile\s*\(\s*['"].*(\(\|).*['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - Pattern\.compile\s*\(\s*['"].*(\(\|).*['"]\)

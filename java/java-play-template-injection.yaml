@@ -1,0 +1,21 @@
+id: java-play-template-injection
+info:
+  name: Play Framework Template Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects template injection vulnerabilities in Play Framework applications
+  tags: java, play-framework, template-injection
+file:
+- extensions:
+  - scala
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - '@\s*request\.getParameter\(.*\)'
+    - '@\s*dynamic\s*\(\s*.*request\.getParameter\(.*\)\)'
+  extractors:
+  - type: regex
+    regex:
+    - '@\s*request\.getParameter\(.*\)'
+    - '@\s*dynamic\s*\(\s*.*request\.getParameter\(.*\)\)'

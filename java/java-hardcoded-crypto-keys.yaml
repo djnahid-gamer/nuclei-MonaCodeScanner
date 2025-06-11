@@ -1,0 +1,20 @@
+id: java-hardcoded-crypto-keys
+info:
+  name: Java Hardcoded Cryptographic Keys Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects hardcoded cryptographic keys in Java applications
+  tags: java, cryptography, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - KeySpec\s*\(\s*['"].*['"]\)
+    - SecretKeySpec\s*\(\s*['"].*['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - KeySpec\s*\(\s*['"].*['"]\)
+    - SecretKeySpec\s*\(\s*['"].*['"]\)

@@ -1,0 +1,19 @@
+id: java-ldap-misconfiguration
+info:
+  name: Java LDAP Misconfiguration Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects insecure LDAP configuration or missing authentication in Java
+    applications
+  tags: java, ldap, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - env\.put\s*\(\s*['"]java\.naming\.security\.authentication['"],\s*['"]none['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - env\.put\s*\(\s*['"]java\.naming\.security\.authentication['"],\s*['"]none['"]\)

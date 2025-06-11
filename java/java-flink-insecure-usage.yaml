@@ -1,0 +1,20 @@
+id: java-flink-insecure-usage
+info:
+  name: Java Apache Flink Insecure Usage Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure configurations or code in Apache Flink integrations
+  tags: java, flink, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - StreamExecutionEnvironment\.getExecutionEnvironment\s*\(\s*.*request\.getParameter\(.*\).*\)
+    - DataStream\.map\s*\(\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - StreamExecutionEnvironment\.getExecutionEnvironment\s*\(\s*.*request\.getParameter\(.*\).*\)
+    - DataStream\.map\s*\(\s*.*request\.getParameter\(.*\).*\)

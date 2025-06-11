@@ -1,0 +1,19 @@
+id: java-socket-insecure-usage
+info:
+  name: Insecure Java Socket Usage Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure socket usage in Java applications, which may lead
+    to security risks
+  tags: java, socket, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Socket\s*socket\s*=\s*new\s+Socket\s*\(\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - Socket\s*socket\s*=\s*new\s+Socket\s*\(\s*.*request\.getParameter\(.*\).*\)

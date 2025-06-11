@@ -1,0 +1,18 @@
+id: java-insecure-http-methods
+info:
+  name: Java Insecure HTTP Method Handling Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects usage of insecure or misconfigured HTTP methods in Java applications
+  tags: java, http, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - httpSecurity\.authorizeRequests\(\)\.antMatchers\(\s*['"].*['"],\s*['"](TRACE|OPTIONS|PUT|DELETE)['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - httpSecurity\.authorizeRequests\(\)\.antMatchers\(\s*['"].*['"],\s*['"](TRACE|OPTIONS|PUT|DELETE)['"]\)

@@ -1,0 +1,20 @@
+id: java-quartz-insecure-usage
+info:
+  name: Java Quartz Scheduler Insecure Usage Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure job scheduling in Java applications using Quartz Scheduler
+  tags: java, quartz, scheduler, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - JobDetail\.newJob\s*\(\s*.*request\.getParameter\(.*\).*\)
+    - Trigger\.newTrigger\s*\(\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - JobDetail\.newJob\s*\(\s*.*request\.getParameter\(.*\).*\)
+    - Trigger\.newTrigger\s*\(\s*.*request\.getParameter\(.*\).*\)

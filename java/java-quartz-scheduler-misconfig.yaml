@@ -1,0 +1,19 @@
+id: java-quartz-scheduler-misconfig
+info:
+  name: Java Quartz Scheduler Misconfiguration Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects misconfigured Quartz Scheduler jobs which may expose sensitive
+    operations
+  tags: java, quartz, scheduler
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - JobBuilder\.newJob\s*\(\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - JobBuilder\.newJob\s*\(\s*.*request\.getParameter\(.*\).*\)

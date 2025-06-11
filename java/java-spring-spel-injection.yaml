@@ -1,0 +1,19 @@
+id: java-spring-spel-injection
+info:
+  name: Java Spring SpEL Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential Spring Expression Language (SpEL) injection vulnerabilities
+    in Java applications
+  tags: java, spring, spel, injection
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - spelExpressionParser\.parseExpression\s*\(\s*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - spelExpressionParser\.parseExpression\s*\(\s*request\.getParameter\(.*\)\)

@@ -1,0 +1,19 @@
+id: java-unrestricted-json-parsing
+info:
+  name: Java Unrestricted JSON Parsing Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unsafe usage of JSON parsers in Java applications, leading
+    to potential injection vulnerabilities
+  tags: java, json, injection
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - new\s+ObjectMapper\s*\(\s*\)\.readValue\s*\(\s*request\.getParameter\(.*\)
+  extractors:
+  - type: regex
+    regex:
+    - new\s+ObjectMapper\s*\(\s*\)\.readValue\s*\(\s*request\.getParameter\(.*\)

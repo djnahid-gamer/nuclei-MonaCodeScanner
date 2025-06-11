@@ -1,0 +1,19 @@
+id: java-jackson-objectmapper-insecure
+info:
+  name: Java Insecure Jackson ObjectMapper Usage Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unsafe usage of Jackson's ObjectMapper which may lead to deserialization
+    vulnerabilities
+  tags: java, jackson, deserialization
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - ObjectMapper\s*\(\)\.readValue\s*\(\s*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - ObjectMapper\s*\(\)\.readValue\s*\(\s*request\.getParameter\(.*\)\)

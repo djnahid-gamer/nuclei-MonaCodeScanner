@@ -1,0 +1,21 @@
+id: java-keycloak-insecure-config
+info:
+  name: Java Keycloak Insecure Configuration Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure Keycloak configurations in Java applications
+  tags: java, keycloak, security
+file:
+- extensions:
+  - properties
+  - yaml
+  matchers:
+  - type: regex
+    regex:
+    - keycloak\.credentials\.secret\s*:\s*['"].*['"]
+    - keycloak\.auth-server-url\s*:\s*['"]http://.*['"]
+  extractors:
+  - type: regex
+    regex:
+    - keycloak\.credentials\.secret\s*:\s*['"].*['"]
+    - keycloak\.auth-server-url\s*:\s*['"]http://.*['"]

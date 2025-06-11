@@ -1,0 +1,22 @@
+id: java-log4j-vulnerable-config
+info:
+  name: Java Log4j Vulnerable Configuration Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure configurations in Log4j that may allow exploitation
+    (e.g., JNDI injection)
+  tags: java, log4j, injection
+file:
+- extensions:
+  - properties
+  - yaml
+  matchers:
+  - type: regex
+    regex:
+    - log4j2\.formatMsgNoLookups\s*:\s*false
+    - jndi:\s*ldap://.*
+  extractors:
+  - type: regex
+    regex:
+    - log4j2\.formatMsgNoLookups\s*:\s*false
+    - jndi:\s*ldap://.*

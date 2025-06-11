@@ -1,0 +1,20 @@
+id: java-insecure-deserialization
+info:
+  name: Java Insecure Deserialization Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure deserialization vulnerabilities in Java applications
+  tags: java, deserialization, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - ObjectInputStream\s*\(\s*.*\)
+    - readObject\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - ObjectInputStream\s*\(\s*.*\)
+    - readObject\s*\(\s*.*\)

@@ -1,0 +1,19 @@
+id: java-runtime-exec-usage
+info:
+  name: Java Improper Runtime.exec Usage Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unsafe usage of Runtime.exec() which may lead to command injection
+    vulnerabilities
+  tags: java, runtime, command-injection
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Runtime\.getRuntime\(\)\.exec\s*\(\s*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - Runtime\.getRuntime\(\)\.exec\s*\(\s*request\.getParameter\(.*\)\)

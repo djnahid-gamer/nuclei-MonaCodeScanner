@@ -1,0 +1,20 @@
+id: java-spring-security-misconfiguration
+info:
+  name: Java Spring Security Misconfiguration Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects missing or insecure configurations in Spring Security settings
+  tags: java, spring-security, misconfiguration
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - httpSecurity\.csrf\(\)\.disable\(\)
+    - httpSecurity\.authorizeRequests\(\)\.antMatchers\(\s*['"].*['"]\)\.permitAll\(\)
+  extractors:
+  - type: regex
+    regex:
+    - httpSecurity\.csrf\(\)\.disable\(\)
+    - httpSecurity\.authorizeRequests\(\)\.antMatchers\(\s*['"].*['"]\)\.permitAll\(\)

@@ -1,0 +1,20 @@
+id: java-command-injection
+info:
+  name: Java Command Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential command injection vulnerabilities in Java applications
+  tags: java, command-injection, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Runtime\.getRuntime\(\)\.exec\s*\(\s*.*\+.*\)
+    - ProcessBuilder\s*\(\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - Runtime\.getRuntime\(\)\.exec\s*\(\s*.*\+.*\)
+    - ProcessBuilder\s*\(\s*.*request\.getParameter\(.*\).*\)

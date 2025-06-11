@@ -1,0 +1,20 @@
+id: java-websocket-injection
+info:
+  name: Java WebSocket Injection Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects potential WebSocket injection vulnerabilities in Java applications
+  tags: java, websocket, injection
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - sendMessage\s*\(\s*request\.getParameter\(.*\)\)
+    - session\.sendText\s*\(\s*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - sendMessage\s*\(\s*request\.getParameter\(.*\)\)
+    - session\.sendText\s*\(\s*request\.getParameter\(.*\)\)

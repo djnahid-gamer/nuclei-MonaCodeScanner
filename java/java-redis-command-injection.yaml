@@ -1,0 +1,21 @@
+id: java-redis-command-injection
+info:
+  name: Java Redis Command Injection Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure handling of Redis commands that may lead to injection
+    vulnerabilities
+  tags: java, redis, injection
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Jedis\.set\s*\(\s*.*request\.getParameter\(.*\).*\)
+    - Jedis\.get\s*\(\s*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - Jedis\.set\s*\(\s*.*request\.getParameter\(.*\).*\)
+    - Jedis\.get\s*\(\s*request\.getParameter\(.*\)\)

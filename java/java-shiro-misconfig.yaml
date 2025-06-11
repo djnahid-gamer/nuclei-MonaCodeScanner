@@ -1,0 +1,20 @@
+id: java-shiro-misconfig
+info:
+  name: Apache Shiro Misconfiguration Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure or missing configurations in Apache Shiro setups
+  tags: java, shiro, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - shiroFilterFactoryBean\.setUnauthorizedUrl\s*\(\s*['"]/['"]\)
+    - shiroFilterFactoryBean\.setLoginUrl\s*\(\s*['"]/['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - shiroFilterFactoryBean\.setUnauthorizedUrl\s*\(\s*['"]/['"]\)
+    - shiroFilterFactoryBean\.setLoginUrl\s*\(\s*['"]/['"]\)

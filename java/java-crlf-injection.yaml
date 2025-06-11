@@ -1,0 +1,21 @@
+id: java-crlf-injection
+info:
+  name: Java CRLF Injection Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects CRLF injection vulnerabilities in Java applications, often
+    used in log poisoning or HTTP response splitting
+  tags: java, crlf-injection, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - response\.addHeader\s*\(\s*.*\+.*\r\n.*\)
+    - response\.setHeader\s*\(\s*.*\+.*\)
+  extractors:
+  - type: regex
+    regex:
+    - response\.addHeader\s*\(\s*.*\+.*\r\n.*\)
+    - response\.setHeader\s*\(\s*.*\+.*\)

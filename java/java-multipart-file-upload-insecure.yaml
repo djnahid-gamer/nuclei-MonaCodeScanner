@@ -1,0 +1,20 @@
+id: java-multipart-file-upload-insecure
+info:
+  name: Java Multi-Part File Upload Insecure Handling Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure handling of multi-part file uploads in Java applications
+  tags: java, file-upload, multipart, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - fileItem\.write\s*\(\s*.*request\.getParameter\(.*\)\)
+    - MultipartFile\.transferTo\s*\(\s*.*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - fileItem\.write\s*\(\s*.*request\.getParameter\(.*\)\)
+    - MultipartFile\.transferTo\s*\(\s*.*request\.getParameter\(.*\)\)

@@ -1,0 +1,19 @@
+id: java-improper-ldap-auth
+info:
+  name: Java Improper LDAP Authentication Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure or missing authentication in LDAP configurations in
+    Java applications
+  tags: java, ldap, authentication
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - env\.put\s*\(\s*['"]java\.naming\.security\.credentials['"],\s*['"].*['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - env\.put\s*\(\s*['"]java\.naming\.security\.credentials['"],\s*['"].*['"]\)

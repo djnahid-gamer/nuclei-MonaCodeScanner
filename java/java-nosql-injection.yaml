@@ -1,0 +1,20 @@
+id: java-nosql-injection
+info:
+  name: Java NoSQL Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects NoSQL injection vulnerabilities in Java applications
+  tags: java, nosql, injection
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - collection\.find\s*\(\s*new\s+Document\s*\(\s*.*\+.*\)
+    - collection\.update\s*\(\s*new\s+Document\s*\(\s*.*\+.*\)
+  extractors:
+  - type: regex
+    regex:
+    - collection\.find\s*\(\s*new\s+Document\s*\(\s*.*\+.*\)
+    - collection\.update\s*\(\s*new\s+Document\s*\(\s*.*\+.*\)

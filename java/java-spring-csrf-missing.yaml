@@ -1,0 +1,18 @@
+id: java-spring-csrf-missing
+info:
+  name: Spring Boot Missing CSRF Protection Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects missing CSRF protection in Spring Boot applications
+  tags: java, spring, csrf, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - csrf\(\)\.disable\(\)
+  extractors:
+  - type: regex
+    regex:
+    - csrf\(\)\.disable\(\)

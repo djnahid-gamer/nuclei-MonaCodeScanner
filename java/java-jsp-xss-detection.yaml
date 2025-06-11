@@ -1,0 +1,18 @@
+id: java-jsp-xss-detection
+info:
+  name: Java JSP XSS Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects XSS vulnerabilities in JSP files
+  tags: java, jsp, xss
+file:
+- extensions:
+  - jsp
+  matchers:
+  - type: regex
+    regex:
+    - <%=\s*request\.getParameter\(.*\)\s*%>
+  extractors:
+  - type: regex
+    regex:
+    - <%=\s*request\.getParameter\(.*\)\s*%>

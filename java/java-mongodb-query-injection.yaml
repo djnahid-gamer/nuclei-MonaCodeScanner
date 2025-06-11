@@ -1,0 +1,20 @@
+id: java-mongodb-query-injection
+info:
+  name: Java MongoDB Query Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential query injection vulnerabilities in MongoDB operations
+  tags: java, mongodb, injection
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - mongoCollection\.find\s*\(\s*.*\+.*\)
+    - mongoCollection\.updateOne\s*\(\s*.*\+.*\)
+  extractors:
+  - type: regex
+    regex:
+    - mongoCollection\.find\s*\(\s*.*\+.*\)
+    - mongoCollection\.updateOne\s*\(\s*.*\+.*\)

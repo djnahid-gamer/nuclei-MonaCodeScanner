@@ -1,0 +1,21 @@
+id: java-fileutils-insecure-usage
+info:
+  name: Unsafe Usage of FileUtils Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects unsafe usage of Apache Commons FileUtils, leading to file inclusion
+    or path traversal
+  tags: java, fileutils, path-traversal
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - FileUtils\.copyFile\s*\(\s*.*request\.getParameter\(.*\)\)
+    - FileUtils\.write\s*\(\s*.*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - FileUtils\.copyFile\s*\(\s*.*request\.getParameter\(.*\)\)
+    - FileUtils\.write\s*\(\s*.*request\.getParameter\(.*\)\)

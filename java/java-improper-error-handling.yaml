@@ -1,0 +1,18 @@
+id: java-improper-error-handling
+info:
+  name: Java Improper Error Handling Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects generic or improper error handling practices in Java applications
+  tags: java, error-handling, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - catch\s*\(\s*Exception\s*e\s*\)\s*\{\s*log\.error\s*\(\s*e\.getMessage\(\)\)
+  extractors:
+  - type: regex
+    regex:
+    - catch\s*\(\s*Exception\s*e\s*\)\s*\{\s*log\.error\s*\(\s*e\.getMessage\(\)\)

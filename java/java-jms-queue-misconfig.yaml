@@ -1,0 +1,20 @@
+id: java-jms-queue-misconfig
+info:
+  name: Java JMS Queue Misconfiguration Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects misconfigured or insecure Java Messaging Service (JMS) queues
+  tags: java, jms, queue, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - connectionFactory\.createConnection\s*\(\s*['"].*['"]\)
+    - queueSession\.createQueue\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - connectionFactory\.createConnection\s*\(\s*['"].*['"]\)
+    - queueSession\.createQueue\s*\(\s*.*\)

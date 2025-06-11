@@ -1,0 +1,21 @@
+id: java-token-auth-insecure
+info:
+  name: Java Improper Token-Based Authentication Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects improper or missing validation in token-based authentication
+    in Java applications
+  tags: java, token, authentication
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - JwtParser\.parse\s*\(\s*.*\)
+    - TokenProvider\.validate\s*\(\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - JwtParser\.parse\s*\(\s*.*\)
+    - TokenProvider\.validate\s*\(\s*.*request\.getParameter\(.*\).*\)

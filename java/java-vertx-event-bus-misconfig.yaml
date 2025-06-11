@@ -1,0 +1,21 @@
+id: java-vertx-event-bus-misconfig
+info:
+  name: Vert.x Event Bus Misconfiguration Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure configurations or improper access control in Vert.x
+    Event Bus
+  tags: java, vertx, eventbus, misconfiguration
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - eventBus\.send\s*\(\s*['"].*['"],\s*.*request\.getParameter\(.*\).*\)
+    - eventBus\.publish\s*\(\s*['"].*['"],\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - eventBus\.send\s*\(\s*['"].*['"],\s*.*request\.getParameter\(.*\).*\)
+    - eventBus\.publish\s*\(\s*['"].*['"],\s*.*request\.getParameter\(.*\).*\)

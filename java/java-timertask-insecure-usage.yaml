@@ -1,0 +1,20 @@
+id: java-timertask-insecure-usage
+info:
+  name: Improper Use of Java TimerTask Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects improper or insecure usage of TimerTask in Java applications
+  tags: java, timertask, concurrency
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - new\s+TimerTask\s*\(\s*.*\)
+    - schedule\s*\(\s*.*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - new\s+TimerTask\s*\(\s*.*\)
+    - schedule\s*\(\s*.*request\.getParameter\(.*\)\)

@@ -1,0 +1,20 @@
+id: java-micronaut-http-insecure-config
+info:
+  name: Micronaut Insecure HTTP Configuration Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure HTTP configurations in Micronaut applications
+  tags: java, micronaut, http, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - HttpRequest\s*\.GET\s*\(\s*.*request\.getQueryParameters\(.*\).*\)
+    - HttpResponse\.ok\s*\(\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - HttpRequest\s*\.GET\s*\(\s*.*request\.getQueryParameters\(.*\).*\)
+    - HttpResponse\.ok\s*\(\s*.*request\.getParameter\(.*\).*\)

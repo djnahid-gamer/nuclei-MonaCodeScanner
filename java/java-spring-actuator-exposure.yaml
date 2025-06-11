@@ -1,0 +1,21 @@
+id: java-spring-actuator-exposure
+info:
+  name: Java Spring Boot Actuator Endpoint Exposure Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects exposed or misconfigured Spring Boot Actuator endpoints
+  tags: java, spring-boot, actuator, exposure
+file:
+- extensions:
+  - properties
+  - yaml
+  matchers:
+  - type: regex
+    regex:
+    - management\.endpoints\.web\.exposure\.include\s*:\s*['"].*['"]
+    - management\.endpoint\..*\.enabled\s*:\s*true
+  extractors:
+  - type: regex
+    regex:
+    - management\.endpoints\.web\.exposure\.include\s*:\s*['"].*['"]
+    - management\.endpoint\..*\.enabled\s*:\s*true

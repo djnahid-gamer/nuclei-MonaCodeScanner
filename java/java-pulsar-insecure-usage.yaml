@@ -1,0 +1,21 @@
+id: java-pulsar-insecure-usage
+info:
+  name: Java Apache Pulsar Insecure Usage Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure usage of Apache Pulsar, including misconfigured authentication
+    and authorization
+  tags: java, pulsar, messaging, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - PulsarClient\.builder\s*\(\s*\)\.serviceUrl\s*\(\s*['"]http://.*['"]\)
+    - PulsarClient\.newProducer\s*\(\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - PulsarClient\.builder\s*\(\s*\)\.serviceUrl\s*\(\s*['"]http://.*['"]\)
+    - PulsarClient\.newProducer\s*\(\s*.*request\.getParameter\(.*\).*\)

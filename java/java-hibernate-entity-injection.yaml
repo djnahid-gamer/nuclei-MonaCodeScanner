@@ -1,0 +1,19 @@
+id: java-hibernate-entity-injection
+info:
+  name: Hibernate Entity Injection Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects potential entity injection vulnerabilities in Hibernate-based
+    applications
+  tags: java, hibernate, entity-injection
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - entityManager\.find\s*\(\s*.*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - entityManager\.find\s*\(\s*.*request\.getParameter\(.*\)\)

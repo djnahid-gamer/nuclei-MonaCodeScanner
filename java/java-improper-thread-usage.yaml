@@ -1,0 +1,21 @@
+id: java-improper-thread-usage
+info:
+  name: Java Improper Thread Usage Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects improper usage of Java threads that may lead to race conditions
+    or deadlocks
+  tags: java, threads, concurrency
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - new\s+Thread\s*\(\s*.*\)
+    - thread\.start\s*\(\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - new\s+Thread\s*\(\s*.*\)
+    - thread\.start\s*\(\s*.*request\.getParameter\(.*\).*\)

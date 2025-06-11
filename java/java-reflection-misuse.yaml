@@ -1,0 +1,21 @@
+id: java-reflection-misuse
+info:
+  name: Java Reflection Misuse Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure usage of Java Reflection which may allow attackers
+    to invoke arbitrary methods
+  tags: java, reflection, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Class\.forName\s*\(\s*.*request\.getParameter\(.*\).*\)
+    - Method\.invoke\s*\(\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - Class\.forName\s*\(\s*.*request\.getParameter\(.*\).*\)
+    - Method\.invoke\s*\(\s*.*request\.getParameter\(.*\).*\)

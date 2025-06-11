@@ -1,0 +1,18 @@
+id: java-gson-insecure-deserialization
+info:
+  name: Insecure Deserialization via GSON Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure deserialization vulnerabilities in GSON usage
+  tags: java, gson, deserialization
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Gson\s*\(\)\.fromJson\s*\(\s*request\.getParameter\(.*\)
+  extractors:
+  - type: regex
+    regex:
+    - Gson\s*\(\)\.fromJson\s*\(\s*request\.getParameter\(.*\)

@@ -1,0 +1,18 @@
+id: java-unvalidated-file-download
+info:
+  name: Unvalidated File Download Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unvalidated file download vulnerabilities in Java applications
+  tags: java, file-download, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - response\.setHeader\s*\(\s*['"]Content-Disposition['"],\s*.*\+.*request\.getParameter\(.*\)
+  extractors:
+  - type: regex
+    regex:
+    - response\.setHeader\s*\(\s*['"]Content-Disposition['"],\s*.*\+.*request\.getParameter\(.*\)

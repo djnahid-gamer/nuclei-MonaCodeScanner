@@ -1,0 +1,18 @@
+id: java-excessive-file-permissions
+info:
+  name: Java Excessive File Permissions Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects usage of excessive file permissions in Java applications
+  tags: java, file, permissions
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - setPosixFilePermissions\s*\(\s*Paths\.get\(.*\),\s*PosixFilePermissions\.fromString\(\s*['"].*777['"]\)\)
+  extractors:
+  - type: regex
+    regex:
+    - setPosixFilePermissions\s*\(\s*Paths\.get\(.*\),\s*PosixFilePermissions\.fromString\(\s*['"].*777['"]\)\)

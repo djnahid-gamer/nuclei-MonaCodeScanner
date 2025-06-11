@@ -1,0 +1,20 @@
+id: java-ldap-injection
+info:
+  name: Java LDAP Injection Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects LDAP injection vulnerabilities in Java applications
+  tags: java, ldap, injection
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - InitialLdapContext\s*\(\s*.*\+.*\)
+    - DirContext\.search\s*\(\s*.*\+.*\)
+  extractors:
+  - type: regex
+    regex:
+    - InitialLdapContext\s*\(\s*.*\+.*\)
+    - DirContext\.search\s*\(\s*.*\+.*\)

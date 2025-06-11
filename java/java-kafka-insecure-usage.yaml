@@ -1,0 +1,22 @@
+id: java-kafka-insecure-usage
+info:
+  name: Apache Kafka Insecure Usage Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure configurations or missing authentication in Apache
+    Kafka setups
+  tags: java, kafka, security
+file:
+- extensions:
+  - properties
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - sasl\.mechanism\s*=\s*['"]PLAIN['"]
+    - security\.protocol\s*=\s*['"]PLAINTEXT['"]
+  extractors:
+  - type: regex
+    regex:
+    - sasl\.mechanism\s*=\s*['"]PLAIN['"]
+    - security\.protocol\s*=\s*['"]PLAINTEXT['"]
