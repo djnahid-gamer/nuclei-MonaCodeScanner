@@ -1,0 +1,18 @@
+id: php-dynamic-function-execution
+info:
+  name: PHP Dynamic Function Execution Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects dynamic function calls which may lead to code injection vulnerabilities
+  tags: php, dynamic-function, injection
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - \$function_name\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\s*\)
+  extractors:
+  - type: regex
+    regex:
+    - \$function_name\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\s*\)

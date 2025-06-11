@@ -1,0 +1,20 @@
+id: php-xxe-detection
+info:
+  name: PHP XML External Entity (XXE) Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects XXE vulnerabilities in XML parsers in PHP applications
+  tags: php, xml, xxe
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - simplexml_load_file\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)
+    - domdocument->load\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)
+  extractors:
+  - type: regex
+    regex:
+    - simplexml_load_file\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)
+    - domdocument->load\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)

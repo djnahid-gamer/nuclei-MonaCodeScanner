@@ -1,0 +1,20 @@
+id: php-debug-mode
+info:
+  name: Insecure Debug Mode
+  author: kaanbicaklar
+  severity: high
+  description: Detects debug mode enabled in PHP
+  tags: php, debug
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - ini_set\(['"]display_errors['"],\s*['"]1['"]\)
+    - define\(['"]DEBUG['"],\s*true\)
+  extractors:
+  - type: regex
+    regex:
+    - ini_set\(['"]display_errors['"],\s*['"]1['"]\)
+    - define\(['"]DEBUG['"],\s*true\)

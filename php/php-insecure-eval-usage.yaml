@@ -1,0 +1,19 @@
+id: php-insecure-eval-usage
+info:
+  name: PHP Insecure eval() Usage Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure usage of the eval() function in PHP applications,
+    which can lead to code execution
+  tags: php, eval, rce
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - eval\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)
+  extractors:
+  - type: regex
+    regex:
+    - eval\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)

@@ -1,0 +1,18 @@
+id: php-json-injection
+info:
+  name: PHP JSON Injection Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects potential JSON injection vulnerabilities in PHP applications
+  tags: php, json, injection
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - json_encode\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)
+  extractors:
+  - type: regex
+    regex:
+    - json_encode\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)

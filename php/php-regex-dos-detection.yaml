@@ -1,0 +1,19 @@
+id: php-regex-dos-detection
+info:
+  name: PHP Regex Denial of Service Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects vulnerable regular expressions in PHP that can lead to ReDoS
+    attacks
+  tags: php, regex, redos
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - preg_match\s*\(\s*['"].*(\(\|).*['"].*\)
+  extractors:
+  - type: regex
+    regex:
+    - preg_match\s*\(\s*['"].*(\(\|).*['"].*\)

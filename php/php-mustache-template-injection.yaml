@@ -1,0 +1,18 @@
+id: php-mustache-template-injection
+info:
+  name: PHP Mustache Template Injection Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects template injection vulnerabilities in Mustache templates
+  tags: php, mustache, template-injection
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - \$mustache->render\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)
+  extractors:
+  - type: regex
+    regex:
+    - \$mustache->render\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)

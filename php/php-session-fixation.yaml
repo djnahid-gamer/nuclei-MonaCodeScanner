@@ -1,0 +1,19 @@
+id: php-session-fixation
+info:
+  name: PHP Session Fixation Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure session handling which may lead to session fixation
+    attacks
+  tags: php, session, security
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - session_id\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)
+  extractors:
+  - type: regex
+    regex:
+    - session_id\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)

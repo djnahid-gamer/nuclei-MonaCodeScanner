@@ -1,0 +1,18 @@
+id: php-twig-template-injection
+info:
+  name: PHP Twig Template Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects template injection vulnerabilities in Twig templates
+  tags: php, twig, template-injection
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - \$twig->createTemplate\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)
+  extractors:
+  - type: regex
+    regex:
+    - \$twig->createTemplate\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)

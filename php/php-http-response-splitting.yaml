@@ -1,0 +1,18 @@
+id: php-http-response-splitting
+info:
+  name: PHP HTTP Response Splitting Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects HTTP response splitting vulnerabilities in PHP
+  tags: php, http, injection
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - header\s*\(\s*['"].*\$_(GET|POST|REQUEST|COOKIE).*['"]
+  extractors:
+  - type: regex
+    regex:
+    - header\s*\(\s*['"].*\$_(GET|POST|REQUEST|COOKIE).*['"]

@@ -1,0 +1,20 @@
+id: php-unsafe-dependency-usage
+info:
+  name: PHP Unsafe Dependency Usage Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects usage of outdated or vulnerable PHP libraries
+  tags: php, dependencies, security
+file:
+- extensions:
+  - json
+  matchers:
+  - type: regex
+    regex:
+    - '"phpunit/phpunit":\s*"<8.5"'
+    - '"symfony/symfony":\s*"<4.4"'
+  extractors:
+  - type: regex
+    regex:
+    - '"phpunit/phpunit":\s*"<8.5"'
+    - '"symfony/symfony":\s*"<4.4"'

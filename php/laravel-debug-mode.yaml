@@ -1,0 +1,20 @@
+id: laravel-debug-mode
+info:
+  name: Laravel Debug Mode Enabled
+  author: kaanbicaklar
+  severity: critical
+  description: Detects if Laravel debug mode is enabled in .env files
+  tags: php, laravel, debug
+file:
+- extensions:
+  - env
+  matchers:
+  - type: regex
+    regex:
+    - APP_DEBUG\s*=\s*true
+    - APP_ENV\s*=\s*local
+  extractors:
+  - type: regex
+    regex:
+    - APP_DEBUG\s*=\s*true
+    - APP_ENV\s*=\s*local

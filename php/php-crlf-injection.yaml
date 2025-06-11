@@ -1,0 +1,21 @@
+id: php-crlf-injection
+info:
+  name: PHP CRLF Injection Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects CRLF injection vulnerabilities in PHP applications, often used
+    in log poisoning or HTTP response splitting
+  tags: php, crlf-injection, security
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - header\s*\(\s*['"].*\r\n.*['"]\s*\)
+    - file_put_contents\s*\(\s*.*\$_(GET|POST|REQUEST)\[.*\].*\r\n.*\s*\)
+  extractors:
+  - type: regex
+    regex:
+    - header\s*\(\s*['"].*\r\n.*['"]\s*\)
+    - file_put_contents\s*\(\s*.*\$_(GET|POST|REQUEST)\[.*\].*\r\n.*\s*\)

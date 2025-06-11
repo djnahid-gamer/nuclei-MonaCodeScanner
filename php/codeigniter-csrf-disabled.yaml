@@ -1,0 +1,18 @@
+id: codeigniter-csrf-disabled
+info:
+  name: CodeIgniter CSRF Protection Disabled
+  author: kaanbicaklar
+  severity: critical
+  description: Detects if CSRF protection is disabled in CodeIgniter configuration
+  tags: php, codeigniter, csrf
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - \$config\['csrf_protection'\]\s*=\s*false
+  extractors:
+  - type: regex
+    regex:
+    - \$config\['csrf_protection'\]\s*=\s*false

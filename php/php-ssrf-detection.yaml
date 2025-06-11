@@ -1,0 +1,27 @@
+id: php-ssrf-detection
+info:
+  name: PHP SSRF Detection (All Methods)
+  author: kaanbicaklar
+  severity: critical
+  description: Detects SSRF vulnerabilities using file_get_contents, cURL, HTTP wrappers,
+    and other methods
+  tags: php, ssrf, curl, http-wrapper
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - file_get_contents\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\s*\)
+    - curl_init\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\s*\)
+    - fsockopen\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\s*,\s*[0-9]+\s*\)
+    - stream_socket_client\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\s*,\s*[0-9]+\s*\)
+    - curl_setopt\s*\(\s*\$.*\s*,\s*CURLOPT_URL\s*,\s*\$_(GET|POST|REQUEST)\[.*\]\s*\)
+  extractors:
+  - type: regex
+    regex:
+    - file_get_contents\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\s*\)
+    - curl_init\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\s*\)
+    - fsockopen\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\s*,\s*[0-9]+\s*\)
+    - stream_socket_client\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\s*,\s*[0-9]+\s*\)
+    - curl_setopt\s*\(\s*\$.*\s*,\s*CURLOPT_URL\s*,\s*\$_(GET|POST|REQUEST)\[.*\]\s*\)

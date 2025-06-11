@@ -1,0 +1,21 @@
+id: php-unvalidated-redirects
+info:
+  name: PHP Unvalidated Redirects & Open Redirect Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects unvalidated redirect and open redirect vulnerabilities in PHP
+    applications
+  tags: php, redirect, open-redirect, security
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - header\s*\(\s*['"]Location:\s*\$_(GET|POST|REQUEST)\[.*\]['"]\)
+    - header\s*\(\s*['"]Location:\s*\$_(GET|POST|REQUEST)
+  extractors:
+  - type: regex
+    regex:
+    - header\s*\(\s*['"]Location:\s*\$_(GET|POST|REQUEST)\[.*\]['"]\)
+    - header\s*\(\s*['"]Location:\s*\$_(GET|POST|REQUEST)

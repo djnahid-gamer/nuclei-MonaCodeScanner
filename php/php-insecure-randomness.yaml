@@ -1,0 +1,19 @@
+id: php-insecure-randomness
+info:
+  name: PHP Insecure Randomness Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects usage of insecure randomness functions like rand() and mt_rand()
+    in PHP
+  tags: php, randomness, security
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - \b(rand|mt_rand)\s*\(\s*[0-9]+\s*,\s*[0-9]+\s*\)
+  extractors:
+  - type: regex
+    regex:
+    - \b(rand|mt_rand)\s*\(\s*[0-9]+\s*,\s*[0-9]+\s*\)

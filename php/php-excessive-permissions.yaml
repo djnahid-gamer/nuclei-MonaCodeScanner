@@ -1,0 +1,18 @@
+id: php-excessive-permissions
+info:
+  name: PHP Excessive Permissions Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects usage of excessive permissions in file or directory operations
+  tags: php, permissions, security
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - chmod\s*\(\s*.*777\)
+  extractors:
+  - type: regex
+    regex:
+    - chmod\s*\(\s*.*777\)

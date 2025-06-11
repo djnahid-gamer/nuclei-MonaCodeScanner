@@ -1,0 +1,18 @@
+id: laravel-hardcoded-app-key
+info:
+  name: Laravel Hardcoded Application Key
+  author: kaanbicaklar
+  severity: critical
+  description: Detects hardcoded application keys in .env files
+  tags: php, laravel, credentials
+file:
+- extensions:
+  - env
+  matchers:
+  - type: regex
+    regex:
+    - APP_KEY\s*=\s*["'][a-zA-Z0-9]{32,}["']
+  extractors:
+  - type: regex
+    regex:
+    - APP_KEY\s*=\s*["'][a-zA-Z0-9]{32,}["']

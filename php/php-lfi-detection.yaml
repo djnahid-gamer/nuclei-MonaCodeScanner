@@ -1,0 +1,23 @@
+id: php-lfi-detection
+info:
+  name: Local File Inclusion Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential LFI vulnerabilities across all PHP frameworks and
+    libraries
+  tags: php, lfi
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - include\s*\(\s*\$_(GET|POST|REQUEST|COOKIE|SERVER)
+    - require\s*\(\s*\$_(GET|POST|REQUEST|COOKIE|SERVER)
+    - fopen\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)
+  extractors:
+  - type: regex
+    regex:
+    - include\s*\(\s*\$_(GET|POST|REQUEST|COOKIE|SERVER)
+    - require\s*\(\s*\$_(GET|POST|REQUEST|COOKIE|SERVER)
+    - fopen\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)

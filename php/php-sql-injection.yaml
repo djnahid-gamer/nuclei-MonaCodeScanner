@@ -1,0 +1,27 @@
+id: php-sql-injection
+info:
+  name: SQL Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects SQL injection vulnerabilities across all PHP frameworks and
+    libraries
+  tags: php, sqli
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - mysql_query\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]
+    - mysqli_query\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]
+    - PDO::prepare\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]
+    - DB::select\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]
+    - DB::table\(.*\)->where\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]
+  extractors:
+  - type: regex
+    regex:
+    - mysql_query\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]
+    - mysqli_query\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]
+    - PDO::prepare\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]
+    - DB::select\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]
+    - DB::table\(.*\)->where\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]

@@ -1,0 +1,20 @@
+id: php-dns-rebinding-detection
+info:
+  name: PHP DNS Rebinding or SSRF Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects DNS rebinding or SSRF issues caused by unvalidated host resolution
+  tags: php, dns-rebinding, ssrf
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - gethostbyname\s*\(\s*\$_(GET|POST|REQUEST)
+    - dns_get_record\s*\(\s*\$_(GET|POST|REQUEST)
+  extractors:
+  - type: regex
+    regex:
+    - gethostbyname\s*\(\s*\$_(GET|POST|REQUEST)
+    - dns_get_record\s*\(\s*\$_(GET|POST|REQUEST)

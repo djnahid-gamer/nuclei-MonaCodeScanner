@@ -1,0 +1,21 @@
+id: php-xss-detection
+info:
+  name: Cross-Site Scripting Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential XSS vulnerabilities across all PHP frameworks and
+    libraries
+  tags: php, xss
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - echo\s*\$_(GET|POST|REQUEST|COOKIE|SERVER)\[.*\]\s*;
+    - print\s*\$_(GET|POST|REQUEST|COOKIE|SERVER)\[.*\]\s*;
+  extractors:
+  - type: regex
+    regex:
+    - echo\s*\$_(GET|POST|REQUEST|COOKIE|SERVER)\[.*\]\s*;
+    - print\s*\$_(GET|POST|REQUEST|COOKIE|SERVER)\[.*\]\s*;

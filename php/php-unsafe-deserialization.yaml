@@ -1,0 +1,18 @@
+id: php-unsafe-deserialization
+info:
+  name: Unsafe Deserialization Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential deserialization vulnerabilities in PHP files
+  tags: php, deserialization
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - unserialize\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)
+  extractors:
+  - type: regex
+    regex:
+    - unserialize\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)

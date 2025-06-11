@@ -1,0 +1,23 @@
+id: php-idor-detection
+info:
+  name: Insecure Direct Object Reference Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects potential IDOR vulnerabilities across all PHP frameworks and
+    libraries
+  tags: php, idor
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - \$_(GET|POST)\['id'\]
+    - \$_(GET|POST)\['user_id'\]
+    - \$_(GET|POST)\['file_id'\]
+  extractors:
+  - type: regex
+    regex:
+    - \$_(GET|POST)\['id'\]
+    - \$_(GET|POST)\['user_id'\]
+    - \$_(GET|POST)\['file_id'\]

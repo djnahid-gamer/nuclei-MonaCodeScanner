@@ -1,0 +1,20 @@
+id: php-dangerous-shell-execution
+info:
+  name: PHP Dangerous Shell Execution Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects usage of shell execution functions with user-controlled input
+  tags: php, shell, rce
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - exec\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)
+    - shell_exec\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)
+  extractors:
+  - type: regex
+    regex:
+    - exec\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)
+    - shell_exec\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)

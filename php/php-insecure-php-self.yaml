@@ -1,0 +1,19 @@
+id: php-insecure-php-self
+info:
+  name: PHP Insecure PHP_SELF Usage Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects usage of $_SERVER['PHP_SELF'] which may lead to XSS or injection
+    vulnerabilities
+  tags: php, php-self, xss
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - \$_SERVER\['PHP_SELF'\]
+  extractors:
+  - type: regex
+    regex:
+    - \$_SERVER\['PHP_SELF'\]

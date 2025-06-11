@@ -1,0 +1,19 @@
+id: php-dynamic-variable-usage
+info:
+  name: PHP Dangerous Dynamic Variable Usage Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects usage of dynamic variable names which may lead to security
+    risks
+  tags: php, dynamic-variable, security
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - \$\{\$_(GET|POST|REQUEST)\[.*\]\}
+  extractors:
+  - type: regex
+    regex:
+    - \$\{\$_(GET|POST|REQUEST)\[.*\]\}

@@ -1,0 +1,21 @@
+id: php-ssti-detection
+info:
+  name: PHP Server-Side Template Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential SSTI vulnerabilities in PHP templating engines (e.g.,
+    Twig, Smarty)
+  tags: php, ssti, security
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - \$twig->render\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)
+    - \$smarty->display\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)
+  extractors:
+  - type: regex
+    regex:
+    - \$twig->render\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)
+    - \$smarty->display\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)

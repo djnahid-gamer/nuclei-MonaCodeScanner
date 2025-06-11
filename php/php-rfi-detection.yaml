@@ -1,0 +1,23 @@
+id: php-rfi-detection
+info:
+  name: Remote File Inclusion Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential RFI vulnerabilities across all PHP frameworks and
+    libraries
+  tags: php, rfi
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - include\s*\(\s*['"]https?://.*['"]
+    - require\s*\(\s*['"]https?://.*['"]
+    - file_get_contents\s*\(\s*['"]https?://.*['"]
+  extractors:
+  - type: regex
+    regex:
+    - include\s*\(\s*['"]https?://.*['"]
+    - require\s*\(\s*['"]https?://.*['"]
+    - file_get_contents\s*\(\s*['"]https?://.*['"]

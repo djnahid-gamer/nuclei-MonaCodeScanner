@@ -1,0 +1,19 @@
+id: php-object-injection-detection
+info:
+  name: PHP Object Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure PHP object injection vulnerabilities that may lead
+    to remote code execution
+  tags: php, object-injection, rce
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - unserialize\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)
+  extractors:
+  - type: regex
+    regex:
+    - unserialize\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)

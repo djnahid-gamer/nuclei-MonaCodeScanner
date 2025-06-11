@@ -1,0 +1,22 @@
+id: php-backdoor-detection
+info:
+  name: PHP Backdoor Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential PHP backdoor patterns
+  tags: php, backdoor
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - eval\s*\(\s*base64_decode\s*\(\s*['"][a-zA-Z0-9+/]{32,}['"]\s*\)\s*\)
+    - preg_replace\s*\(\s*['"]/.*/e['"]\s*,\s*base64_decode\s*\(\s*['"][a-zA-Z0-9+/]{32,}['"]\s*\)\s*,\s*.*\s*\)
+    - assert\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\s*\)
+  extractors:
+  - type: regex
+    regex:
+    - eval\s*\(\s*base64_decode\s*\(\s*['"][a-zA-Z0-9+/]{32,}['"]\s*\)\s*\)
+    - preg_replace\s*\(\s*['"]/.*/e['"]\s*,\s*base64_decode\s*\(\s*['"][a-zA-Z0-9+/]{32,}['"]\s*\)\s*,\s*.*\s*\)
+    - assert\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\s*\)

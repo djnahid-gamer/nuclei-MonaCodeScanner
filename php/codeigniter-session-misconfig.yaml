@@ -1,0 +1,20 @@
+id: codeigniter-session-misconfig
+info:
+  name: CodeIgniter Session Misconfigurations
+  author: kaanbicaklar
+  severity: medium
+  description: Detects insecure session configurations in CodeIgniter
+  tags: php, codeigniter, session
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - \$config\['sess_driver'\]\s*=\s*'file'
+    - \$config\['sess_cookie_name'\]\s*=\s*['"]ci_session['"]
+  extractors:
+  - type: regex
+    regex:
+    - \$config\['sess_driver'\]\s*=\s*'file'
+    - \$config\['sess_cookie_name'\]\s*=\s*['"]ci_session['"]

@@ -1,0 +1,18 @@
+id: php-smarty-template-injection
+info:
+  name: PHP Smarty Template Injection Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects template injection vulnerabilities in Smarty templates
+  tags: php, smarty, template-injection
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - \$smarty->assign\s*\(\s*['"].*['"],\s*\$_(GET|POST|REQUEST)\[.*\]\)
+  extractors:
+  - type: regex
+    regex:
+    - \$smarty->assign\s*\(\s*['"].*['"],\s*\$_(GET|POST|REQUEST)\[.*\]\)

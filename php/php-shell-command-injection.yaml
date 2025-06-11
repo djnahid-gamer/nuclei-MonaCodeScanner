@@ -1,0 +1,25 @@
+id: php-command-injection
+info:
+  name: PHP Command Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects command injection vulnerabilities in shell functions including
+    shell_exec, exec, system, and passthru
+  tags: php, command-injection, shell
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - passthru\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)
+    - system\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)
+    - shell_exec\s*\(\s*\$_(GET|POST|REQUEST)
+    - exec\s*\(\s*\$_(GET|POST|REQUEST)
+  extractors:
+  - type: regex
+    regex:
+    - passthru\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)
+    - system\s*\(\s*\$_(GET|POST|REQUEST)\[.*\]\)
+    - shell_exec\s*\(\s*\$_(GET|POST|REQUEST)
+    - exec\s*\(\s*\$_(GET|POST|REQUEST)

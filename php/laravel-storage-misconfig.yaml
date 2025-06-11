@@ -1,0 +1,18 @@
+id: laravel-storage-misconfig
+info:
+  name: Laravel Storage Misconfigurations
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure storage configurations in Laravel
+  tags: php, laravel, storage
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - \$config\['filesystems'\]\['disks'\]\['local'\]\['root'\]\s*=\s*.*storage_path\(
+  extractors:
+  - type: regex
+    regex:
+    - \$config\['filesystems'\]\['disks'\]\['local'\]\['root'\]\s*=\s*.*storage_path\(

@@ -1,0 +1,22 @@
+id: php-type-juggling
+info:
+  name: PHP Type Juggling Vulnerability Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects type juggling vulnerabilities in PHP applications
+  tags: php, type-juggling, security
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - \$_(GET|POST|REQUEST|COOKIE)\[.*\]\s*==\s*['"]0['"]
+    - \$_(GET|POST|REQUEST|COOKIE)\[.*\]\s*==\s*['"]false['"]
+    - \$_(GET|POST|REQUEST|COOKIE)\[.*\]\s*==\s*['"]null['"]
+  extractors:
+  - type: regex
+    regex:
+    - \$_(GET|POST|REQUEST|COOKIE)\[.*\]\s*==\s*['"]0['"]
+    - \$_(GET|POST|REQUEST|COOKIE)\[.*\]\s*==\s*['"]false['"]
+    - \$_(GET|POST|REQUEST|COOKIE)\[.*\]\s*==\s*['"]null['"]

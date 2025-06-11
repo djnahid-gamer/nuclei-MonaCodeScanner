@@ -1,0 +1,22 @@
+id: php-unrestricted-file-write
+info:
+  name: PHP Unrestricted File Write Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unrestricted file write functions in PHP
+  tags: php, file-write
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - file_put_contents\s*\(
+    - fwrite\s*\(
+    - file_get_contents\s*\(.*\$_(GET|POST|REQUEST|COOKIE)
+  extractors:
+  - type: regex
+    regex:
+    - file_put_contents\s*\(
+    - fwrite\s*\(
+    - file_get_contents\s*\(.*\$_(GET|POST|REQUEST|COOKIE)

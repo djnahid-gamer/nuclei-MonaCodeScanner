@@ -1,0 +1,20 @@
+id: php-header-injection
+info:
+  name: PHP Header Injection Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects header injection vulnerabilities in PHP applications
+  tags: php, header-injection, security
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - header\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]\s*\)
+    - setcookie\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]\s*\)
+  extractors:
+  - type: regex
+    regex:
+    - header\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]\s*\)
+    - setcookie\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]\s*\)

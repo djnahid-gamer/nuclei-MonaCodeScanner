@@ -1,0 +1,20 @@
+id: php-improper-error-logging
+info:
+  name: PHP Improper Error Logging
+  author: kaanbicaklar
+  severity: medium
+  description: Detects improper error logging that could expose sensitive data
+  tags: php, error-logging
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - error_log\s*\(
+    - ini_set\s*\(['"]display_errors['"],\s*['"]1['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - error_log\s*\(
+    - ini_set\s*\(['"]display_errors['"],\s*['"]1['"]\)

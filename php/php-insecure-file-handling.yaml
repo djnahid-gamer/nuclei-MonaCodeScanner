@@ -1,0 +1,24 @@
+id: php-insecure-file-handling
+info:
+  name: PHP Insecure File Handling
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure file handling methods in PHP code
+  tags: php, file
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - fopen\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]
+    - file_put_contents\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]
+    - readfile\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]
+    - unlink\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]
+  extractors:
+  - type: regex
+    regex:
+    - fopen\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]
+    - file_put_contents\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]
+    - readfile\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]
+    - unlink\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]

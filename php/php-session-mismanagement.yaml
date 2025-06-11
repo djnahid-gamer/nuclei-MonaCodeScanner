@@ -1,0 +1,24 @@
+id: php-session-mismanagement
+info:
+  name: PHP Session Mismanagement Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure session handling in PHP applications
+  tags: php, session
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - session_start\s*\(
+    - session_id\s*\(
+    - \$_SESSION\s*\[.*\]\s*=\s*.*
+    - ini_set\s*\(['"]session.cookie_secure['"],\s*['"]0['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - session_start\s*\(
+    - session_id\s*\(
+    - \$_SESSION\s*\[.*\]\s*=\s*.*
+    - ini_set\s*\(['"]session.cookie_secure['"],\s*['"]0['"]\)

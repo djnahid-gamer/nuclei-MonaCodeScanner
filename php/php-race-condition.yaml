@@ -1,0 +1,22 @@
+id: php-race-condition
+info:
+  name: PHP Race Condition Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects potential race conditions in PHP applications
+  tags: php, race-condition, security
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - file_put_contents\s*\(\s*.*\$_(GET|POST|REQUEST|COOKIE)\[.*\]\s*,\s*.*\s*\)
+    - fwrite\s*\(\s*.*\$_(GET|POST|REQUEST|COOKIE)\[.*\]\s*,\s*.*\s*\)
+    - mkdir\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]\s*\)
+  extractors:
+  - type: regex
+    regex:
+    - file_put_contents\s*\(\s*.*\$_(GET|POST|REQUEST|COOKIE)\[.*\]\s*,\s*.*\s*\)
+    - fwrite\s*\(\s*.*\$_(GET|POST|REQUEST|COOKIE)\[.*\]\s*,\s*.*\s*\)
+    - mkdir\s*\(\s*\$_(GET|POST|REQUEST|COOKIE)\[.*\]\s*\)

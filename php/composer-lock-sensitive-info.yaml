@@ -1,0 +1,18 @@
+id: composer-lock-sensitive-info
+info:
+  name: Sensitive Information in Composer Lock File
+  author: kaanbicaklar
+  severity: medium
+  description: Detects sensitive information in composer.lock file
+  tags: php, composer, credentials
+file:
+- extensions:
+  - lock
+  matchers:
+  - type: regex
+    regex:
+    - url\s*:\s*["']https?://.*(username|password|key)=.*
+  extractors:
+  - type: regex
+    regex:
+    - url\s*:\s*["']https?://.*(username|password|key)=.*

@@ -1,0 +1,21 @@
+id: php-unsafe-xml-parsing
+info:
+  name: PHP Unsafe XML Parsing Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects usage of unsafe XML parsing functions which may lead to XXE
+    vulnerabilities
+  tags: php, xml, xxe
+file:
+- extensions:
+  - php
+  matchers:
+  - type: regex
+    regex:
+    - simplexml_load_string\s*\(\s*\$_(GET|POST|REQUEST).*\)
+    - domdocument->loadxml\s*\(\s*\$_(GET|POST|REQUEST).*\)
+  extractors:
+  - type: regex
+    regex:
+    - simplexml_load_string\s*\(\s*\$_(GET|POST|REQUEST).*\)
+    - domdocument->loadxml\s*\(\s*\$_(GET|POST|REQUEST).*\)

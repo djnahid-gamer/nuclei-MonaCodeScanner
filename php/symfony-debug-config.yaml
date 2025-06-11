@@ -1,0 +1,19 @@
+id: symfony-debug-config
+info:
+  name: Symfony Debug Mode Enabled
+  author: kaanbicaklar
+  severity: critical
+  description: Detects Symfony debug mode enabled in configuration files
+  tags: php, symfony, debug
+file:
+- extensions:
+  - yaml
+  - yml
+  matchers:
+  - type: regex
+    regex:
+    - debug:\s*true
+  extractors:
+  - type: regex
+    regex:
+    - debug:\s*true
