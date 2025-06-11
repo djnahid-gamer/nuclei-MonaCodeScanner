@@ -1,0 +1,22 @@
+id: exposed-aws-keys-config
+info:
+  name: Exposed AWS Keys in Configuration Files
+  author: Kaan
+  severity: critical
+  description: Detects exposed AWS access keys in configuration files
+  tags: aws, config, keys
+file:
+- extensions:
+  - xml
+  - csv
+  - conf
+  matchers:
+  - type: regex
+    regex:
+    - AKIA[0-9A-Z]{16}
+    - aws_secret_access_key\s*=\s*['"].*['"]
+  extractors:
+  - type: regex
+    regex:
+    - AKIA[0-9A-Z]{16}
+    - aws_secret_access_key\s*=\s*['"].*['"]

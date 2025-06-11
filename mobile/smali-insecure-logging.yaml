@@ -1,0 +1,20 @@
+id: smali-insecure-logging
+info:
+  name: Insecure Logging Practices Detection in Smali Files
+  author: Kaan
+  severity: high
+  description: Detects logging of sensitive information in Smali files
+  tags: smali, mobile, logging
+file:
+- extensions:
+  - smali
+  matchers:
+  - type: regex
+    regex:
+    - Landroid/util/Log;->d\(Ljava/lang/String;Ljava/lang/String;\)
+    - Landroid/util/Log;->e\(Ljava/lang/String;Ljava/lang/String;\)
+  extractors:
+  - type: regex
+    regex:
+    - Landroid/util/Log;->d\(Ljava/lang/String;Ljava/lang/String;\)
+    - Landroid/util/Log;->e\(Ljava/lang/String;Ljava/lang/String;\)

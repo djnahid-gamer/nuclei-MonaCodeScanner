@@ -1,0 +1,20 @@
+id: mobile-unrestricted-url-redirection-deeplinks
+info:
+  name: Unrestricted URL Redirection in Deeplinks Detection
+  author: Kaan
+  severity: critical
+  description: Detects unrestricted URL redirection vulnerabilities in deeplink handling
+  tags: java, mobile, deeplink, url-redirection
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - intent\.getData\s*\(\s*\)\.toString\s*\(\)
+    - Uri\.parse\s*\(\s*intent\.getData\(\)\)
+  extractors:
+  - type: regex
+    regex:
+    - intent\.getData\s*\(\s*\)\.toString\s*\(\)
+    - Uri\.parse\s*\(\s*intent\.getData\(\)\)

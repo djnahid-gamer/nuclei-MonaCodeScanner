@@ -1,0 +1,20 @@
+id: mobile-weak-cryptography
+info:
+  name: Weak Cryptography Usage Detection
+  author: Kaan
+  severity: critical
+  description: Detects usage of weak cryptographic algorithms in mobile applications
+  tags: java, mobile, cryptography
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - MessageDigest\.getInstance\s*\(\s*['"]MD5['"]\)
+    - MessageDigest\.getInstance\s*\(\s*['"]SHA1['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - MessageDigest\.getInstance\s*\(\s*['"]MD5['"]\)
+    - MessageDigest\.getInstance\s*\(\s*['"]SHA1['"]\)

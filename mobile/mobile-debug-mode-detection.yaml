@@ -1,0 +1,18 @@
+id: mobile-debug-mode-detection
+info:
+  name: Debug Mode Detection in Mobile Apps
+  author: Kaan
+  severity: high
+  description: Detects if debug mode is enabled in mobile application Java files
+  tags: java, mobile, debug
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - BuildConfig\.DEBUG\s*==\s*true
+  extractors:
+  - type: regex
+    regex:
+    - BuildConfig\.DEBUG\s*==\s*true

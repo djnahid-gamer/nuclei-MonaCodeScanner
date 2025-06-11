@@ -1,0 +1,18 @@
+id: smali-insecure-file-handling
+info:
+  name: Insecure File Handling Detection in Smali Files
+  author: Kaan
+  severity: critical
+  description: Detects insecure file handling practices in Smali files
+  tags: smali, mobile, file-handling
+file:
+- extensions:
+  - smali
+  matchers:
+  - type: regex
+    regex:
+    - new-instance\s+[vp]\d+,\s*Ljava/io/File;
+  extractors:
+  - type: regex
+    regex:
+    - new-instance\s+[vp]\d+,\s*Ljava/io/File;

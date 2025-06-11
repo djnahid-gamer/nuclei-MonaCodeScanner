@@ -1,0 +1,20 @@
+id: mobile-exposed-content-providers
+info:
+  name: Exposed Content Providers Detection
+  author: Kaan
+  severity: critical
+  description: Detects exposed or insecure content providers in Android applications
+  tags: java, mobile, content-provider
+file:
+- extensions:
+  - xml
+  matchers:
+  - type: regex
+    regex:
+    - <provider\s*[^>]*android:exported=['"]true['"]
+    - <provider\s*[^>]*android:grantUriPermissions=['"]true['"]
+  extractors:
+  - type: regex
+    regex:
+    - <provider\s*[^>]*android:exported=['"]true['"]
+    - <provider\s*[^>]*android:grantUriPermissions=['"]true['"]

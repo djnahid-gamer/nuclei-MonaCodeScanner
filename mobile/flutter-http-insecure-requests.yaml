@@ -1,0 +1,20 @@
+id: flutter-http-insecure-requests
+info:
+  name: Flutter HTTP Requests Over Insecure Channels
+  author: Kaan
+  severity: critical
+  description: Detects usage of HTTP instead of HTTPS in Flutter apps
+  tags: flutter, mobile, http
+file:
+- extensions:
+  - dart
+  matchers:
+  - type: regex
+    regex:
+    - http\.Client\(\)
+    - http:\/\/
+  extractors:
+  - type: regex
+    regex:
+    - http\.Client\(\)
+    - http:\/\/

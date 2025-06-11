@@ -1,0 +1,20 @@
+id: mobile-exposed-graphql-api
+info:
+  name: Exposed GraphQL APIs Detection
+  author: Kaan
+  severity: critical
+  description: Detects exposed GraphQL API endpoints in mobile applications
+  tags: java, mobile, graphql, api
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - GraphQL\.newGraphQL\s*\(\s*.*\)
+    - query\s*:\s*request\.getParameter\(.*\)
+  extractors:
+  - type: regex
+    regex:
+    - GraphQL\.newGraphQL\s*\(\s*.*\)
+    - query\s*:\s*request\.getParameter\(.*\)

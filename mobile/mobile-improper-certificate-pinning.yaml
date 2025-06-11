@@ -1,0 +1,20 @@
+id: mobile-improper-certificate-pinning
+info:
+  name: Improper Certificate Pinning Detection
+  author: Kaan
+  severity: critical
+  description: Detects missing or insecure certificate pinning in mobile applications
+  tags: java, mobile, certificate-pinning
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - TrustManager\s*\{\s*\}
+    - sslContext\.init\s*\(\s*null,\s*new TrustManager\[\]\{\s*.*\},\s*null\)
+  extractors:
+  - type: regex
+    regex:
+    - TrustManager\s*\{\s*\}
+    - sslContext\.init\s*\(\s*null,\s*new TrustManager\[\]\{\s*.*\},\s*null\)

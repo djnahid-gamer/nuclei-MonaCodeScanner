@@ -1,0 +1,20 @@
+id: mobile-proguard-misconfiguration
+info:
+  name: Insecure ProGuard Configuration Detection
+  author: Kaan
+  severity: medium
+  description: Detects missing or insecure ProGuard configurations in mobile applications
+  tags: java, mobile, proguard
+file:
+- extensions:
+  - pro
+  matchers:
+  - type: regex
+    regex:
+    - -keep\s*class\s*\*.*\*\s*\{\s*\*\;\}
+    - -dontobfuscate
+  extractors:
+  - type: regex
+    regex:
+    - -keep\s*class\s*\*.*\*\s*\{\s*\*\;\}
+    - -dontobfuscate

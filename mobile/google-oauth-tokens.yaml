@@ -1,0 +1,20 @@
+id: google-oauth-tokens
+info:
+  name: Google OAuth Tokens Detection
+  author: Kaan
+  severity: critical
+  description: Detects Google OAuth tokens exposed in configuration or log files
+  tags: oauth, google, tokens
+file:
+- extensions:
+  - log
+  - yaml
+  - json
+  matchers:
+  - type: regex
+    regex:
+    - ya29\.[0-9A-Za-z\-_]+
+  extractors:
+  - type: regex
+    regex:
+    - ya29\.[0-9A-Za-z\-_]+

@@ -1,0 +1,18 @@
+id: mobile-missing-server-side-validation
+info:
+  name: Missing Server-Side Validation Detection
+  author: Kaan
+  severity: critical
+  description: Detects absence of server-side input validation in mobile apps
+  tags: java, mobile, validation
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - getIntent\(\)\.getStringExtra\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - getIntent\(\)\.getStringExtra\(\s*.*\)

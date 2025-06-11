@@ -1,0 +1,20 @@
+id: smali-insecure-intent-handling
+info:
+  name: Insecure Intent Handling Detection in Smali Files
+  author: Kaan
+  severity: high
+  description: Detects insecure intent handling methods in Smali files
+  tags: smali, mobile, intent
+file:
+- extensions:
+  - smali
+  matchers:
+  - type: regex
+    regex:
+    - Landroid/content/Intent;->getExtras\(\)Landroid/os/Bundle;
+    - Landroid/content/Intent;->getStringExtra\(Ljava/lang/String;\)
+  extractors:
+  - type: regex
+    regex:
+    - Landroid/content/Intent;->getExtras\(\)Landroid/os/Bundle;
+    - Landroid/content/Intent;->getStringExtra\(Ljava/lang/String;\)

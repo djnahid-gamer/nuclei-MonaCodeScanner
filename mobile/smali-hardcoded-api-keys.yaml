@@ -1,0 +1,18 @@
+id: smali-hardcoded-api-keys
+info:
+  name: Hardcoded API Keys Detection in Smali Files
+  author: Kaan
+  severity: critical
+  description: Detects hardcoded API keys in Smali files
+  tags: smali, mobile, api-key
+file:
+- extensions:
+  - smali
+  matchers:
+  - type: regex
+    regex:
+    - const-string\s+[vp]\d+,\s*"(apiKey|API_KEY|accessKey|secretKey|SECRET_KEY|authToken)"
+  extractors:
+  - type: regex
+    regex:
+    - const-string\s+[vp]\d+,\s*"(apiKey|API_KEY|accessKey|secretKey|SECRET_KEY|authToken)"

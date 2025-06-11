@@ -1,0 +1,21 @@
+id: mobile-insecure-intent-handling
+info:
+  name: Insecure Intent Handling Detection
+  author: Kaan
+  severity: high
+  description: Detects insecure use of Intents in mobile applications, leading to
+    potential data leaks or unauthorized access
+  tags: java, mobile, intent, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Intent\s*intent\s*=\s*new\s+Intent\s*\(\s*Intent\.ACTION_SEND\s*.*\)
+    - intent\.setFlags\s*\(\s*Intent\.FLAG_GRANT_READ_URI_PERMISSION\)
+  extractors:
+  - type: regex
+    regex:
+    - Intent\s*intent\s*=\s*new\s+Intent\s*\(\s*Intent\.ACTION_SEND\s*.*\)
+    - intent\.setFlags\s*\(\s*Intent\.FLAG_GRANT_READ_URI_PERMISSION\)

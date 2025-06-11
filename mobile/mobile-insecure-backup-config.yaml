@@ -1,0 +1,21 @@
+id: mobile-insecure-backup-config
+info:
+  name: Insecure Android Backup Configuration Detection
+  author: Kaan
+  severity: high
+  description: Detects AndroidManifest.xml configurations allowing sensitive app data
+    to be backed up
+  tags: mobile, androidmanifest, backup
+file:
+- extensions:
+  - xml
+  matchers:
+  - type: regex
+    regex:
+    - <application[^>]*android:allowBackup=['"]true['"]
+    - <application[^>]*android:fullBackupContent=['"]true['"]
+  extractors:
+  - type: regex
+    regex:
+    - <application[^>]*android:allowBackup=['"]true['"]
+    - <application[^>]*android:fullBackupContent=['"]true['"]

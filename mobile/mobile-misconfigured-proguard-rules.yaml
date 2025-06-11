@@ -1,0 +1,22 @@
+id: mobile-misconfigured-proguard-rules
+info:
+  name: Misconfigured ProGuard Rules Detection
+  author: Kaan
+  severity: high
+  description: Detects insecure or misconfigured ProGuard rules in mobile applications
+  tags: mobile, proguard, obfuscation
+file:
+- extensions:
+  - pro
+  matchers:
+  - type: regex
+    regex:
+    - -keepattributes\s*Signature
+    - -dontobfuscate
+    - -keep\s*class\s*\*.*
+  extractors:
+  - type: regex
+    regex:
+    - -keepattributes\s*Signature
+    - -dontobfuscate
+    - -keep\s*class\s*\*.*

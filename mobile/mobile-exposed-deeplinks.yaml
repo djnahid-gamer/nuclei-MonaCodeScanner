@@ -1,0 +1,20 @@
+id: mobile-exposed-deeplinks
+info:
+  name: Exposed Deeplinks Detection
+  author: Kaan
+  severity: critical
+  description: Detects exposed deeplinks in AndroidManifest.xml
+  tags: java, mobile, deeplink, androidmanifest
+file:
+- extensions:
+  - xml
+  matchers:
+  - type: regex
+    regex:
+    - <activity[^>]*android:exported=['"]true['"]
+    - <intent-filter[^>]*android:host=['"].*['"]
+  extractors:
+  - type: regex
+    regex:
+    - <activity[^>]*android:exported=['"]true['"]
+    - <intent-filter[^>]*android:host=['"].*['"]

@@ -1,0 +1,22 @@
+id: smali-insecure-sharedpreferences
+info:
+  name: Insecure SharedPreferences Usage Detection
+  author: Kaan
+  severity: high
+  description: Detects insecure usage of SharedPreferences in Smali files
+  tags: smali, mobile, sharedpreferences
+file:
+- extensions:
+  - smali
+  matchers:
+  - type: regex
+    regex:
+    - invoke-virtual\s+[vp]\d+,\s*Landroid/content/Context;->getSharedPreferences
+    - const/4\s+[vp]\d+,\s*0x3\s*.*Context\.MODE_WORLD_READABLE
+    - const/4\s+[vp]\d+,\s*0x2\s*.*Context\.MODE_WORLD_WRITEABLE
+  extractors:
+  - type: regex
+    regex:
+    - invoke-virtual\s+[vp]\d+,\s*Landroid/content/Context;->getSharedPreferences
+    - const/4\s+[vp]\d+,\s*0x3\s*.*Context\.MODE_WORLD_READABLE
+    - const/4\s+[vp]\d+,\s*0x2\s*.*Context\.MODE_WORLD_WRITEABLE

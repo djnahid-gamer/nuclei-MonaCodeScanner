@@ -1,0 +1,20 @@
+id: mobile-firebase-database-misconfig
+info:
+  name: Firebase Database Misconfiguration Detection
+  author: Kaan
+  severity: critical
+  description: Detects insecure Firebase Realtime Database rules in mobile applications
+  tags: java, mobile, firebase
+file:
+- extensions:
+  - json
+  matchers:
+  - type: regex
+    regex:
+    - '"\\.read"\\s*:\\s*"true"'
+    - '"\\.write"\\s*:\\s*"true"'
+  extractors:
+  - type: regex
+    regex:
+    - '"\\.read"\\s*:\\s*"true"'
+    - '"\\.write"\\s*:\\s*"true"'

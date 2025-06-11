@@ -1,0 +1,20 @@
+id: mobile-retrofit-missing-timeout
+info:
+  name: Retrofit Missing Timeout Configuration Detection
+  author: Kaan
+  severity: high
+  description: Detects missing timeout configurations in Retrofit network calls
+  tags: java, mobile, retrofit, timeout
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - new OkHttpClient\.Builder\(\)
+    - Retrofit\.Builder\(\)
+  extractors:
+  - type: regex
+    regex:
+    - new OkHttpClient\.Builder\(\)
+    - Retrofit\.Builder\(\)

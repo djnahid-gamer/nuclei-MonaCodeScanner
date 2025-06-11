@@ -1,0 +1,19 @@
+id: mobile-unvalidated-deeplinks
+info:
+  name: Unvalidated Deeplinks Detection
+  author: Kaan
+  severity: critical
+  description: Detects unvalidated deeplinks in AndroidManifest.xml, leading to potential
+    unauthorized actions
+  tags: java, mobile, deeplink, androidmanifest
+file:
+- extensions:
+  - xml
+  matchers:
+  - type: regex
+    regex:
+    - <data[^>]*android:scheme=['"].*['"].*android:host=['"].*['"]
+  extractors:
+  - type: regex
+    regex:
+    - <data[^>]*android:scheme=['"].*['"].*android:host=['"].*['"]

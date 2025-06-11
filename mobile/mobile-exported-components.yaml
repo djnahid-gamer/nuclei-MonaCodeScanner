@@ -1,0 +1,20 @@
+id: mobile-exported-components
+info:
+  name: Exported Components Detection
+  author: Kaan
+  severity: critical
+  description: Detects exported components in AndroidManifest.xml
+  tags: java, mobile, exported-components, androidmanifest
+file:
+- extensions:
+  - xml
+  matchers:
+  - type: regex
+    regex:
+    - <activity[^>]*android:exported=['"]true['"]
+    - <service[^>]*android:exported=['"]true['"]
+  extractors:
+  - type: regex
+    regex:
+    - <activity[^>]*android:exported=['"]true['"]
+    - <service[^>]*android:exported=['"]true['"]

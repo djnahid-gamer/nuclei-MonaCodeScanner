@@ -1,0 +1,20 @@
+id: mobile-insecure-custom-scheme
+info:
+  name: Insecure Custom Scheme Handling Detection
+  author: Kaan
+  severity: high
+  description: Detects insecure handling of custom schemes in mobile applications
+  tags: java, mobile, deeplink
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - intent\.getData\s*\(\s*\)\.getScheme\s*\(\)
+    - intent\.getData\s*\(\s*\)\.getHost\s*\(\)
+  extractors:
+  - type: regex
+    regex:
+    - intent\.getData\s*\(\s*\)\.getScheme\s*\(\)
+    - intent\.getData\s*\(\s*\)\.getHost\s*\(\)

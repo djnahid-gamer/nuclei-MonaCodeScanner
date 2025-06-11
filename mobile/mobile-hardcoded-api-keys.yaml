@@ -1,0 +1,18 @@
+id: mobile-hardcoded-api-keys
+info:
+  name: Hardcoded API Keys Detection in Mobile Apps
+  author: Kaan
+  severity: critical
+  description: Detects hardcoded API keys in Java files within mobile applications
+  tags: java, mobile, api-key, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - \b(apiKey|API_KEY|api_key|apikey|accessKey|ACCESS_KEY|access_key|secretKey|SECRET_KEY|secret_key)\s*=\s*['"].*['"]
+  extractors:
+  - type: regex
+    regex:
+    - \b(apiKey|API_KEY|api_key|apikey|accessKey|ACCESS_KEY|access_key|secretKey|SECRET_KEY|secret_key)\s*=\s*['"].*['"]

@@ -1,0 +1,18 @@
+id: mobile-insufficient-authentication
+info:
+  name: Insufficient Authentication Detection
+  author: Kaan
+  severity: critical
+  description: Detects missing or weak authentication mechanisms in mobile apps
+  tags: java, mobile, authentication
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - FirebaseAuth\.getInstance\s*\(\)
+  extractors:
+  - type: regex
+    regex:
+    - FirebaseAuth\.getInstance\s*\(\)

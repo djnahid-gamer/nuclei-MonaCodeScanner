@@ -1,0 +1,18 @@
+id: mobile-hardcoded-urls
+info:
+  name: Hardcoded URLs Detection
+  author: Kaan
+  severity: high
+  description: Detects hardcoded URLs, especially HTTP instead of HTTPS
+  tags: java, mobile, urls
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - http:\/\/[^\s]+
+  extractors:
+  - type: regex
+    regex:
+    - http:\/\/[^\s]+

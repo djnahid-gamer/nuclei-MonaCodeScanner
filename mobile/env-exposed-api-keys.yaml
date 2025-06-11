@@ -1,0 +1,18 @@
+id: env-exposed-api-keys
+info:
+  name: Exposed API Keys in .env Files Detection
+  author: Kaan
+  severity: critical
+  description: Detects exposed API keys in .env files
+  tags: env, api-keys, sensitive-data
+file:
+- extensions:
+  - env
+  matchers:
+  - type: regex
+    regex:
+    - (api_key|API_KEY|access_key|ACCESS_KEY)\s*=\s*['"].*['"]
+  extractors:
+  - type: regex
+    regex:
+    - (api_key|API_KEY|access_key|ACCESS_KEY)\s*=\s*['"].*['"]

@@ -1,0 +1,20 @@
+id: mobile-insecure-realm-database
+info:
+  name: Insecure Realm Database Usage Detection
+  author: Kaan
+  severity: high
+  description: Detects insecure usage of Realm database in mobile applications
+  tags: java, mobile, realm
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - RealmConfiguration\.Builder\s*\(\s*\)
+    - setEncryptionKey\s*\(\s*null\)
+  extractors:
+  - type: regex
+    regex:
+    - RealmConfiguration\.Builder\s*\(\s*\)
+    - setEncryptionKey\s*\(\s*null\)

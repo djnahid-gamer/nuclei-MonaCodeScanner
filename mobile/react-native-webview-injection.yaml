@@ -1,0 +1,20 @@
+id: react-native-webview-injection
+info:
+  name: React Native WebView Injection Detection
+  author: Kaan
+  severity: high
+  description: Detects insecure WebView configurations in React Native applications
+  tags: react-native, mobile, webview
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - <WebView[^>]*injectedJavaScript[^>]*>
+    - onShouldStartLoadWithRequest\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - <WebView[^>]*injectedJavaScript[^>]*>
+    - onShouldStartLoadWithRequest\s*\(\s*.*\)

@@ -1,0 +1,18 @@
+id: unencrypted-tokens-csv
+info:
+  name: Unencrypted Tokens in CSV Files Detection
+  author: Kaan
+  severity: critical
+  description: Detects unencrypted access tokens stored in CSV files
+  tags: csv, tokens, security
+file:
+- extensions:
+  - csv
+  matchers:
+  - type: regex
+    regex:
+    - (accessToken|ACCESS_TOKEN),.*
+  extractors:
+  - type: regex
+    regex:
+    - (accessToken|ACCESS_TOKEN),.*

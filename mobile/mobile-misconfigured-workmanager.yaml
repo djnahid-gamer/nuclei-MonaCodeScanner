@@ -1,0 +1,20 @@
+id: mobile-misconfigured-workmanager
+info:
+  name: Misconfigured WorkManager Detection
+  author: Kaan
+  severity: high
+  description: Detects insecure or excessive permissions in WorkManager configuration
+  tags: java, mobile, workmanager
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - new\s+OneTimeWorkRequest\.Builder\s*\(\s*.*['"].*['"]\)
+    - WorkManager\.enqueue\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - new\s+OneTimeWorkRequest\.Builder\s*\(\s*.*['"].*['"]\)
+    - WorkManager\.enqueue\s*\(\s*.*\)

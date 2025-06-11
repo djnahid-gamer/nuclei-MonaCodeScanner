@@ -1,0 +1,21 @@
+id: mobile-insecure-room-database
+info:
+  name: Insecure Room Database Configuration Detection
+  author: Kaan
+  severity: critical
+  description: Detects insecure usage or misconfiguration of Room database in mobile
+    apps
+  tags: java, mobile, room, database
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - '@Database\s*\(\s*.*exportSchema\s*=\s*false.*\)'
+    - Room\.databaseBuilder\s*\(\s*.*allowMainThreadQueries\(\)
+  extractors:
+  - type: regex
+    regex:
+    - '@Database\s*\(\s*.*exportSchema\s*=\s*false.*\)'
+    - Room\.databaseBuilder\s*\(\s*.*allowMainThreadQueries\(\)

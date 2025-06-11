@@ -1,0 +1,19 @@
+id: flutter-weak-shared-preferences
+info:
+  name: Flutter Weak Shared Preferences Detection
+  author: Kaan
+  severity: high
+  description: Detects insecure storage of sensitive data using SharedPreferences
+    in Flutter
+  tags: flutter, mobile, sharedpreferences
+file:
+- extensions:
+  - dart
+  matchers:
+  - type: regex
+    regex:
+    - SharedPreferences\.setString\s*\(\s*['"](password|token|secret)['"]
+  extractors:
+  - type: regex
+    regex:
+    - SharedPreferences\.setString\s*\(\s*['"](password|token|secret)['"]

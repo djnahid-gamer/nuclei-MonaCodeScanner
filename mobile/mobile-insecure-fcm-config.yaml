@@ -1,0 +1,20 @@
+id: mobile-insecure-fcm-config
+info:
+  name: Insecure Firebase Cloud Messaging Configuration
+  author: Kaan
+  severity: critical
+  description: Detects insecure configurations in Firebase Cloud Messaging (FCM)
+  tags: java, mobile, firebase, fcm
+file:
+- extensions:
+  - json
+  matchers:
+  - type: regex
+    regex:
+    - messagingSenderId\s*:\s*['"].*['"]
+    - projectId\s*:\s*['"].*['"]
+  extractors:
+  - type: regex
+    regex:
+    - messagingSenderId\s*:\s*['"].*['"]
+    - projectId\s*:\s*['"].*['"]

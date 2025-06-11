@@ -1,0 +1,20 @@
+id: mobile-dynamic-code-execution
+info:
+  name: Dynamic Code Execution Detection
+  author: Kaan
+  severity: critical
+  description: Detects dynamic code execution vulnerabilities in mobile apps
+  tags: java, mobile, dynamic-code
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Class\.forName\s*\(\s*.*request\.getParameter\(.*\).*\)
+    - DexClassLoader\s*\(\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - Class\.forName\s*\(\s*.*request\.getParameter\(.*\).*\)
+    - DexClassLoader\s*\(\s*.*request\.getParameter\(.*\).*\)

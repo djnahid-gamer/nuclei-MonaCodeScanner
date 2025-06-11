@@ -1,0 +1,20 @@
+id: mobile-insecure-sqlite
+info:
+  name: Insecure SQLite Usage Detection
+  author: Kaan
+  severity: high
+  description: Detects insecure SQLite database handling in mobile applications
+  tags: java, mobile, sqlite
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - SQLiteDatabase\.execSQL\s*\(\s*.*request\.getParameter\(.*\)\)
+    - db\.query\s*\(\s*.*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - SQLiteDatabase\.execSQL\s*\(\s*.*request\.getParameter\(.*\)\)
+    - db\.query\s*\(\s*.*request\.getParameter\(.*\)\)

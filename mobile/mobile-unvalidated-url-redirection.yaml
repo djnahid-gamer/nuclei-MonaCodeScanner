@@ -1,0 +1,21 @@
+id: mobile-unvalidated-url-redirection
+info:
+  name: Unvalidated URL Redirection Detection
+  author: Kaan
+  severity: critical
+  description: Detects vulnerabilities related to unvalidated URL redirection in mobile
+    apps
+  tags: java, mobile, url-redirection
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - response\.sendRedirect\s*\(\s*.*request\.getParameter\(.*\).*\)
+    - Uri\.parse\s*\(\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - response\.sendRedirect\s*\(\s*.*request\.getParameter\(.*\).*\)
+    - Uri\.parse\s*\(\s*.*request\.getParameter\(.*\).*\)

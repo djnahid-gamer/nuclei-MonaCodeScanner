@@ -1,0 +1,20 @@
+id: mobile-webview-file-access
+info:
+  name: WebView File Access Misconfiguration Detection
+  author: Kaan
+  severity: critical
+  description: Detects insecure WebView file access configurations in mobile apps
+  tags: java, mobile, webview
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - setAllowFileAccessFromFileURLs\s*\(\s*true\)
+    - setAllowUniversalAccessFromFileURLs\s*\(\s*true\)
+  extractors:
+  - type: regex
+    regex:
+    - setAllowFileAccessFromFileURLs\s*\(\s*true\)
+    - setAllowUniversalAccessFromFileURLs\s*\(\s*true\)

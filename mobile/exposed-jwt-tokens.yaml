@@ -1,0 +1,20 @@
+id: exposed-jwt-tokens
+info:
+  name: Exposed JWT Tokens Detection in Files
+  author: Kaan
+  severity: critical
+  description: Detects exposed JWT tokens in various configuration or data files
+  tags: jwt, tokens, sensitive-data
+file:
+- extensions:
+  - json
+  - yaml
+  - log
+  matchers:
+  - type: regex
+    regex:
+    - eyJ[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+
+  extractors:
+  - type: regex
+    regex:
+    - eyJ[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+

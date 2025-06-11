@@ -1,0 +1,20 @@
+id: smali-insecure-broadcast-receivers
+info:
+  name: Insecure Broadcast Receivers Detection in Smali Files
+  author: Kaan
+  severity: critical
+  description: Detects insecurely configured broadcast receivers in Smali files
+  tags: smali, mobile, broadcast-receiver
+file:
+- extensions:
+  - smali
+  matchers:
+  - type: regex
+    regex:
+    - Landroid/content/IntentFilter;->addAction\(Ljava/lang/String;\)
+    - invoke-virtual\s+[vp]\d+,\s*Landroid/content/Context;->registerReceiver
+  extractors:
+  - type: regex
+    regex:
+    - Landroid/content/IntentFilter;->addAction\(Ljava/lang/String;\)
+    - invoke-virtual\s+[vp]\d+,\s*Landroid/content/Context;->registerReceiver

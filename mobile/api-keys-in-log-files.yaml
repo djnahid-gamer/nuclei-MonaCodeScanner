@@ -1,0 +1,18 @@
+id: api-keys-in-log-files
+info:
+  name: API Keys in Log Files Detection
+  author: Kaan
+  severity: critical
+  description: Detects API keys exposed in log files
+  tags: log, api-keys, sensitive-data
+file:
+- extensions:
+  - log
+  matchers:
+  - type: regex
+    regex:
+    - (apiKey|API_KEY|accessKey|ACCESS_KEY)\s*=\s*['"].*['"]
+  extractors:
+  - type: regex
+    regex:
+    - (apiKey|API_KEY|accessKey|ACCESS_KEY)\s*=\s*['"].*['"]

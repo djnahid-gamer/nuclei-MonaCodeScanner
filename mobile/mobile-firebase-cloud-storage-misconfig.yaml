@@ -1,0 +1,18 @@
+id: mobile-firebase-cloud-storage-misconfig
+info:
+  name: Firebase Cloud Storage Misconfiguration Detection
+  author: Kaan
+  severity: critical
+  description: Detects misconfigured Firebase Cloud Storage rules
+  tags: mobile, firebase, cloud-storage
+file:
+- extensions:
+  - json
+  matchers:
+  - type: regex
+    regex:
+    - '"rules":\\s*"allow\\s*.*read\\s*.*write"'
+  extractors:
+  - type: regex
+    regex:
+    - '"rules":\\s*"allow\\s*.*read\\s*.*write"'

@@ -1,0 +1,22 @@
+id: mobile-insecure-external-libraries
+info:
+  name: Insecure External Libraries Detection
+  author: Kaan
+  severity: high
+  description: Detects usage of outdated or insecure external libraries in mobile
+    apps
+  tags: java, mobile, libraries
+file:
+- extensions:
+  - gradle
+  - xml
+  matchers:
+  - type: regex
+    regex:
+    - com\.google\.firebase:firebase-auth:\d\.\d\.\d
+    - com\.android\.volley:volley:\d\.\d\.\d
+  extractors:
+  - type: regex
+    regex:
+    - com\.google\.firebase:firebase-auth:\d\.\d\.\d
+    - com\.android\.volley:volley:\d\.\d\.\d

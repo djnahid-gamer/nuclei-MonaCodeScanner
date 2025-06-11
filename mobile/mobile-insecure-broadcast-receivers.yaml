@@ -1,0 +1,18 @@
+id: mobile-insecure-broadcast-receivers
+info:
+  name: Insecure Broadcast Receivers Detection
+  author: Kaan
+  severity: critical
+  description: Detects insecurely configured broadcast receivers in AndroidManifest.xml
+  tags: mobile, broadcast-receivers, androidmanifest
+file:
+- extensions:
+  - xml
+  matchers:
+  - type: regex
+    regex:
+    - <receiver[^>]*android:exported=['"]true['"]
+  extractors:
+  - type: regex
+    regex:
+    - <receiver[^>]*android:exported=['"]true['"]

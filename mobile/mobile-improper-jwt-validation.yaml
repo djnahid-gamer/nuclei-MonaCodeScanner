@@ -1,0 +1,20 @@
+id: mobile-improper-jwt-validation
+info:
+  name: Improper JWT Validation Detection
+  author: Kaan
+  severity: critical
+  description: Detects weak or missing JWT token validation mechanisms in mobile apps
+  tags: java, mobile, jwt
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - JWT\.decode\s*\(\s*.*['"].*['"]\)
+    - JWT\.require\s*\(\s*.*Algorithm\.none\(\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - JWT\.decode\s*\(\s*.*['"].*['"]\)
+    - JWT\.require\s*\(\s*.*Algorithm\.none\(\).*\)

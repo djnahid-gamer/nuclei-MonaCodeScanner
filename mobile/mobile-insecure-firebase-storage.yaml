@@ -1,0 +1,20 @@
+id: mobile-insecure-firebase-storage
+info:
+  name: Insecure Firebase Storage Rules Detection
+  author: Kaan
+  severity: critical
+  description: Detects insecure Firebase Storage rules in mobile applications
+  tags: java, mobile, firebase, storage
+file:
+- extensions:
+  - json
+  matchers:
+  - type: regex
+    regex:
+    - '"rules"\\s*:\\s*"write"'
+    - '"rules"\\s*:\\s*"read"'
+  extractors:
+  - type: regex
+    regex:
+    - '"rules"\\s*:\\s*"write"'
+    - '"rules"\\s*:\\s*"read"'

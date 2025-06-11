@@ -1,0 +1,18 @@
+id: smali-insecure-http-communication
+info:
+  name: Insecure HTTP Communication Detection in Smali Files
+  author: Kaan
+  severity: high
+  description: Detects usage of HTTP instead of HTTPS in Smali files
+  tags: smali, mobile, http
+file:
+- extensions:
+  - smali
+  matchers:
+  - type: regex
+    regex:
+    - const-string\s+[vp]\d+,\s*"http://[^"]+"
+  extractors:
+  - type: regex
+    regex:
+    - const-string\s+[vp]\d+,\s*"http://[^"]+"

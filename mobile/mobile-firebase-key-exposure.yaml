@@ -1,0 +1,18 @@
+id: mobile-firebase-key-exposure
+info:
+  name: Firebase Key Exposure Detection
+  author: Kaan
+  severity: critical
+  description: Detects exposed Firebase API keys in mobile app Java files
+  tags: java, mobile, firebase, api-key
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - AIza[0-9A-Za-z\-_]{35}
+  extractors:
+  - type: regex
+    regex:
+    - AIza[0-9A-Za-z\-_]{35}

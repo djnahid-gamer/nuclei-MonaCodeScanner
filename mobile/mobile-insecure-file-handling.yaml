@@ -1,0 +1,20 @@
+id: mobile-insecure-file-handling
+info:
+  name: Insecure File Handling Detection in Mobile Apps
+  author: Kaan
+  severity: critical
+  description: Detects insecure file handling practices in Java files
+  tags: java, mobile, file-handling
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - new\s+File\s*\(\s*.*\)
+    - FileOutputStream\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - new\s+File\s*\(\s*.*\)
+    - FileOutputStream\s*\(\s*.*\)

@@ -1,0 +1,20 @@
+id: mobile-improper-ssl-pinning
+info:
+  name: Improper SSL Pinning Detection
+  author: Kaan
+  severity: critical
+  description: Detects improper or missing SSL pinning configurations in mobile applications
+  tags: java, mobile, ssl
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - HostnameVerifier\s*\{\s*.*\}
+    - TrustManager\s*\[\s*new\s*TrustManager\s*\{\s*.*\}
+  extractors:
+  - type: regex
+    regex:
+    - HostnameVerifier\s*\{\s*.*\}
+    - TrustManager\s*\[\s*new\s*TrustManager\s*\{\s*.*\}

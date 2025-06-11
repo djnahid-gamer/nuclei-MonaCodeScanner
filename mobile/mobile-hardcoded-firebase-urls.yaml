@@ -1,0 +1,18 @@
+id: mobile-hardcoded-firebase-urls
+info:
+  name: Hardcoded Firebase URLs Detection
+  author: Kaan
+  severity: medium
+  description: Detects hardcoded Firebase URLs in mobile app Java files
+  tags: java, mobile, firebase
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - https:\/\/.*firebaseio\.com
+  extractors:
+  - type: regex
+    regex:
+    - https:\/\/.*firebaseio\.com

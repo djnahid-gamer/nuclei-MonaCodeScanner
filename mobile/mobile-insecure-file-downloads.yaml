@@ -1,0 +1,20 @@
+id: mobile-insecure-file-downloads
+info:
+  name: Insecure File Downloads Detection
+  author: Kaan
+  severity: high
+  description: Detects vulnerable file download methods in mobile applications
+  tags: java, mobile, file-download
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - new\s+URL\s*\(\s*.*request\.getParameter\(.*\).*\)
+    - HttpURLConnection\.openConnection\s*\(\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - new\s+URL\s*\(\s*.*request\.getParameter\(.*\).*\)
+    - HttpURLConnection\.openConnection\s*\(\s*.*request\.getParameter\(.*\).*\)

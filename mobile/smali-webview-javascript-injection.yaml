@@ -1,0 +1,19 @@
+id: smali-webview-javascript-injection
+info:
+  name: WebView JavaScript Injection Detection in Smali Files
+  author: Kaan
+  severity: critical
+  description: Detects insecure JavaScript injection vulnerabilities in WebView configurations
+    in Smali files
+  tags: smali, mobile, webview, injection
+file:
+- extensions:
+  - smali
+  matchers:
+  - type: regex
+    regex:
+    - Landroid/webkit/WebView;->addJavascriptInterface\(Ljava/lang/Object;Ljava/lang/String;\)
+  extractors:
+  - type: regex
+    regex:
+    - Landroid/webkit/WebView;->addJavascriptInterface\(Ljava/lang/Object;Ljava/lang/String;\)

@@ -1,0 +1,20 @@
+id: mobile-insecure-data-storage
+info:
+  name: Insecure Data Storage Detection
+  author: Kaan
+  severity: critical
+  description: Detects insecure data storage practices in mobile applications
+  tags: java, mobile, data-storage
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Context\.MODE_WORLD_READABLE
+    - Context\.MODE_WORLD_WRITEABLE
+  extractors:
+  - type: regex
+    regex:
+    - Context\.MODE_WORLD_READABLE
+    - Context\.MODE_WORLD_WRITEABLE

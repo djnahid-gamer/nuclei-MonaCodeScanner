@@ -1,0 +1,20 @@
+id: mobile-insufficient-certificate-validation
+info:
+  name: Insufficient Certificate Validation Detection
+  author: Kaan
+  severity: critical
+  description: Detects insufficient HTTPS certificate validation in mobile apps
+  tags: java, mobile, https, certificate
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - HttpsURLConnection\.setHostnameVerifier\s*\(\s*new\s+HostnameVerifier\(\)
+    - TrustManager\s*\[\s*new\s+TrustManager\s*\{.*\}
+  extractors:
+  - type: regex
+    regex:
+    - HttpsURLConnection\.setHostnameVerifier\s*\(\s*new\s+HostnameVerifier\(\)
+    - TrustManager\s*\[\s*new\s+TrustManager\s*\{.*\}

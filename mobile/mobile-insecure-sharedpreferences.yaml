@@ -1,0 +1,20 @@
+id: mobile-insecure-sharedpreferences
+info:
+  name: Insecure SharedPreferences Usage Detection
+  author: Kaan
+  severity: high
+  description: Detects insecure usage of SharedPreferences without encryption
+  tags: java, mobile, sharedpreferences, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - getSharedPreferences\s*\(\s*.*Context\.MODE_WORLD_READABLE
+    - getSharedPreferences\s*\(\s*.*Context\.MODE_WORLD_WRITEABLE
+  extractors:
+  - type: regex
+    regex:
+    - getSharedPreferences\s*\(\s*.*Context\.MODE_WORLD_READABLE
+    - getSharedPreferences\s*\(\s*.*Context\.MODE_WORLD_WRITEABLE

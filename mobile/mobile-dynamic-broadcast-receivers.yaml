@@ -1,0 +1,18 @@
+id: mobile-dynamic-broadcast-receivers
+info:
+  name: Insecure Dynamic Broadcast Receivers Detection
+  author: Kaan
+  severity: critical
+  description: Detects insecure dynamic broadcast receivers in mobile apps
+  tags: java, mobile, broadcast-receiver
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - registerReceiver\s*\(\s*.*IntentFilter\s*\(\s*.*['"].*['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - registerReceiver\s*\(\s*.*IntentFilter\s*\(\s*.*['"].*['"]\)

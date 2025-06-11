@@ -1,0 +1,20 @@
+id: mobile-insecure-retrofit-config
+info:
+  name: Insecure Retrofit Configuration Detection
+  author: Kaan
+  severity: critical
+  description: Detects insecure Retrofit configurations in Android applications
+  tags: java, mobile, retrofit
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Retrofit\.Builder\s*\(\s*\)\.baseUrl\s*\(\s*['"]http://.*['"]\)
+    - Retrofit\.Builder\s*\(\s*\)\.addConverterFactory\s*\(\s*null\)
+  extractors:
+  - type: regex
+    regex:
+    - Retrofit\.Builder\s*\(\s*\)\.baseUrl\s*\(\s*['"]http://.*['"]\)
+    - Retrofit\.Builder\s*\(\s*\)\.addConverterFactory\s*\(\s*null\)

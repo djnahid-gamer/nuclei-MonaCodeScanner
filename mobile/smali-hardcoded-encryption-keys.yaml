@@ -1,0 +1,18 @@
+id: smali-hardcoded-encryption-keys
+info:
+  name: Hardcoded Encryption Keys Detection in Smali Files
+  author: Kaan
+  severity: critical
+  description: Detects hardcoded encryption keys in Smali files
+  tags: smali, mobile, encryption-keys
+file:
+- extensions:
+  - smali
+  matchers:
+  - type: regex
+    regex:
+    - const-string\s+[vp]\d+,\s*"[A-Za-z0-9+/]{16,}"
+  extractors:
+  - type: regex
+    regex:
+    - const-string\s+[vp]\d+,\s*"[A-Za-z0-9+/]{16,}"

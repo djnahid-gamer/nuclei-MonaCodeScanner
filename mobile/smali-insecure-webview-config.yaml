@@ -1,0 +1,22 @@
+id: smali-insecure-webview-config
+info:
+  name: Insecure WebView Configuration Detection
+  author: Kaan
+  severity: critical
+  description: Detects insecure WebView configurations in Smali files
+  tags: smali, mobile, webview
+file:
+- extensions:
+  - smali
+  matchers:
+  - type: regex
+    regex:
+    - invoke-virtual\s+[vp]\d+,\s*Landroid/webkit/WebView;->getSettings
+    - invoke-virtual\s+[vp]\d+,\s*Landroid/webkit/WebSettings;->setJavaScriptEnabled\(Z\)
+    - invoke-virtual\s+[vp]\d+,\s*Landroid/webkit/WebSettings;->setAllowFileAccess\(Z\)
+  extractors:
+  - type: regex
+    regex:
+    - invoke-virtual\s+[vp]\d+,\s*Landroid/webkit/WebView;->getSettings
+    - invoke-virtual\s+[vp]\d+,\s*Landroid/webkit/WebSettings;->setJavaScriptEnabled\(Z\)
+    - invoke-virtual\s+[vp]\d+,\s*Landroid/webkit/WebSettings;->setAllowFileAccess\(Z\)

@@ -1,0 +1,21 @@
+id: mobile-sqlite-weak-encryption
+info:
+  name: Weak SQLite Encryption Detection
+  author: Kaan
+  severity: critical
+  description: Detects weak or missing encryption in SQLite database usage in mobile
+    apps
+  tags: java, mobile, sqlite, encryption
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - SQLiteDatabase\.openOrCreateDatabase\s*\(\s*.*\)
+    - SQLiteDatabase\.execSQL\s*\(\s*.*CREATE TABLE.*\)
+  extractors:
+  - type: regex
+    regex:
+    - SQLiteDatabase\.openOrCreateDatabase\s*\(\s*.*\)
+    - SQLiteDatabase\.execSQL\s*\(\s*.*CREATE TABLE.*\)

@@ -1,0 +1,18 @@
+id: smali-exposed-content-providers
+info:
+  name: Exposed Content Providers Detection in Smali Files
+  author: Kaan
+  severity: critical
+  description: Detects insecurely exposed content providers in Smali files
+  tags: smali, mobile, content-provider
+file:
+- extensions:
+  - smali
+  matchers:
+  - type: regex
+    regex:
+    - Landroid/content/ContentProvider;->query\(Landroid/net/Uri;\[Ljava/lang/String;Ljava/lang/String;\[Ljava/lang/String;Ljava/lang/String;\)
+  extractors:
+  - type: regex
+    regex:
+    - Landroid/content/ContentProvider;->query\(Landroid/net/Uri;\[Ljava/lang/String;Ljava/lang/String;\[Ljava/lang/String;Ljava/lang/String;\)

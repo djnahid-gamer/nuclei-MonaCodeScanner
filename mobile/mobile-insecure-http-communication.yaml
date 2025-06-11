@@ -1,0 +1,18 @@
+id: mobile-insecure-http-communication
+info:
+  name: Insecure HTTP Communication Detection
+  author: Kaan
+  severity: high
+  description: Detects usage of HTTP URLs instead of HTTPS in Java files
+  tags: java, mobile, http, communication
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - http:\/\/[^\s]+
+  extractors:
+  - type: regex
+    regex:
+    - http:\/\/[^\s]+

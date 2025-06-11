@@ -1,0 +1,20 @@
+id: mobile-insecure-webview-usage
+info:
+  name: Insecure WebView Usage Detection
+  author: Kaan
+  severity: critical
+  description: Detects insecure WebView configurations in mobile apps
+  tags: java, mobile, webview
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - setJavaScriptEnabled\s*\(\s*true\)
+    - setAllowFileAccessFromFileURLs\s*\(\s*true\)
+  extractors:
+  - type: regex
+    regex:
+    - setJavaScriptEnabled\s*\(\s*true\)
+    - setAllowFileAccessFromFileURLs\s*\(\s*true\)

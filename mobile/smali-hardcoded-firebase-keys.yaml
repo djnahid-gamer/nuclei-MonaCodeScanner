@@ -1,0 +1,18 @@
+id: smali-hardcoded-firebase-keys
+info:
+  name: Hardcoded Firebase Keys Detection in Smali Files
+  author: Kaan
+  severity: critical
+  description: Detects hardcoded Firebase keys in Smali files
+  tags: smali, mobile, firebase, keys
+file:
+- extensions:
+  - smali
+  matchers:
+  - type: regex
+    regex:
+    - const-string\s+[vp]\d+,\s*"AIza[0-9A-Za-z\-_]{35}"
+  extractors:
+  - type: regex
+    regex:
+    - const-string\s+[vp]\d+,\s*"AIza[0-9A-Za-z\-_]{35}"

@@ -1,0 +1,21 @@
+id: mobile-unsafe-intent-filters
+info:
+  name: Unsafe Intent Filters Detection
+  author: Kaan
+  severity: critical
+  description: Detects insecure intent filters in AndroidManifest.xml that may lead
+    to unauthorized access
+  tags: java, mobile, intent-filter, security
+file:
+- extensions:
+  - xml
+  matchers:
+  - type: regex
+    regex:
+    - <intent-filter[^>]*android:exported=['"]true['"]
+    - <action[^>]*android:name=['"]android\.intent\.action\.VIEW['"]
+  extractors:
+  - type: regex
+    regex:
+    - <intent-filter[^>]*android:exported=['"]true['"]
+    - <action[^>]*android:name=['"]android\.intent\.action\.VIEW['"]

@@ -1,0 +1,22 @@
+id: onesignal-hardcoded-api-key
+info:
+  name: Hardcoded OneSignal API Key Detection
+  author: Kaan
+  severity: critical
+  description: Detects hardcoded OneSignal API keys in configuration or source code
+    files
+  tags: onesignal, api-key, sensitive-data
+file:
+- extensions:
+  - json
+  - js
+  - yaml
+  - env
+  matchers:
+  - type: regex
+    regex:
+    - (onesignalApiKey|apiKey):\s*['"].*['"]
+  extractors:
+  - type: regex
+    regex:
+    - (onesignalApiKey|apiKey):\s*['"].*['"]

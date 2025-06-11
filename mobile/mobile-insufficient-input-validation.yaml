@@ -1,0 +1,18 @@
+id: mobile-insufficient-input-validation
+info:
+  name: Insufficient Input Validation Detection
+  author: Kaan
+  severity: high
+  description: Detects missing input validation in mobile applications
+  tags: java, mobile, input-validation
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - getIntent\(\)\.getStringExtra\(\s*['"].*['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - getIntent\(\)\.getStringExtra\(\s*['"].*['"]\)

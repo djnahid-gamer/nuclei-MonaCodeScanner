@@ -1,0 +1,20 @@
+id: mobile-firebase-sensitive-database-rules
+info:
+  name: Firebase Sensitive Database Rules Detection
+  author: Kaan
+  severity: critical
+  description: Detects Firebase Realtime Database rules that allow excessive access
+  tags: java, mobile, firebase, security
+file:
+- extensions:
+  - json
+  matchers:
+  - type: regex
+    regex:
+    - \"\.read\"\s*:\s*\".*\"
+    - \"\.write\"\s*:\s*\".*\"
+  extractors:
+  - type: regex
+    regex:
+    - \"\.read\"\s*:\s*\".*\"
+    - \"\.write\"\s*:\s*\".*\"

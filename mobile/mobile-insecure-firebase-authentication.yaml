@@ -1,0 +1,21 @@
+id: mobile-insecure-firebase-authentication
+info:
+  name: Insecure Firebase Authentication Detection
+  author: Kaan
+  severity: critical
+  description: Detects insecure Firebase authentication implementations in mobile
+    apps
+  tags: java, mobile, firebase, authentication
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - FirebaseAuth\.getInstance\s*\(\s*.*\)
+    - signInWithEmailAndPassword\s*\(\s*.*request\.getParameter\(.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - FirebaseAuth\.getInstance\s*\(\s*.*\)
+    - signInWithEmailAndPassword\s*\(\s*.*request\.getParameter\(.*\)\)

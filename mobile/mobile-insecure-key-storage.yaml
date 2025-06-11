@@ -1,0 +1,20 @@
+id: mobile-insecure-key-storage
+info:
+  name: Insecure Cryptographic Key Storage Detection
+  author: Kaan
+  severity: critical
+  description: Detects hardcoded cryptographic keys in mobile applications
+  tags: java, mobile, cryptography
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - KeySpec\s*\(\s*['"].*['"]\)
+    - SecretKeySpec\s*\(\s*['"].*['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - KeySpec\s*\(\s*['"].*['"]\)
+    - SecretKeySpec\s*\(\s*['"].*['"]\)

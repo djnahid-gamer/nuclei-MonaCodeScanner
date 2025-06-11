@@ -1,0 +1,20 @@
+id: mobile-weak-jwt-token-config
+info:
+  name: Weak JWT Token Configuration Detection
+  author: Kaan
+  severity: critical
+  description: Detects weak configurations in JWT tokens for mobile apps
+  tags: java, mobile, jwt, security
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - JWT\.decode\s*\(\s*.*['"].*['"]\)
+    - JWT\.require\s*\(\s*.*Algorithm\.none\(\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - JWT\.decode\s*\(\s*.*['"].*['"]\)
+    - JWT\.require\s*\(\s*.*Algorithm\.none\(\).*\)

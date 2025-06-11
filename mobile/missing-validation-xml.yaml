@@ -1,0 +1,20 @@
+id: missing-validation-xml
+info:
+  name: Missing Validation in XML Configurations
+  author: Kaan
+  severity: critical
+  description: Detects missing input validation configurations in XML files
+  tags: xml, validation, misconfiguration
+file:
+- extensions:
+  - xml
+  matchers:
+  - type: regex
+    regex:
+    - <validation>false</validation>
+    - <disableValidation>true</disableValidation>
+  extractors:
+  - type: regex
+    regex:
+    - <validation>false</validation>
+    - <disableValidation>true</disableValidation>

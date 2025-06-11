@@ -1,0 +1,19 @@
+id: mobile-insecure-glide-usage
+info:
+  name: Insecure Glide Usage Detection
+  author: Kaan
+  severity: high
+  description: Detects insecure usage of Glide library in image loading for mobile
+    apps
+  tags: java, mobile, glide
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - Glide\.with\s*\(\s*.*\)\.load\s*\(\s*.*request\.getParameter\(.*\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - Glide\.with\s*\(\s*.*\)\.load\s*\(\s*.*request\.getParameter\(.*\).*\)

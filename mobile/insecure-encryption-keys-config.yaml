@@ -1,0 +1,22 @@
+id: insecure-encryption-keys-config
+info:
+  name: Insecure Encryption Keys Detection in Configuration Files
+  author: Kaan
+  severity: critical
+  description: Detects exposed or hardcoded encryption keys in configuration files
+  tags: config, encryption, keys
+file:
+- extensions:
+  - yaml
+  - json
+  - conf
+  matchers:
+  - type: regex
+    regex:
+    - encryptionKey:\s*[A-Za-z0-9+/=]{16,}
+    - aesKey:\s*[A-Za-z0-9+/=]{16,}
+  extractors:
+  - type: regex
+    regex:
+    - encryptionKey:\s*[A-Za-z0-9+/=]{16,}
+    - aesKey:\s*[A-Za-z0-9+/=]{16,}

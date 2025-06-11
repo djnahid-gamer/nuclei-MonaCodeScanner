@@ -1,0 +1,21 @@
+id: mobile-misconfigured-firebase-rules
+info:
+  name: Misconfigured Firebase Rules Detection
+  author: Kaan
+  severity: critical
+  description: Detects misconfigured Firebase database rules, allowing unauthorized
+    read/write access
+  tags: mobile, firebase, misconfiguration
+file:
+- extensions:
+  - json
+  matchers:
+  - type: regex
+    regex:
+    - '"\\.read"\\s*:\\s*"true"'
+    - '"\\.write"\\s*:\\s*"true"'
+  extractors:
+  - type: regex
+    regex:
+    - '"\\.read"\\s*:\\s*"true"'
+    - '"\\.write"\\s*:\\s*"true"'

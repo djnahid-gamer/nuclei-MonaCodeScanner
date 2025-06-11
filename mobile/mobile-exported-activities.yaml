@@ -1,0 +1,18 @@
+id: mobile-exported-activities
+info:
+  name: Insecure Exported Activities Detection
+  author: Kaan
+  severity: high
+  description: Detects insecurely exported activities in AndroidManifest.xml
+  tags: java, mobile, androidmanifest, activities
+file:
+- extensions:
+  - xml
+  matchers:
+  - type: regex
+    regex:
+    - <activity\s*[^>]*android:exported=['"]true['"]
+  extractors:
+  - type: regex
+    regex:
+    - <activity\s*[^>]*android:exported=['"]true['"]

@@ -1,0 +1,20 @@
+id: smali-dynamic-code-execution
+info:
+  name: Dynamic Code Execution Detection in Smali Files
+  author: Kaan
+  severity: critical
+  description: Detects usage of dynamic code execution methods in Smali files
+  tags: smali, mobile, dynamic-code
+file:
+- extensions:
+  - smali
+  matchers:
+  - type: regex
+    regex:
+    - Ldalvik/system/DexClassLoader;-><init>\(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;\)
+    - Ljava/lang/reflect/Method;->invoke\(Ljava/lang/Object;\[Ljava/lang/Object;\)
+  extractors:
+  - type: regex
+    regex:
+    - Ldalvik/system/DexClassLoader;-><init>\(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;\)
+    - Ljava/lang/reflect/Method;->invoke\(Ljava/lang/Object;\[Ljava/lang/Object;\)

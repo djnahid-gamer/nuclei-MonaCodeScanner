@@ -1,0 +1,18 @@
+id: mobile-webview-javascript-injection
+info:
+  name: WebView JavaScript Injection Detection
+  author: Kaan
+  severity: high
+  description: Detects insecure JavaScript injection vulnerabilities in WebView configurations
+  tags: java, mobile, webview, injection
+file:
+- extensions:
+  - java
+  matchers:
+  - type: regex
+    regex:
+    - addJavascriptInterface\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - addJavascriptInterface\s*\(\s*.*\)
