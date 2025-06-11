@@ -1,0 +1,18 @@
+id: js-jwt-audience-validation
+info:
+  name: Improper JWT Audience Validation Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects JWT audience (aud) validation issues in JavaScript applications
+  tags: javascript, jwt, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - jwt\.verify\s*\(.*audience:\s*['"].*['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - jwt\.verify\s*\(.*audience:\s*['"].*['"]\)

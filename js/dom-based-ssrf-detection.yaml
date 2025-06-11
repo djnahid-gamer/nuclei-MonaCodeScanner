@@ -1,0 +1,21 @@
+id: dom-based-ssrf-detection
+info:
+  name: DOM-Based SSRF Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects DOM-based SSRF vulnerabilities in JavaScript applications
+  tags: javascript, dom, ssrf
+file:
+- extensions:
+  - js
+  - html
+  matchers:
+  - type: regex
+    regex:
+    - document\.location\s*=\s*['"].*req\.query.*['"]
+    - iframe\.src\s*=\s*req\.query\[.*\]
+  extractors:
+  - type: regex
+    regex:
+    - document\.location\s*=\s*['"].*req\.query.*['"]
+    - iframe\.src\s*=\s*req\.query\[.*\]

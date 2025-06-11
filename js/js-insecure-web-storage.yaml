@@ -1,0 +1,22 @@
+id: js-insecure-web-storage
+info:
+  name: Insecure Web Storage Usage Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure usage of localStorage or sessionStorage in JavaScript
+    applications
+  tags: javascript, storage, security
+file:
+- extensions:
+  - js
+  - html
+  matchers:
+  - type: regex
+    regex:
+    - localStorage\.setItem\s*\(\s*.*req\.query.*\)
+    - sessionStorage\.setItem\s*\(\s*.*req\.body.*\)
+  extractors:
+  - type: regex
+    regex:
+    - localStorage\.setItem\s*\(\s*.*req\.query.*\)
+    - sessionStorage\.setItem\s*\(\s*.*req\.body.*\)

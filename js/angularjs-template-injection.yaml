@@ -1,0 +1,19 @@
+id: angularjs-template-injection
+info:
+  name: AngularJS Client-Side Template Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects client-side template injection vulnerabilities in AngularJS
+  tags: angularjs, template-injection, security
+file:
+- extensions:
+  - js
+  - html
+  matchers:
+  - type: regex
+    regex:
+    - \$eval\s*\(\s*req\.query\[.*\]\)
+  extractors:
+  - type: regex
+    regex:
+    - \$eval\s*\(\s*req\.query\[.*\]\)

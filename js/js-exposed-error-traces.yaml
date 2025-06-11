@@ -1,0 +1,20 @@
+id: js-exposed-error-traces
+info:
+  name: Exposed Error Stack Traces Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects exposed stack traces in JavaScript applications
+  tags: javascript, error-handling, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - res\.send\s*\(\s*err\.stack\s*\)
+    - console\.error\s*\(\s*err\.stack\s*\)
+  extractors:
+  - type: regex
+    regex:
+    - res\.send\s*\(\s*err\.stack\s*\)
+    - console\.error\s*\(\s*err\.stack\s*\)

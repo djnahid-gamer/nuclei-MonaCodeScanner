@@ -1,0 +1,23 @@
+id: nodejs-unvalidated-input
+info:
+  name: Node.js Unvalidated Input Handling Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects instances of unvalidated input being passed to sensitive functions
+    in Node.js
+  tags: nodejs, input-validation, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - req\.query\[.*\]
+    - req\.body\[.*\]
+    - req\.params\[.*\]
+  extractors:
+  - type: regex
+    regex:
+    - req\.query\[.*\]
+    - req\.body\[.*\]
+    - req\.params\[.*\]

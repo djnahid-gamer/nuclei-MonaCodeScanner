@@ -1,0 +1,20 @@
+id: js-cors-misconfiguration
+info:
+  name: CORS Misconfiguration Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure CORS configurations in JavaScript applications
+  tags: javascript, cors, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - Access-Control-Allow-Origin:\s*['"].*['"]
+    - cors\s*\(\s*{.*origin:\s*['"].*['"]}
+  extractors:
+  - type: regex
+    regex:
+    - Access-Control-Allow-Origin:\s*['"].*['"]
+    - cors\s*\(\s*{.*origin:\s*['"].*['"]}

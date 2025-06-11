@@ -1,0 +1,20 @@
+id: angular-unsafe-template
+info:
+  name: Angular Unsafe Template Interpolation Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unsafe template interpolation that may lead to XSS in Angular
+    applications
+  tags: angular, xss, template
+file:
+- extensions:
+  - js
+  - ts
+  matchers:
+  - type: regex
+    regex:
+    - \{\{\s*.*\s*req\.query\[.*\]\s*\}\}
+  extractors:
+  - type: regex
+    regex:
+    - \{\{\s*.*\s*req\.query\[.*\]\s*\}\}

@@ -1,0 +1,19 @@
+id: vue-unsanitized-url
+info:
+  name: Vue.js Unsanitized URL Handling Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unsanitized URL handling in Vue.js applications
+  tags: vue, url, security
+file:
+- extensions:
+  - vue
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - this\.\$router\.push\s*\(\s*req\.query\[.*\]\)
+  extractors:
+  - type: regex
+    regex:
+    - this\.\$router\.push\s*\(\s*req\.query\[.*\]\)

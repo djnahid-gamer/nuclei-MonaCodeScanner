@@ -1,0 +1,20 @@
+id: nodejs-unsafe-file-access
+info:
+  name: Node.js Unsafe File Access Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unsafe file access operations in Node.js applications
+  tags: nodejs, file-access, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - fs\.readFileSync\s*\(\s*.*req\.query.*\)
+    - fs\.writeFileSync\s*\(\s*.*req\.body.*\)
+  extractors:
+  - type: regex
+    regex:
+    - fs\.readFileSync\s*\(\s*.*req\.query.*\)
+    - fs\.writeFileSync\s*\(\s*.*req\.body.*\)

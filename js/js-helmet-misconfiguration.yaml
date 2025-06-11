@@ -1,0 +1,18 @@
+id: js-helmet-misconfiguration
+info:
+  name: Helmet.js Misconfiguration Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure configurations or missing Helmet.js settings in Express.js
+  tags: javascript, helmet, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - app\.use\(\s*helmet\(\s*\{.*contentSecurityPolicy:\s*false.*\}\)
+  extractors:
+  - type: regex
+    regex:
+    - app\.use\(\s*helmet\(\s*\{.*contentSecurityPolicy:\s*false.*\}\)

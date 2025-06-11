@@ -1,0 +1,20 @@
+id: js-untrusted-eval
+info:
+  name: Untrusted Data in EVAL Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects usage of untrusted data inside eval() in JavaScript applications
+  tags: javascript, eval, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - eval\s*\(\s*req\.query\[.*\]\)
+    - eval\s*\(\s*req\.body\[.*\]\)
+  extractors:
+  - type: regex
+    regex:
+    - eval\s*\(\s*req\.query\[.*\]\)
+    - eval\s*\(\s*req\.body\[.*\]\)

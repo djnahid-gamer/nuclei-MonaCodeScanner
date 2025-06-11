@@ -1,0 +1,19 @@
+id: angular-insecure-api-call
+info:
+  name: Angular Insecure API Call Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects API calls made without HTTPS or proper error handling in Angular
+  tags: angular, api, security
+file:
+- extensions:
+  - js
+  - ts
+  matchers:
+  - type: regex
+    regex:
+    - http\.get\s*\(\s*['"]http://.*['"]
+  extractors:
+  - type: regex
+    regex:
+    - http\.get\s*\(\s*['"]http://.*['"]

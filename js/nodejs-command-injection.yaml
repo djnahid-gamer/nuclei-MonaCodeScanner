@@ -1,0 +1,22 @@
+id: nodejs-command-injection
+info:
+  name: Node.js Command Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential command injection vulnerabilities in Node.js applications
+  tags: nodejs, command-injection, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - child_process\.exec\s*\(\s*.*\+.*\)
+    - child_process\.execSync\s*\(\s*.*\+.*\)
+    - require\s*\(\s*['"]child_process['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - child_process\.exec\s*\(\s*.*\+.*\)
+    - child_process\.execSync\s*\(\s*.*\+.*\)
+    - require\s*\(\s*['"]child_process['"]\)

@@ -1,0 +1,18 @@
+id: js-hardcoded-encryption-keys
+info:
+  name: Hardcoded Encryption Keys Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects hardcoded encryption keys in JavaScript applications
+  tags: javascript, encryption, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - (encryptionKey|cryptoKey)\s*=\s*['"].*['"]
+  extractors:
+  - type: regex
+    regex:
+    - (encryptionKey|cryptoKey)\s*=\s*['"].*['"]

@@ -1,0 +1,19 @@
+id: js-excessive-logging
+info:
+  name: Excessive Logging of Sensitive Data Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects logging of sensitive data like passwords or API keys in JavaScript
+    applications
+  tags: javascript, logging, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - console\.log\s*\(\s*['"](password|apiKey|secretKey):\s*.*['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - console\.log\s*\(\s*['"](password|apiKey|secretKey):\s*.*['"]\)

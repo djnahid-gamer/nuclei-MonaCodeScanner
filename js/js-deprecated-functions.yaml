@@ -1,0 +1,20 @@
+id: js-deprecated-functions
+info:
+  name: Deprecated JavaScript Functions Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects usage of deprecated or removed JavaScript functions
+  tags: javascript, deprecated, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - escape\s*\(
+    - unescape\s*\(
+  extractors:
+  - type: regex
+    regex:
+    - escape\s*\(
+    - unescape\s*\(

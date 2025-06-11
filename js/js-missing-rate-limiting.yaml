@@ -1,0 +1,19 @@
+id: js-missing-rate-limiting
+info:
+  name: Missing Rate Limiting Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects API endpoints in JavaScript applications without proper rate
+    limiting
+  tags: javascript, rate-limiting, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - app\.(get|post|put|delete)\s*\(\s*['"].*['"],\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - app\.(get|post|put|delete)\s*\(\s*['"].*['"],\s*.*\)

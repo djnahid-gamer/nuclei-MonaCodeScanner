@@ -1,0 +1,18 @@
+id: expressjs-missing-error-handling
+info:
+  name: Express.js Missing Error Handling Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects endpoints in Express.js applications without proper error handling
+  tags: expressjs, error-handling, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - app\.(get|post|put|delete)\s*\(\s*['"].*['"],\s*\(req, res\)\s*=>\s*\{.*\}
+  extractors:
+  - type: regex
+    regex:
+    - app\.(get|post|put|delete)\s*\(\s*['"].*['"],\s*\(req, res\)\s*=>\s*\{.*\}

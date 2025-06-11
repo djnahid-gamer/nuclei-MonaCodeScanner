@@ -1,0 +1,21 @@
+id: js-redos-detection
+info:
+  name: Regular Expression Denial of Service (ReDoS) Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects vulnerable regular expressions that may lead to ReDoS in JavaScript
+    applications
+  tags: javascript, regex, redos, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - \/\^(.*\|.*)+\$/
+    - \/.*\(.*\)+\{.*\}\/
+  extractors:
+  - type: regex
+    regex:
+    - \/\^(.*\|.*)+\$/
+    - \/.*\(.*\)+\{.*\}\/

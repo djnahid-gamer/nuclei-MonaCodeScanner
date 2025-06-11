@@ -1,0 +1,19 @@
+id: react-insecure-props
+info:
+  name: React Insecure Component Props Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure or sensitive props passed to React components
+  tags: react, props, security
+file:
+- extensions:
+  - js
+  - jsx
+  matchers:
+  - type: regex
+    regex:
+    - <Component.*(password|apiKey|secretKey)\s*=\s*{.*}
+  extractors:
+  - type: regex
+    regex:
+    - <Component.*(password|apiKey|secretKey)\s*=\s*{.*}

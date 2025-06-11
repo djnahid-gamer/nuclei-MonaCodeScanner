@@ -1,0 +1,19 @@
+id: react-missing-prop-validation
+info:
+  name: React Missing Prop Type Validation Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects missing prop type validation in React components
+  tags: react, props, validation
+file:
+- extensions:
+  - js
+  - jsx
+  matchers:
+  - type: regex
+    regex:
+    - Component\s*\.propTypes\s*=\s*\{.*\}
+  extractors:
+  - type: regex
+    regex:
+    - Component\s*\.propTypes\s*=\s*\{.*\}

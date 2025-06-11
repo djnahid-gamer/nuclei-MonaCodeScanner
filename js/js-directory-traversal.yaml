@@ -1,0 +1,21 @@
+id: js-directory-traversal
+info:
+  name: Directory Traversal Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential directory traversal vulnerabilities in JavaScript
+    applications
+  tags: javascript, directory-traversal, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - fs\.readFileSync\s*\(\s*.*req\.query.*\)
+    - fs\.readFile\s*\(\s*.*req\.params.*\)
+  extractors:
+  - type: regex
+    regex:
+    - fs\.readFileSync\s*\(\s*.*req\.query.*\)
+    - fs\.readFile\s*\(\s*.*req\.params.*\)

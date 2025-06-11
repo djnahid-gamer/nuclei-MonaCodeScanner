@@ -1,0 +1,20 @@
+id: js-cookie-tossing
+info:
+  name: Cookie Tossing Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects cookie tossing vulnerabilities in JavaScript applications
+  tags: javascript, cookies, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - res\.setHeader\s*\(\s*['"]Set-Cookie['"],\s*req\.query.*\)
+    - document\.cookie\s*=\s*.*req\.body.*
+  extractors:
+  - type: regex
+    regex:
+    - res\.setHeader\s*\(\s*['"]Set-Cookie['"],\s*req\.query.*\)
+    - document\.cookie\s*=\s*.*req\.body.*

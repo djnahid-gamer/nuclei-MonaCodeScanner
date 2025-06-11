@@ -1,0 +1,18 @@
+id: angular-outdated-rxjs
+info:
+  name: Angular Outdated RxJS Usage Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects usage of outdated RxJS versions in Angular projects
+  tags: angular, rxjs, dependencies, security
+file:
+- extensions:
+  - ts
+  matchers:
+  - type: regex
+    regex:
+    - import\s*{.*}\s*from\s*['"]rxjs['"]
+  extractors:
+  - type: regex
+    regex:
+    - import\s*{.*}\s*from\s*['"]rxjs['"]

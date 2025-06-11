@@ -1,0 +1,18 @@
+id: nextjs-insecure-env-variables
+info:
+  name: Next.js Insecure Environment Variables Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure or hardcoded environment variables in Next.js applications
+  tags: nextjs, env, security
+file:
+- extensions:
+  - env
+  matchers:
+  - type: regex
+    regex:
+    - (NEXT_PUBLIC_SECRET|NEXT_PUBLIC_API_KEY)\s*=\s*['"].*['"]
+  extractors:
+  - type: regex
+    regex:
+    - (NEXT_PUBLIC_SECRET|NEXT_PUBLIC_API_KEY)\s*=\s*['"].*['"]

@@ -1,0 +1,19 @@
+id: js-improper-settimeout
+info:
+  name: Improper Use of setTimeout Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects usage of setTimeout with user-controlled input, which may lead
+    to injection
+  tags: javascript, settimeout, injection
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - setTimeout\s*\(\s*req\.query\[.*\]\)
+  extractors:
+  - type: regex
+    regex:
+    - setTimeout\s*\(\s*req\.query\[.*\]\)

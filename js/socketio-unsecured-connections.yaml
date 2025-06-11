@@ -1,0 +1,21 @@
+id: socketio-unsecured-connections
+info:
+  name: Socket.IO Unsecured Connections Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure connections or missing authentication in Socket.IO
+    applications
+  tags: javascript, socketio, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - io\.connect\s*\(\s*['"]http://.*['"]\)
+    - io\.on\s*\(\s*['"]connection['"],\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - io\.connect\s*\(\s*['"]http://.*['"]\)
+    - io\.on\s*\(\s*['"]connection['"],\s*.*\)

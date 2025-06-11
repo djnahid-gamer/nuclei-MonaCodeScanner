@@ -1,0 +1,21 @@
+id: js-improper-csp-configuration
+info:
+  name: Improper Content Security Policy (CSP) Configuration Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure or missing CSP configurations in JavaScript applications
+  tags: javascript, csp, security
+file:
+- extensions:
+  - js
+  - html
+  matchers:
+  - type: regex
+    regex:
+    - Content-Security-Policy:\s*default-src\s*['"]unsafe-inline['"]
+    - Content-Security-Policy:\s*default-src\s*['"]unsafe-eval['"]
+  extractors:
+  - type: regex
+    regex:
+    - Content-Security-Policy:\s*default-src\s*['"]unsafe-inline['"]
+    - Content-Security-Policy:\s*default-src\s*['"]unsafe-eval['"]

@@ -1,0 +1,19 @@
+id: js-host-header-validation
+info:
+  name: Improper Host Header Validation Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects improper validation of the Host header in JavaScript server
+    applications
+  tags: javascript, host-header, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - req\.headers\['host'\]\s*==\s*.*
+  extractors:
+  - type: regex
+    regex:
+    - req\.headers\['host'\]\s*==\s*.*

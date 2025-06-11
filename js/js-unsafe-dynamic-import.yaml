@@ -1,0 +1,19 @@
+id: js-unsafe-dynamic-import
+info:
+  name: Unsafe Dynamic Import Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unsafe usage of dynamic imports in JavaScript applications
+  tags: javascript, dynamic-import, security
+file:
+- extensions:
+  - js
+  - ts
+  matchers:
+  - type: regex
+    regex:
+    - import\(\s*req\.query\[.*\]\s*\)
+  extractors:
+  - type: regex
+    regex:
+    - import\(\s*req\.query\[.*\]\s*\)

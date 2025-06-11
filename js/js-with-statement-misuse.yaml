@@ -1,0 +1,19 @@
+id: js-with-statement-misuse
+info:
+  name: Misuse of with Statement Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects misuse of the with statement, which can lead to confusing scoping
+    issues
+  tags: javascript, with-statement, scoping
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - \bwith\s*\(
+  extractors:
+  - type: regex
+    regex:
+    - \bwith\s*\(

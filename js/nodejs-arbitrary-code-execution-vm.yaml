@@ -1,0 +1,18 @@
+id: nodejs-arbitrary-code-execution-vm
+info:
+  name: Node.js Arbitrary Code Execution via vm Module
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unsafe use of the vm module in Node.js applications
+  tags: nodejs, vm, code-execution, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - vm\.runInNewContext\s*\(\s*.*req\.query.*\)
+  extractors:
+  - type: regex
+    regex:
+    - vm\.runInNewContext\s*\(\s*.*req\.query.*\)

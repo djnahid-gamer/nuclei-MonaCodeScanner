@@ -1,0 +1,19 @@
+id: react-xss-jsx
+info:
+  name: React XSS in JSX Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential XSS vulnerabilities in JSX templates
+  tags: react, xss, security
+file:
+- extensions:
+  - js
+  - jsx
+  matchers:
+  - type: regex
+    regex:
+    - dangerouslySetInnerHTML\s*:\s*{\s*__html\s*:\s*.*req\.query.*}
+  extractors:
+  - type: regex
+    regex:
+    - dangerouslySetInnerHTML\s*:\s*{\s*__html\s*:\s*.*req\.query.*}

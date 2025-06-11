@@ -1,0 +1,19 @@
+id: js-object-assign-prototype-pollution
+info:
+  name: Prototype Pollution via Object.assign Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential prototype pollution vulnerabilities caused by Object.assign
+    in JavaScript
+  tags: javascript, prototype-pollution, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - Object\.assign\s*\(\s*\{\s*.*\s*\},\s*req\.body\s*\)
+  extractors:
+  - type: regex
+    regex:
+    - Object\.assign\s*\(\s*\{\s*.*\s*\},\s*req\.body\s*\)

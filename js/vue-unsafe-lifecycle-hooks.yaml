@@ -1,0 +1,22 @@
+id: vue-unsafe-lifecycle-hooks
+info:
+  name: Vue.js Unsafe Lifecycle Hooks Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects unsafe operations in Vue.js lifecycle hooks (e.g., mounted,
+    beforeDestroy)
+  tags: vue, lifecycle, security
+file:
+- extensions:
+  - vue
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - mounted\s*\(\)\s*\{.*\$el\.innerHTML.*\}
+    - beforeDestroy\s*\(\)\s*\{.*\}
+  extractors:
+  - type: regex
+    regex:
+    - mounted\s*\(\)\s*\{.*\$el\.innerHTML.*\}
+    - beforeDestroy\s*\(\)\s*\{.*\}

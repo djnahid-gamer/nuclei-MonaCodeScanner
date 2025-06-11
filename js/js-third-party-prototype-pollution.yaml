@@ -1,0 +1,21 @@
+id: js-third-party-prototype-pollution
+info:
+  name: Prototype Pollution in Third-Party Libraries Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects potential prototype pollution in third-party libraries like
+    Lodash and jQuery
+  tags: javascript, prototype-pollution, libraries
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - lodash\.merge\s*\(\s*.*\)
+    - \$\.extend\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - lodash\.merge\s*\(\s*.*\)
+    - \$\.extend\s*\(\s*.*\)

@@ -1,0 +1,18 @@
+id: js-jsonp-abuse
+info:
+  name: JSONP Callback Abuse Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects unsafe usage of JSONP callbacks in JavaScript applications
+  tags: javascript, jsonp, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - callback=\s*req\.query\[.*\]
+  extractors:
+  - type: regex
+    regex:
+    - callback=\s*req\.query\[.*\]

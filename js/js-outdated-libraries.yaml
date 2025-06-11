@@ -1,0 +1,18 @@
+id: js-outdated-libraries
+info:
+  name: General JavaScript Outdated Libraries Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects outdated libraries in package.json for JavaScript projects
+  tags: javascript, dependencies, security
+file:
+- extensions:
+  - json
+  matchers:
+  - type: regex
+    regex:
+    - '"(react|vue|angular|lodash|express)":\s*".*"'
+  extractors:
+  - type: regex
+    regex:
+    - '"(react|vue|angular|lodash|express)":\s*".*"'

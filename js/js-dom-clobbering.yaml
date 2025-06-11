@@ -1,0 +1,21 @@
+id: js-dom-clobbering
+info:
+  name: DOM Clobbering Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects DOM clobbering vulnerabilities in JavaScript applications
+  tags: javascript, dom, clobbering, security
+file:
+- extensions:
+  - js
+  - html
+  matchers:
+  - type: regex
+    regex:
+    - document\.getElementById\s*\(\s*.*\)\.id\s*=\s*.*
+    - document\.all\[.*\]\.id\s*=\s*.*
+  extractors:
+  - type: regex
+    regex:
+    - document\.getElementById\s*\(\s*.*\)\.id\s*=\s*.*
+    - document\.all\[.*\]\.id\s*=\s*.*

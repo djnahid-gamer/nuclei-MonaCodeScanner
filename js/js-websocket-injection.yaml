@@ -1,0 +1,20 @@
+id: js-websocket-injection
+info:
+  name: WebSocket Injection Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects WebSocket injection vulnerabilities in JavaScript applications
+  tags: javascript, websocket, injection
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - ws\.send\s*\(\s*req\.query\[.*\]\)
+    - socket\.emit\s*\(\s*req\.body\[.*\]\)
+  extractors:
+  - type: regex
+    regex:
+    - ws\.send\s*\(\s*req\.query\[.*\]\)
+    - socket\.emit\s*\(\s*req\.body\[.*\]\)

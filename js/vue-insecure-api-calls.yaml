@@ -1,0 +1,21 @@
+id: vue-insecure-api-calls
+info:
+  name: Vue.js Insecure API Calls Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure API calls in Vue.js applications (e.g., non-HTTPS)
+  tags: vue, api, security
+file:
+- extensions:
+  - vue
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - \$http\.get\s*\(\s*['"]http://.*['"]
+    - axios\.get\s*\(\s*['"]http://.*['"]
+  extractors:
+  - type: regex
+    regex:
+    - \$http\.get\s*\(\s*['"]http://.*['"]
+    - axios\.get\s*\(\s*['"]http://.*['"]

@@ -1,0 +1,22 @@
+id: js-client-side-prototype-pollution
+info:
+  name: Client-Side Prototype Pollution Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects client-side prototype pollution vulnerabilities in JavaScript
+    applications
+  tags: javascript, client-side, prototype-pollution
+file:
+- extensions:
+  - js
+  - html
+  matchers:
+  - type: regex
+    regex:
+    - Object\.assign\s*\(\s*window.*\)
+    - window\.Object\.prototype\s*\[.*\]
+  extractors:
+  - type: regex
+    regex:
+    - Object\.assign\s*\(\s*window.*\)
+    - window\.Object\.prototype\s*\[.*\]

@@ -1,0 +1,20 @@
+id: nextjs-ssr-vulnerabilities
+info:
+  name: Next.js SSR Vulnerabilities Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects vulnerabilities in Next.js server-side rendering that may expose
+    sensitive data
+  tags: nextjs, ssr, security
+file:
+- extensions:
+  - js
+  - jsx
+  matchers:
+  - type: regex
+    regex:
+    - getServerSideProps\s*\(\s*.*req\.query.*\)
+  extractors:
+  - type: regex
+    regex:
+    - getServerSideProps\s*\(\s*.*req\.query.*\)

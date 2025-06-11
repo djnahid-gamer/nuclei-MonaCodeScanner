@@ -1,0 +1,18 @@
+id: js-insufficient-error-handling
+info:
+  name: Insufficient Error Handling Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects missing or insufficient error handling in JavaScript code
+  tags: javascript, error-handling, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - try\s*\{.*\}\s*catch\s*\(\s*e\s*\)\s*\{.*console\.log.*\}
+  extractors:
+  - type: regex
+    regex:
+    - try\s*\{.*\}\s*catch\s*\(\s*e\s*\)\s*\{.*console\.log.*\}

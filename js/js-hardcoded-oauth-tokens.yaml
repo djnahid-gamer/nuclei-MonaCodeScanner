@@ -1,0 +1,18 @@
+id: js-hardcoded-oauth-tokens
+info:
+  name: Hardcoded OAuth Tokens Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects hardcoded OAuth tokens in JavaScript applications
+  tags: javascript, oauth, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - (accessToken|refreshToken)\s*=\s*['"].*['"]
+  extractors:
+  - type: regex
+    regex:
+    - (accessToken|refreshToken)\s*=\s*['"].*['"]

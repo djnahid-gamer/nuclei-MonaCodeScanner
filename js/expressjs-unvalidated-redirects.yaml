@@ -1,0 +1,18 @@
+id: expressjs-unvalidated-redirects
+info:
+  name: Express.js Unvalidated Redirects Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unvalidated redirects in Express.js applications
+  tags: expressjs, redirect, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - res\.redirect\s*\(\s*req\.query\[.*\]\)
+  extractors:
+  - type: regex
+    regex:
+    - res\.redirect\s*\(\s*req\.query\[.*\]\)

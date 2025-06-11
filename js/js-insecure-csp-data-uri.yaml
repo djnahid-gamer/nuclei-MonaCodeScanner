@@ -1,0 +1,19 @@
+id: js-insecure-csp-data-uri
+info:
+  name: Insecure CSP Allowing Data URI Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure Content Security Policies that allow `data:` URIs
+  tags: javascript, csp, security
+file:
+- extensions:
+  - js
+  - html
+  matchers:
+  - type: regex
+    regex:
+    - 'Content-Security-Policy:\s*default-src\s*.*data:'
+  extractors:
+  - type: regex
+    regex:
+    - 'Content-Security-Policy:\s*default-src\s*.*data:'

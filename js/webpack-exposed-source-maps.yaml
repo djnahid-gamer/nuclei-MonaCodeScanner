@@ -1,0 +1,18 @@
+id: webpack-exposed-source-maps
+info:
+  name: Webpack Exposed Source Maps Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects exposed source maps in JavaScript applications built with Webpack
+  tags: webpack, sourcemaps, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - sourceMappingURL=.*\.map
+  extractors:
+  - type: regex
+    regex:
+    - sourceMappingURL=.*\.map

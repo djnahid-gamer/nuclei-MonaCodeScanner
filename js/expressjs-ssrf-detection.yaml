@@ -1,0 +1,20 @@
+id: expressjs-ssrf-detection
+info:
+  name: Express.js SSRF Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects SSRF vulnerabilities in Express.js applications
+  tags: expressjs, ssrf, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - res\.redirect\s*\(\s*req\.query\[.*\]\)
+    - res\.send\s*\(\s*http\.get\(.*req\.body.*\)\)
+  extractors:
+  - type: regex
+    regex:
+    - res\.redirect\s*\(\s*req\.query\[.*\]\)
+    - res\.send\s*\(\s*http\.get\(.*req\.body.*\)\)

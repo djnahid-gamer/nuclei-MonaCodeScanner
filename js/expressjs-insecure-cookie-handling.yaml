@@ -1,0 +1,18 @@
+id: expressjs-insecure-cookie-handling
+info:
+  name: Express.js Insecure Cookie Handling Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects cookies being set without Secure or HttpOnly flags in Express.js
+  tags: expressjs, cookies, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - res\.cookie\s*\(\s*['"].*['"],\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - res\.cookie\s*\(\s*['"].*['"],\s*.*\)

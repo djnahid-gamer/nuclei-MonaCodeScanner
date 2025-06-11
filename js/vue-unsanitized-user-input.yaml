@@ -1,0 +1,21 @@
+id: vue-unsanitized-user-input
+info:
+  name: Vue.js Unsanitized User Input Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unsanitized user input being directly rendered in Vue.js applications
+  tags: vue, input-validation, security
+file:
+- extensions:
+  - vue
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - \{\{\s*.*\s*\}\}
+    - \$el\.innerHTML\s*=\s*.*req\.query.*
+  extractors:
+  - type: regex
+    regex:
+    - \{\{\s*.*\s*\}\}
+    - \$el\.innerHTML\s*=\s*.*req\.query.*

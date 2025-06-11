@@ -1,0 +1,20 @@
+id: js-websocket-authentication
+info:
+  name: Improper WebSocket Authentication Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects missing or improper authentication in WebSocket connections
+  tags: javascript, websocket, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - io\.connect\s*\(\s*['"]http://.*['"],\s*\{.*\}\)
+    - socket\.on\s*\(\s*['"]connect['"],\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - io\.connect\s*\(\s*['"]http://.*['"],\s*\{.*\}\)
+    - socket\.on\s*\(\s*['"]connect['"],\s*.*\)

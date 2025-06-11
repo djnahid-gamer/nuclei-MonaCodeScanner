@@ -1,0 +1,20 @@
+id: vue-insecure-template-interpolation
+info:
+  name: Vue.js Insecure Template Interpolation Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unsafe template interpolation in Vue.js applications that may
+    lead to XSS
+  tags: vue, xss, template
+file:
+- extensions:
+  - vue
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - \{\{\s*.*\s*req\.query\[.*\]\s*\}\}
+  extractors:
+  - type: regex
+    regex:
+    - \{\{\s*.*\s*req\.query\[.*\]\s*\}\}

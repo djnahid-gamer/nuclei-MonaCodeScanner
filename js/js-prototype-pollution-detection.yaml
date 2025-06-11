@@ -1,0 +1,22 @@
+id: js-prototype-pollution-detection
+info:
+  name: Prototype Pollution Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects prototype pollution vulnerabilities in JavaScript applications
+  tags: javascript, prototype-pollution, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - Object\.assign\s*\(\s*.*req\.body.*\)
+    - \$\.extend\s*\(\s*true,\s*.*req\.query.*\)
+    - lodash\.merge\s*\(\s*.*req\.params.*\)
+  extractors:
+  - type: regex
+    regex:
+    - Object\.assign\s*\(\s*.*req\.body.*\)
+    - \$\.extend\s*\(\s*true,\s*.*req\.query.*\)
+    - lodash\.merge\s*\(\s*.*req\.params.*\)

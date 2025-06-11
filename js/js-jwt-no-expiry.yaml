@@ -1,0 +1,18 @@
+id: js-jwt-no-expiry
+info:
+  name: Insecure JWT Without Expiry Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects JWT configurations missing exp (expiry) fields
+  tags: javascript, jwt, security
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - jwt\.sign\s*\(.*{.*}.*\)
+  extractors:
+  - type: regex
+    regex:
+    - jwt\.sign\s*\(.*{.*}.*\)

@@ -1,0 +1,19 @@
+id: js-improper-regex-validation
+info:
+  name: Improper Regex Validation Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects overly permissive or improperly implemented regex for input
+    validation in JavaScript applications
+  tags: javascript, regex, validation
+file:
+- extensions:
+  - js
+  matchers:
+  - type: regex
+    regex:
+    - \/\^?\s*.*\s*\$?\/
+  extractors:
+  - type: regex
+    regex:
+    - \/\^?\s*.*\s*\$?\/

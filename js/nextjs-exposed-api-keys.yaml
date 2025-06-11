@@ -1,0 +1,19 @@
+id: nextjs-exposed-api-keys
+info:
+  name: Next.js Exposed API Keys Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects hardcoded API keys exposed in client-side Next.js code
+  tags: nextjs, api-keys, security
+file:
+- extensions:
+  - js
+  - jsx
+  matchers:
+  - type: regex
+    regex:
+    - (NEXT_PUBLIC_API_KEY|NEXT_PUBLIC_SECRET)\s*:\s*['"].*['"]
+  extractors:
+  - type: regex
+    regex:
+    - (NEXT_PUBLIC_API_KEY|NEXT_PUBLIC_SECRET)\s*:\s*['"].*['"]
