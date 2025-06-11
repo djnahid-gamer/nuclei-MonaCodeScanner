@@ -1,0 +1,26 @@
+id: cpp-memory-leak
+info:
+  name: C/C++ Memory Leak Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects potential memory leaks in C and C++ applications
+  tags: c, cpp, memory-leak, security
+file:
+- extensions:
+  - c
+  - cpp
+  matchers:
+  - type: regex
+    regex:
+    - malloc\(.*\);
+    - new .*;
+  negative-matchers:
+  - type: regex
+    regex:
+    - free\(.*\);
+    - delete .*;
+  extractors:
+  - type: regex
+    regex:
+    - malloc\(.*\);
+    - new .*;

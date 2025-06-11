@@ -1,0 +1,18 @@
+id: go-hardcoded-encryption-keys
+info:
+  name: Go Hardcoded Encryption Keys Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects hardcoded encryption keys in Go applications
+  tags: go, encryption, security
+file:
+- extensions:
+  - go
+  matchers:
+  - type: regex
+    regex:
+    - var\s+(aesKey|encryptionKey)\s*=\s*['"].*['"]
+  extractors:
+  - type: regex
+    regex:
+    - var\s+(aesKey|encryptionKey)\s*=\s*['"].*['"]

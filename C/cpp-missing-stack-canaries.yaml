@@ -1,0 +1,19 @@
+id: cpp-missing-stack-canaries
+info:
+  name: C/C++ Lack of Stack Canaries Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects missing stack canaries in C and C++ applications
+  tags: c, cpp, stack-protection, security
+file:
+- extensions:
+  - c
+  - cpp
+  matchers:
+  - type: regex
+    regex:
+    - '#pragma GCC optimize\("omit-frame-pointer"\)'
+  extractors:
+  - type: regex
+    regex:
+    - '#pragma GCC optimize\("omit-frame-pointer"\)'

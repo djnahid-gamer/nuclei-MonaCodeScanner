@@ -1,0 +1,18 @@
+id: go-insecure-tls
+info:
+  name: Go Insecure TLS Configuration Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects weak TLS configurations in Go applications
+  tags: go, tls, security
+file:
+- extensions:
+  - go
+  matchers:
+  - type: regex
+    regex:
+    - '&tls\.Config\{.*InsecureSkipVerify:\s*true'
+  extractors:
+  - type: regex
+    regex:
+    - '&tls\.Config\{.*InsecureSkipVerify:\s*true'

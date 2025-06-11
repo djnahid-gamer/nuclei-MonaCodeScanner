@@ -1,0 +1,20 @@
+id: dotnet-jwt-misconfiguration
+info:
+  name: JWT Token Misconfiguration Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure JWT configurations in .NET applications
+  tags: dotnet, jwt, security
+file:
+- extensions:
+  - cs
+  matchers:
+  - type: regex
+    regex:
+    - TokenValidationParameters\s*\{.*ValidateIssuerSigningKey\s*=\s*false.*\}
+    - TokenValidationParameters\s*\{.*ValidateLifetime\s*=\s*false.*\}
+  extractors:
+  - type: regex
+    regex:
+    - TokenValidationParameters\s*\{.*ValidateIssuerSigningKey\s*=\s*false.*\}
+    - TokenValidationParameters\s*\{.*ValidateLifetime\s*=\s*false.*\}

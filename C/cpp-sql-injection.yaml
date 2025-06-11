@@ -1,0 +1,21 @@
+id: cpp-sql-injection
+info:
+  name: C/C++ SQL Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects SQL injection vulnerabilities in C and C++ applications
+  tags: c, cpp, sql-injection, security
+file:
+- extensions:
+  - c
+  - cpp
+  matchers:
+  - type: regex
+    regex:
+    - sprintf\(.*"SELECT.*".*\)
+    - strcat\(.*"INSERT INTO.*".*\)
+  extractors:
+  - type: regex
+    regex:
+    - sprintf\(.*"SELECT.*".*\)
+    - strcat\(.*"INSERT INTO.*".*\)

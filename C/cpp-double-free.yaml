@@ -1,0 +1,22 @@
+id: cpp-double-free
+info:
+  name: C/C++ Double Free and Use-After-Free Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects double free and use-after-free vulnerabilities in C and C++
+    applications
+  tags: c, cpp, memory-corruption, security
+file:
+- extensions:
+  - c
+  - cpp
+  matchers:
+  - type: regex
+    regex:
+    - free\(ptr\);.*free\(ptr\);
+    - delete\s*ptr;.*delete\s*ptr;
+  extractors:
+  - type: regex
+    regex:
+    - free\(ptr\);.*free\(ptr\);
+    - delete\s*ptr;.*delete\s*ptr;

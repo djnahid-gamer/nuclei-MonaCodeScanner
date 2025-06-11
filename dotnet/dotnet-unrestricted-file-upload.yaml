@@ -1,0 +1,20 @@
+id: dotnet-unrestricted-file-upload
+info:
+  name: Unrestricted File Upload Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure file upload configurations in .NET applications
+  tags: dotnet, file-upload, security
+file:
+- extensions:
+  - cs
+  matchers:
+  - type: regex
+    regex:
+    - HttpPostedFileBase\.SaveAs\s*\(\s*.*\)
+    - PostedFile\.SaveAs\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - HttpPostedFileBase\.SaveAs\s*\(\s*.*\)
+    - PostedFile\.SaveAs\s*\(\s*.*\)

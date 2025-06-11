@@ -1,0 +1,19 @@
+id: dotnet-default-salt-detection
+info:
+  name: Default or Weak Salt Usage Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects weak or default salt usage in cryptographic operations in .NET
+    applications
+  tags: dotnet, cryptography, security
+file:
+- extensions:
+  - cs
+  matchers:
+  - type: regex
+    regex:
+    - Rfc2898DeriveBytes\s*\(\s*.*\s*,\s*new byte\[\] \{.*0.*\}\)
+  extractors:
+  - type: regex
+    regex:
+    - Rfc2898DeriveBytes\s*\(\s*.*\s*,\s*new byte\[\] \{.*0.*\}\)

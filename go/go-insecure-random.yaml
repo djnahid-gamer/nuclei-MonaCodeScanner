@@ -1,0 +1,20 @@
+id: go-insecure-random
+info:
+  name: Go Insecure Random Number Generation Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects use of weak random number generators in Go applications
+  tags: go, random, security
+file:
+- extensions:
+  - go
+  matchers:
+  - type: regex
+    regex:
+    - rand\.Intn\(
+    - rand\.Float64\(
+  extractors:
+  - type: regex
+    regex:
+    - rand\.Intn\(
+    - rand\.Float64\(

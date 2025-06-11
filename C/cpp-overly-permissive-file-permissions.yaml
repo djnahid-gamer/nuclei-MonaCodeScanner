@@ -1,0 +1,19 @@
+id: cpp-overly-permissive-file-permissions
+info:
+  name: C/C++ Overly Permissive File Permissions
+  author: kaanbicaklar
+  severity: high
+  description: Detects overly permissive file permissions in C and C++ applications
+  tags: c, cpp, file-permissions, security
+file:
+- extensions:
+  - c
+  - cpp
+  matchers:
+  - type: regex
+    regex:
+    - chmod\(.*0777.*\)
+  extractors:
+  - type: regex
+    regex:
+    - chmod\(.*0777.*\)

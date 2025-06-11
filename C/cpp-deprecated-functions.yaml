@@ -1,0 +1,26 @@
+id: cpp-deprecated-functions
+info:
+  name: C/C++ Use of Deprecated Functions
+  author: kaanbicaklar
+  severity: medium
+  description: Detects use of deprecated and potentially unsafe functions in C and
+    C++ applications
+  tags: c, cpp, deprecated, security
+file:
+- extensions:
+  - c
+  - cpp
+  matchers:
+  - type: regex
+    regex:
+    - strcpy\(
+    - gets\(
+    - sprintf\(
+    - strcat\(
+  extractors:
+  - type: regex
+    regex:
+    - strcpy\(
+    - gets\(
+    - sprintf\(
+    - strcat\(

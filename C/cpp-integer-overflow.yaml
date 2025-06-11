@@ -1,0 +1,18 @@
+id: cpp-integer-overflow
+
+info:
+  name: C/C++ Integer Overflow Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects integer overflows in C and C++ applications
+  tags: c, cpp, integer-overflow, security
+
+file:
+  - extensions:
+      - c
+      - cpp
+    matchers:
+      - type: regex
+        regex:
+          - "int\\s+[a-zA-Z0-9_]+\\s*=\\s*.*INT_MAX"
+          - "unsigned int\\s+[a-zA-Z0-9_]+\\s*=\\s*.*UINT_MAX

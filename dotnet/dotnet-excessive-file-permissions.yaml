@@ -1,0 +1,19 @@
+id: dotnet-excessive-file-permissions
+info:
+  name: Excessive File Permissions Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects excessive permissions being set on files or directories in
+    .NET applications
+  tags: dotnet, file-permissions, security
+file:
+- extensions:
+  - cs
+  matchers:
+  - type: regex
+    regex:
+    - File\.SetAttributes\s*\(\s*.*\s*,\s*FileAttributes\.Normal\)
+  extractors:
+  - type: regex
+    regex:
+    - File\.SetAttributes\s*\(\s*.*\s*,\s*FileAttributes\.Normal\)

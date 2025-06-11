@@ -1,0 +1,20 @@
+id: dotnet-unencrypted-communication
+info:
+  name: Unencrypted Communication Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects HTTP connections or unencrypted communication in .NET applications
+  tags: dotnet, http, security
+file:
+- extensions:
+  - cs
+  matchers:
+  - type: regex
+    regex:
+    - HttpWebRequest\s*\(\s*.*http://.*\)
+    - WebClient\.DownloadString\s*\(\s*.*http://.*\)
+  extractors:
+  - type: regex
+    regex:
+    - HttpWebRequest\s*\(\s*.*http://.*\)
+    - WebClient\.DownloadString\s*\(\s*.*http://.*\)

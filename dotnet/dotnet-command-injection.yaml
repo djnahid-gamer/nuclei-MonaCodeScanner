@@ -1,0 +1,18 @@
+id: dotnet-command-injection
+info:
+  name: Command Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential command injection vulnerabilities in .NET applications
+  tags: dotnet, command-injection, security
+file:
+- extensions:
+  - cs
+  matchers:
+  - type: regex
+    regex:
+    - Process\.Start\s*\(\s*.*Request\.QueryString.*\)
+  extractors:
+  - type: regex
+    regex:
+    - Process\.Start\s*\(\s*.*Request\.QueryString.*\)

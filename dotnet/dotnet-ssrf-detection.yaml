@@ -1,0 +1,20 @@
+id: dotnet-ssrf-detection
+info:
+  name: SSRF Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential SSRF vulnerabilities in .NET applications
+  tags: dotnet, ssrf, security
+file:
+- extensions:
+  - cs
+  matchers:
+  - type: regex
+    regex:
+    - HttpWebRequest\s*\(\s*.*Request\.QueryString.*\)
+    - WebClient\.DownloadString\s*\(\s*.*Request\.QueryString.*\)
+  extractors:
+  - type: regex
+    regex:
+    - HttpWebRequest\s*\(\s*.*Request\.QueryString.*\)
+    - WebClient\.DownloadString\s*\(\s*.*Request\.QueryString.*\)

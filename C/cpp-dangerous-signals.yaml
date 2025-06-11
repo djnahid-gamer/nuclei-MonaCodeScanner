@@ -1,0 +1,19 @@
+id: cpp-dangerous-signals
+info:
+  name: C/C++ Use of Dangerous Signals
+  author: kaanbicaklar
+  severity: critical
+  description: Detects use of unsafe signal handling functions in C and C++ applications
+  tags: c, cpp, signals, security
+file:
+- extensions:
+  - c
+  - cpp
+  matchers:
+  - type: regex
+    regex:
+    - signal\(SIG.*,
+  extractors:
+  - type: regex
+    regex:
+    - signal\(SIG.*,

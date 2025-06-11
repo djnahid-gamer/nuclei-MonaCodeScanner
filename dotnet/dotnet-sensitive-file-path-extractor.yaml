@@ -1,0 +1,18 @@
+id: dotnet-sensitive-file-path-extractor
+info:
+  name: Sensitive File Paths Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects and extracts hardcoded sensitive file paths in .NET applications
+  tags: dotnet, file-paths, security
+file:
+- extensions:
+  - cs
+  matchers:
+  - type: regex
+    regex:
+    - (File|Directory)\.Create\s*\(\s*['"].*['"]
+  extractors:
+  - type: regex
+    regex:
+    - (File|Directory)\.Create\s*\(\s*['"].*['"]

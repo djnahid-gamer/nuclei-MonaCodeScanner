@@ -1,0 +1,18 @@
+id: go-xxe
+info:
+  name: Go XML External Entity (XXE) Attack Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects potential XXE vulnerabilities in Go applications
+  tags: go, xxe, security
+file:
+- extensions:
+  - go
+  matchers:
+  - type: regex
+    regex:
+    - encoding/xml\.NewDecoder\(.*\)\.Decode\(
+  extractors:
+  - type: regex
+    regex:
+    - encoding/xml\.NewDecoder\(.*\)\.Decode\(

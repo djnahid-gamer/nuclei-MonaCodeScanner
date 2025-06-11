@@ -1,0 +1,21 @@
+id: cpp-unsafe-file-access
+info:
+  name: C/C++ Unsafe File Access Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unsafe file access operations in C and C++ applications
+  tags: c, cpp, file-access, security
+file:
+- extensions:
+  - c
+  - cpp
+  matchers:
+  - type: regex
+    regex:
+    - fopen\(.*stdin.*\)
+    - open\(.*argv\[.*\].*\)
+  extractors:
+  - type: regex
+    regex:
+    - fopen\(.*stdin.*\)
+    - open\(.*argv\[.*\].*\)

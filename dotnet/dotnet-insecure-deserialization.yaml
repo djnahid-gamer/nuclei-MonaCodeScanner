@@ -1,0 +1,20 @@
+id: dotnet-insecure-deserialization
+info:
+  name: .NET Insecure Deserialization Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure deserialization vulnerabilities in .NET applications
+  tags: dotnet, deserialization
+file:
+- extensions:
+  - cs
+  matchers:
+  - type: regex
+    regex:
+    - BinaryFormatter\s*\(\s*.*\)
+    - JavaScriptSerializer\.Deserialize\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - BinaryFormatter\s*\(\s*.*\)
+    - JavaScriptSerializer\.Deserialize\s*\(\s*.*\)

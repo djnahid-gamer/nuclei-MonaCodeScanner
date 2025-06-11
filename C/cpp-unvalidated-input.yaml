@@ -1,0 +1,24 @@
+id: cpp-unvalidated-input
+info:
+  name: C/C++ Unvalidated Input Handling
+  author: kaanbicaklar
+  severity: high
+  description: Detects unvalidated input being passed to critical functions in C and
+    C++ applications
+  tags: c, cpp, input-validation, security
+file:
+- extensions:
+  - c
+  - cpp
+  matchers:
+  - type: regex
+    regex:
+    - scanf\(
+    - gets\(
+    - strcpy\(.*argv\[.*\]
+  extractors:
+  - type: regex
+    regex:
+    - scanf\(
+    - gets\(
+    - strcpy\(.*argv\[.*\]

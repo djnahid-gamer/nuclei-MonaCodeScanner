@@ -1,0 +1,18 @@
+id: dotnet-open-redirect-detection
+info:
+  name: Open Redirect Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects potential open redirect vulnerabilities in .NET applications
+  tags: dotnet, redirect, security
+file:
+- extensions:
+  - cs
+  matchers:
+  - type: regex
+    regex:
+    - Response\.Redirect\s*\(\s*Request\.QueryString\[.*\]\)
+  extractors:
+  - type: regex
+    regex:
+    - Response\.Redirect\s*\(\s*Request\.QueryString\[.*\]\)

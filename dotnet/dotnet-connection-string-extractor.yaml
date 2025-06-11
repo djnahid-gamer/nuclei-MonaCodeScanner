@@ -1,0 +1,19 @@
+id: dotnet-connection-string-extractor
+info:
+  name: Connection String Exposure Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects and extracts exposed database connection strings in .NET applications
+  tags: dotnet, connection-string, database, security
+file:
+- extensions:
+  - cs
+  - config
+  matchers:
+  - type: regex
+    regex:
+    - ConnectionString\s*=\s*['"].*['"]
+  extractors:
+  - type: regex
+    regex:
+    - ConnectionString\s*=\s*['"].*['"]

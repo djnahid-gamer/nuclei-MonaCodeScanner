@@ -1,0 +1,21 @@
+id: go-eval-like-functions
+info:
+  name: Go Use of Eval-like Functions Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects use of eval-like functions that may lead to security vulnerabilities
+    in Go applications
+  tags: go, eval, security
+file:
+- extensions:
+  - go
+  matchers:
+  - type: regex
+    regex:
+    - goja\.RunString\(
+    - expr\.Eval\(
+  extractors:
+  - type: regex
+    regex:
+    - goja\.RunString\(
+    - expr\.Eval\(

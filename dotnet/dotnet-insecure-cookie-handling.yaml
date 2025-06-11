@@ -1,0 +1,23 @@
+id: dotnet-insecure-cookie-handling
+info:
+  name: Insecure Cookie Handling Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects cookies being set without Secure or HttpOnly flags in .NET
+    applications
+  tags: dotnet, cookies, security
+file:
+- extensions:
+  - cs
+  matchers:
+  - type: regex
+    regex:
+    - HttpCookie\s*\(\s*.*\)
+    - Secure=false
+    - HttpOnly=false
+  extractors:
+  - type: regex
+    regex:
+    - HttpCookie\s*\(\s*.*\)
+    - Secure=false
+    - HttpOnly=false

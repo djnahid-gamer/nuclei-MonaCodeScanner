@@ -1,0 +1,20 @@
+id: dotnet-reflection-abuse
+info:
+  name: Reflection Abuse Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects potential abuse of reflection in .NET applications
+  tags: dotnet, reflection, security
+file:
+- extensions:
+  - cs
+  matchers:
+  - type: regex
+    regex:
+    - Assembly\.Load\s*\(\s*.*\)
+    - Type\.GetType\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - Assembly\.Load\s*\(\s*.*\)
+    - Type\.GetType\s*\(\s*.*\)

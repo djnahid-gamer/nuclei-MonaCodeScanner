@@ -1,0 +1,18 @@
+id: dotnet-api-key-extractor
+info:
+  name: API Key Exposure Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects and extracts hardcoded API keys in .NET applications
+  tags: dotnet, api-key, security
+file:
+- extensions:
+  - cs
+  matchers:
+  - type: regex
+    regex:
+    - ApiKey\s*=\s*['"].*['"]
+  extractors:
+  - type: regex
+    regex:
+    - ApiKey\s*=\s*['"].*['"]

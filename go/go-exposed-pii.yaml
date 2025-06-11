@@ -1,0 +1,18 @@
+id: go-exposed-pii
+info:
+  name: Go Exposure of PII (Personally Identifiable Information)
+  author: kaanbicaklar
+  severity: high
+  description: Detects exposure of sensitive PII data in Go applications
+  tags: go, pii, security
+file:
+- extensions:
+  - go
+  matchers:
+  - type: regex
+    regex:
+    - log\.Print.*(email|ssn|creditcard)
+  extractors:
+  - type: regex
+    regex:
+    - log\.Print.*(email|ssn|creditcard)

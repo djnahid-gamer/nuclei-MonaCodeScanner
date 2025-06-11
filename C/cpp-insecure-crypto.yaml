@@ -1,0 +1,21 @@
+id: cpp-insecure-crypto
+info:
+  name: C/C++ Use of Insecure Cryptographic Functions
+  author: kaanbicaklar
+  severity: high
+  description: Detects usage of weak cryptographic algorithms in C and C++ applications
+  tags: c, cpp, crypto, security
+file:
+- extensions:
+  - c
+  - cpp
+  matchers:
+  - type: regex
+    regex:
+    - MD5_.*\(
+    - SHA1_.*\(
+  extractors:
+  - type: regex
+    regex:
+    - MD5_.*\(
+    - SHA1_.*\(

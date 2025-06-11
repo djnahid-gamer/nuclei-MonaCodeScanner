@@ -1,0 +1,20 @@
+id: go-sensitive-logging
+info:
+  name: Go Excessive Logging of Sensitive Data
+  author: kaanbicaklar
+  severity: high
+  description: Detects logging of sensitive data in Go applications
+  tags: go, logging, security
+file:
+- extensions:
+  - go
+  matchers:
+  - type: regex
+    regex:
+    - log\.Println\(.*(password|creditcard|ssn).*\)
+    - fmt\.Printf\(.*(password|creditcard|ssn).*\)
+  extractors:
+  - type: regex
+    regex:
+    - log\.Println\(.*(password|creditcard|ssn).*\)
+    - fmt\.Printf\(.*(password|creditcard|ssn).*\)

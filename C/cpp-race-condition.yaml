@@ -1,0 +1,21 @@
+id: cpp-race-condition
+info:
+  name: C/C++ Race Condition Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects race condition vulnerabilities in C and C++ applications
+  tags: c, cpp, race-condition, security
+file:
+- extensions:
+  - c
+  - cpp
+  matchers:
+  - type: regex
+    regex:
+    - pthread_create\(
+    - fork\(
+  extractors:
+  - type: regex
+    regex:
+    - pthread_create\(
+    - fork\(

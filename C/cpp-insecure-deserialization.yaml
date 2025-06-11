@@ -1,0 +1,21 @@
+id: cpp-insecure-deserialization
+info:
+  name: C/C++ Deserialization Vulnerabilities Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure deserialization vulnerabilities in C and C++ applications
+  tags: c, cpp, deserialization, security
+file:
+- extensions:
+  - c
+  - cpp
+  matchers:
+  - type: regex
+    regex:
+    - fread\(.*,&.*\);
+    - read\(.*,&.*\);
+  extractors:
+  - type: regex
+    regex:
+    - fread\(.*,&.*\);
+    - read\(.*,&.*\);

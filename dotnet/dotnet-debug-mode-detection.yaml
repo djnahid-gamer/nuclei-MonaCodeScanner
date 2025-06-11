@@ -1,0 +1,18 @@
+id: dotnet-debug-mode-detection
+info:
+  name: Debug Mode Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects .NET applications running in debug mode
+  tags: dotnet, configuration, debug
+file:
+- extensions:
+  - config
+  matchers:
+  - type: regex
+    regex:
+    - <compilation debug="true"
+  extractors:
+  - type: regex
+    regex:
+    - <compilation debug="true"

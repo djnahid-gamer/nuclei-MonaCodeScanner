@@ -1,0 +1,19 @@
+id: dotnet-default-error-messages
+info:
+  name: Default ASP.NET Error Messages Exposure
+  author: kaanbicaklar
+  severity: medium
+  description: Detects default error messages that may expose sensitive information
+    in ASP.NET
+  tags: dotnet, error-messages, security
+file:
+- extensions:
+  - config
+  matchers:
+  - type: regex
+    regex:
+    - <customErrors mode="Off"
+  extractors:
+  - type: regex
+    regex:
+    - <customErrors mode="Off"

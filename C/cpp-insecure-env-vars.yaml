@@ -1,0 +1,21 @@
+id: cpp-insecure-env-vars
+info:
+  name: C/C++ Use of Unsafe Environment Variables
+  author: kaanbicaklar
+  severity: high
+  description: Detects usage of insecure environment variables in C and C++ applications
+  tags: c, cpp, environment-variables, security
+file:
+- extensions:
+  - c
+  - cpp
+  matchers:
+  - type: regex
+    regex:
+    - getenv\(
+    - putenv\(
+  extractors:
+  - type: regex
+    regex:
+    - getenv\(
+    - putenv\(

@@ -1,0 +1,22 @@
+id: dotnet-rce-detection
+info:
+  name: .NET Remote Code Execution Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential RCE vulnerabilities in .NET applications
+  tags: dotnet, rce
+file:
+- extensions:
+  - cs
+  matchers:
+  - type: regex
+    regex:
+    - Process\.Start\s*\(\s*.*\)
+    - System\.Diagnostics\.Process\.Start\s*\(\s*.*\)
+    - Invoke\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - Process\.Start\s*\(\s*.*\)
+    - System\.Diagnostics\.Process\.Start\s*\(\s*.*\)
+    - Invoke\s*\(\s*.*\)

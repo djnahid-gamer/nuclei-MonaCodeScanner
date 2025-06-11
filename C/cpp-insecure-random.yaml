@@ -1,0 +1,19 @@
+id: cpp-insecure-random
+info:
+  name: C/C++ Insecure Random Number Generation
+  author: kaanbicaklar
+  severity: high
+  description: Detects usage of weak random number generators in C and C++ applications
+  tags: c, cpp, random, security
+file:
+- extensions:
+  - c
+  - cpp
+  matchers:
+  - type: regex
+    regex:
+    - rand\(
+  extractors:
+  - type: regex
+    regex:
+    - rand\(

@@ -1,0 +1,23 @@
+id: go-unvalidated-input
+info:
+  name: Go Unvalidated Input Handling Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects instances of unvalidated input being passed to sensitive functions
+    in Go applications
+  tags: go, input-validation, security
+file:
+- extensions:
+  - go
+  matchers:
+  - type: regex
+    regex:
+    - r\.URL\.Query\(\)\[.*\]
+    - r\.FormValue\(.*\)
+    - r\.PostFormValue\(.*\)
+  extractors:
+  - type: regex
+    regex:
+    - r\.URL\.Query\(\)\[.*\]
+    - r\.FormValue\(.*\)
+    - r\.PostFormValue\(.*\)

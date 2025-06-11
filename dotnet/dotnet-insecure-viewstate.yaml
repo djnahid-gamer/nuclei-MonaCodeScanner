@@ -1,0 +1,18 @@
+id: dotnet-insecure-viewstate
+info:
+  name: Insecure ViewState Configuration
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure ViewState settings in .NET applications
+  tags: dotnet, viewstate, security
+file:
+- extensions:
+  - config
+  matchers:
+  - type: regex
+    regex:
+    - <pages enableViewStateMac="false"
+  extractors:
+  - type: regex
+    regex:
+    - <pages enableViewStateMac="false"

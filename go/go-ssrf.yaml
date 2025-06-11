@@ -1,0 +1,20 @@
+id: go-ssrf
+info:
+  name: Go SSRF Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential SSRF vulnerabilities in Go applications
+  tags: go, ssrf, security
+file:
+- extensions:
+  - go
+  matchers:
+  - type: regex
+    regex:
+    - http\.Get\(\s*r\.FormValue\(
+    - http\.Post\(\s*r\.URL\.Query\(
+  extractors:
+  - type: regex
+    regex:
+    - http\.Get\(\s*r\.FormValue\(
+    - http\.Post\(\s*r\.URL\.Query\(

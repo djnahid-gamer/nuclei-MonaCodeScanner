@@ -1,0 +1,22 @@
+id: cpp-null-pointer-dereference
+info:
+  name: C/C++ Null Pointer Dereference Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential null pointer dereference vulnerabilities in C and
+    C++ applications
+  tags: c, cpp, null-pointer, security
+file:
+- extensions:
+  - c
+  - cpp
+  matchers:
+  - type: regex
+    regex:
+    - \*ptr
+    - if\s*\(ptr\s*==\s*NULL\)
+  extractors:
+  - type: regex
+    regex:
+    - \*ptr
+    - if\s*\(ptr\s*==\s*NULL\)

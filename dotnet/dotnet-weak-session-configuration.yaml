@@ -1,0 +1,20 @@
+id: dotnet-weak-session-configuration
+info:
+  name: Weak Session Configuration Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure session configurations in .NET applications
+  tags: dotnet, configuration, session
+file:
+- extensions:
+  - config
+  matchers:
+  - type: regex
+    regex:
+    - <sessionState timeout="\d+"
+    - <sessionState cookieless="AutoDetect"
+  extractors:
+  - type: regex
+    regex:
+    - <sessionState timeout="\d+"
+    - <sessionState cookieless="AutoDetect"

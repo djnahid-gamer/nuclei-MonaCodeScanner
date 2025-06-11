@@ -1,0 +1,21 @@
+id: dotnet-library-vulnerabilities
+info:
+  name: Third-Party Library Vulnerabilities
+  author: kaanbicaklar
+  severity: critical
+  description: Detects outdated or vulnerable third-party libraries in .NET applications
+  tags: dotnet, libraries, security
+file:
+- extensions:
+  - csproj
+  - config
+  matchers:
+  - type: regex
+    regex:
+    - <PackageReference Include="Newtonsoft.Json" Version=".*" />
+    - <PackageReference Include="EntityFramework" Version=".*" />
+  extractors:
+  - type: regex
+    regex:
+    - <PackageReference Include="Newtonsoft.Json" Version=".*" />
+    - <PackageReference Include="EntityFramework" Version=".*" />

@@ -1,0 +1,18 @@
+id: go-insecure-cors
+info:
+  name: Go Insecure CORS Policy Detection
+  author: kaanbicaklar
+  severity: high
+  description: Detects insecure CORS configurations in Go applications
+  tags: go, cors, security
+file:
+- extensions:
+  - go
+  matchers:
+  - type: regex
+    regex:
+    - w\.Header\(\)\.Set\("Access-Control-Allow-Origin",\s*"\*"\)
+  extractors:
+  - type: regex
+    regex:
+    - w\.Header\(\)\.Set\("Access-Control-Allow-Origin",\s*"\*"\)

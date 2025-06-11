@@ -1,0 +1,20 @@
+id: go-unsafe-file-access
+info:
+  name: Go Unsafe File Access Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unsafe file access operations in Go applications
+  tags: go, file-access, security
+file:
+- extensions:
+  - go
+  matchers:
+  - type: regex
+    regex:
+    - os\.Open\(\s*.*r.URL.Query\(\).*\)
+    - ioutil\.ReadFile\(\s*.*r.FormValue\(\).*\)
+  extractors:
+  - type: regex
+    regex:
+    - os\.Open\(\s*.*r.URL.Query\(\).*\)
+    - ioutil\.ReadFile\(\s*.*r.FormValue\(\).*\)

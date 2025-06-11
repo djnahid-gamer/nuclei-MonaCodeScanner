@@ -1,0 +1,18 @@
+id: cpp-format-string
+
+info:
+  name: C/C++ Format String Vulnerability Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects format string vulnerabilities in C and C++ applications
+  tags: c, cpp, format-string, security
+
+file:
+  - extensions:
+      - c
+      - cpp
+    matchers:
+      - type: regex
+        regex:
+          - "printf\\(.*argv\\[.*\\]"
+          - "sprintf\\(.*argv

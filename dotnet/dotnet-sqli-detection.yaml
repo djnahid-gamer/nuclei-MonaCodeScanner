@@ -1,0 +1,22 @@
+id: dotnet-sqli-detection
+info:
+  name: .NET SQL Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects SQL Injection vulnerabilities in .NET applications
+  tags: dotnet, sqli, database
+file:
+- extensions:
+  - cs
+  matchers:
+  - type: regex
+    regex:
+    - SqlCommand\s*\(\s*".*"\s*\+
+    - ExecuteReader\s*\(\s*.*\+.*\)
+    - ExecuteNonQuery\s*\(\s*.*\+.*\)
+  extractors:
+  - type: regex
+    regex:
+    - SqlCommand\s*\(\s*".*"\s*\+
+    - ExecuteReader\s*\(\s*.*\+.*\)
+    - ExecuteNonQuery\s*\(\s*.*\+.*\)

@@ -1,0 +1,20 @@
+id: go-unrestricted-file-upload
+info:
+  name: Go Unrestricted File Upload Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects unrestricted file upload vulnerabilities in Go applications
+  tags: go, file-upload, security
+file:
+- extensions:
+  - go
+  matchers:
+  - type: regex
+    regex:
+    - r\.ParseMultipartForm\(
+    - file, header, _ := r\.FormFile\(
+  extractors:
+  - type: regex
+    regex:
+    - r\.ParseMultipartForm\(
+    - file, header, _ := r\.FormFile\(

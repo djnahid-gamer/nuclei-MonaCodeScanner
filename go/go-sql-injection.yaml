@@ -1,0 +1,22 @@
+id: go-sql-injection
+info:
+  name: Go SQL Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential SQL injection vulnerabilities in Go applications
+  tags: go, sql-injection, security
+file:
+- extensions:
+  - go
+  matchers:
+  - type: regex
+    regex:
+    - db\.Query\(\s*"SELECT.*"\s*\+\s*r\.FormValue\(.*\)
+    - db\.Exec\(\s*"INSERT.*"\s*\+\s*r\.FormValue\(.*\)
+    - fmt\.Sprintf\(\s*"UPDATE.*"\s*,\s*r\.FormValue\(.*\)
+  extractors:
+  - type: regex
+    regex:
+    - db\.Query\(\s*"SELECT.*"\s*\+\s*r\.FormValue\(.*\)
+    - db\.Exec\(\s*"INSERT.*"\s*\+\s*r\.FormValue\(.*\)
+    - fmt\.Sprintf\(\s*"UPDATE.*"\s*,\s*r\.FormValue\(.*\)

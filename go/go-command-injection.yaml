@@ -1,0 +1,20 @@
+id: go-command-injection
+info:
+  name: Go Command Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects potential command injection vulnerabilities in Go applications
+  tags: go, command-injection, security
+file:
+- extensions:
+  - go
+  matchers:
+  - type: regex
+    regex:
+    - exec\.Command\(\s*.*r\.FormValue\(.*\)
+    - os\.Exec\(\s*.*r\.URL\.Query\(.*\)
+  extractors:
+  - type: regex
+    regex:
+    - exec\.Command\(\s*.*r\.FormValue\(.*\)
+    - os\.Exec\(\s*.*r\.URL\.Query\(.*\)

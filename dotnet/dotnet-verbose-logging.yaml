@@ -1,0 +1,20 @@
+id: dotnet-verbose-logging
+info:
+  name: Overly Verbose Logging Detection
+  author: kaanbicaklar
+  severity: medium
+  description: Detects excessive or verbose logging that may expose sensitive information
+  tags: dotnet, logging, security
+file:
+- extensions:
+  - cs
+  matchers:
+  - type: regex
+    regex:
+    - Log\.Debug\s*\(\s*.*\)
+    - Log\.Trace\s*\(\s*.*\)
+  extractors:
+  - type: regex
+    regex:
+    - Log\.Debug\s*\(\s*.*\)
+    - Log\.Trace\s*\(\s*.*\)

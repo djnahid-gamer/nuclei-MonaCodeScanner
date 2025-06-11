@@ -1,0 +1,20 @@
+id: go-directory-traversal
+info:
+  name: Go Directory Traversal Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects directory traversal vulnerabilities in Go applications
+  tags: go, directory-traversal, security
+file:
+- extensions:
+  - go
+  matchers:
+  - type: regex
+    regex:
+    - filepath\.Join\(.*r\.FormValue\(.*\)
+    - os\.Open\(\s*r\.URL\.Query\(.*\)
+  extractors:
+  - type: regex
+    regex:
+    - filepath\.Join\(.*r\.FormValue\(.*\)
+    - os\.Open\(\s*r\.URL\.Query\(.*\)

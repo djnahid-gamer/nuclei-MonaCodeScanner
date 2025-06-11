@@ -1,0 +1,18 @@
+id: dotnet-sensitive-log-exposure
+info:
+  name: Sensitive Data Exposure in Logs
+  author: kaanbicaklar
+  severity: high
+  description: Detects sensitive data being logged in .NET applications
+  tags: dotnet, logging, security
+file:
+- extensions:
+  - cs
+  matchers:
+  - type: regex
+    regex:
+    - Log\.Info\s*\(\s*['"](Password|ApiKey|ConnectionString):\s*.*['"]\)
+  extractors:
+  - type: regex
+    regex:
+    - Log\.Info\s*\(\s*['"](Password|ApiKey|ConnectionString):\s*.*['"]\)

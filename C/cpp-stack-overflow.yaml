@@ -1,0 +1,21 @@
+id: cpp-stack-overflow
+info:
+  name: C/C++ Stack Overflow Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects stack overflow vulnerabilities in C and C++ applications
+  tags: c, cpp, stack-overflow, security
+file:
+- extensions:
+  - c
+  - cpp
+  matchers:
+  - type: regex
+    regex:
+    - char buffer\[.*\];
+    - recursiveFunction\(.*\)
+  extractors:
+  - type: regex
+    regex:
+    - char buffer\[.*\];
+    - recursiveFunction\(.*\)

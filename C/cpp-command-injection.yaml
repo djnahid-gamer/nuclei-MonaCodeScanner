@@ -1,0 +1,21 @@
+id: cpp-command-injection
+info:
+  name: C/C++ Command Injection Detection
+  author: kaanbicaklar
+  severity: critical
+  description: Detects command injection vulnerabilities in C and C++ applications
+  tags: c, cpp, command-injection, security
+file:
+- extensions:
+  - c
+  - cpp
+  matchers:
+  - type: regex
+    regex:
+    - system\(.*argv\[.*\]
+    - popen\(.*argv\[.*\]
+  extractors:
+  - type: regex
+    regex:
+    - system\(.*argv\[.*\]
+    - popen\(.*argv\[.*\]

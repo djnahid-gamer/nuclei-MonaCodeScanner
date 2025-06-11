@@ -1,0 +1,23 @@
+id: cpp-insecure-system-call
+info:
+  name: C/C++ Use of System Calls Without Validation
+  author: kaanbicaklar
+  severity: critical
+  description: Detects insecure system calls usage in C and C++ applications
+  tags: c, cpp, system-call, security
+file:
+- extensions:
+  - c
+  - cpp
+  matchers:
+  - type: regex
+    regex:
+    - execvp\(
+    - execlp\(
+    - system\(
+  extractors:
+  - type: regex
+    regex:
+    - execvp\(
+    - execlp\(
+    - system\(
